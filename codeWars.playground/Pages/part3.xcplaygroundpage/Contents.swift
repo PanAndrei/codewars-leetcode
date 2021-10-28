@@ -64,6 +64,134 @@ var greeting = "Hello, playground"
 //    return a.map { ($0 == -1) ? $0 : pi.next()! }
 //}
 
-var ana = [2, 4, 6, 9]
-var nn = ana.makeIterator()
-print(ana, nn)
+//var ana = [2, 4, 6, 9]
+//var nn = ana.makeIterator()
+//print(ana, nn)
+
+
+// reverse in parantes
+
+func reverseInParentheses(inputString: String) -> String {
+    guard inputString.count > 1 else {
+        return inputString
+    }
+    
+    if inputString == "()" {
+        return ""
+    }
+    
+    var arrParant: Array <Int> = []
+    var arrChar = inputString.map { String($0)}
+    var answer : Array <String> = []
+    var answStr = ""
+    for i in 0 ... arrChar.count - 1 {
+        if arrChar[i] == "(" {
+            arrParant.append(i)
+        } else if arrChar[i] == ")" {
+            arrParant.append(-i)
+        }
+    }
+    
+    while arrChar.contains(")") {
+        for j in 0 ... arrParant.count - 1 {
+            if arrParant[j] >= 0 && arrParant[j + 1] < 0 {
+                arrChar[arrParant[j]] = "."
+                arrChar[-arrParant[j + 1]] = "."
+                var tmp = arrChar[(arrParant[j])...(-arrParant[j + 1])]
+                tmp.reverse()
+                arrChar[(arrParant[j])...(-arrParant[j + 1])] = tmp
+                arrParant.remove(at: j)
+                arrParant.remove(at: j)
+                break
+            } else {
+                continue
+            }
+        }
+    }
+    answer = arrChar.filter {$0 != "."}
+    answStr = answer.joined()
+    return answStr
+}
+
+var a = "(bar)"
+var b = "foo(bar)baz"
+var c = "foo(bar)baz(blim)"
+var d = "foo(bar(baz))blim"
+var f = ""
+var g = "()"
+var r = "(abc)d(efg)"
+
+
+print(reverseInParentheses(inputString: a))
+print(reverseInParentheses(inputString: b))
+print(reverseInParentheses(inputString: c))
+print(reverseInParentheses(inputString: d))
+print(reverseInParentheses(inputString: f))
+print(reverseInParentheses(inputString: g))
+print(reverseInParentheses(inputString: r))
+
+
+
+func reversdddeInParentheses(inputString: String) -> String {
+    var stack = [Character]()
+    
+    for c in inputString {
+        if c == ")" {
+            for e in 0..<stack.count {
+                let index = stack.count - 1 - e
+                if stack[index] == "(" {
+                    stack.remove(at: index)
+                    let chunk = stack[index..<stack.count].reversed()
+                    stack.removeLast(chunk.count)
+                    stack.append(contentsOf: chunk)
+                    break
+                }
+            }
+        } else {
+            stack.append(c)
+        }
+    }
+    
+    return String(stack)
+}
+
+
+//////////
+
+// two crowds
+
+//func alternatingSums(a: [Int]) -> [Int] {
+//    var answer : Array<Int> = []
+//    var first : Array <Int> = []
+//    var second : Array <Int> = []
+//    var av = 0
+//    var bv = 0
+//
+//    for i in 0 ... a.count - 1 {
+//        if i == 0 {
+//            first.append(a[0])
+//        } else if i % 2 == 0 {
+//            first.append(a[i])
+//        } else {
+//            second.append(a[i])
+//        }
+//    }
+//    av = first.reduce(0, +)
+//    bv = second.reduce(0, +)
+//    answer = [av, bv]
+//    return answer
+//}
+//
+//var dds =  [50, 60, 60, 45, 70]
+//
+//alternatingSums(a: dds)
+//
+//func alternatffingSums(a: [Int]) -> [Int] {
+//    var result = [0, 0]
+//
+//    for i in 0...a.count-1 {
+//        result[i%2] += a[i]
+//    }
+//
+//    return result
+//}
