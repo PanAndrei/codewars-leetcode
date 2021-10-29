@@ -71,89 +71,90 @@ var greeting = "Hello, playground"
 
 // reverse in parantes
 
-func reverseInParentheses(inputString: String) -> String {
-    guard inputString.count > 1 else {
-        return inputString
-    }
+//func reverseInParentheses(inputString: String) -> String {
+//    guard inputString.count > 1 else {
+//        return inputString
+//    }
+//
+//    if inputString == "()" {
+//        return ""
+//    }
+//
+//    var arrParant: Array <Int> = []
+//    var arrChar = inputString.map { String($0)}
+//    var answer : Array <String> = []
+//    var answStr = ""
+//    for i in 0 ... arrChar.count - 1 {
+//        if arrChar[i] == "(" {
+//            arrParant.append(i)
+//        } else if arrChar[i] == ")" {
+//            arrParant.append(-i)
+//        }
+//    }
     
-    if inputString == "()" {
-        return ""
-    }
-    
-    var arrParant: Array <Int> = []
-    var arrChar = inputString.map { String($0)}
-    var answer : Array <String> = []
-    var answStr = ""
-    for i in 0 ... arrChar.count - 1 {
-        if arrChar[i] == "(" {
-            arrParant.append(i)
-        } else if arrChar[i] == ")" {
-            arrParant.append(-i)
-        }
-    }
-    
-    while arrChar.contains(")") {
-        for j in 0 ... arrParant.count - 1 {
-            if arrParant[j] >= 0 && arrParant[j + 1] < 0 {
-                arrChar[arrParant[j]] = "."
-                arrChar[-arrParant[j + 1]] = "."
-                var tmp = arrChar[(arrParant[j])...(-arrParant[j + 1])]
-                tmp.reverse()
-                arrChar[(arrParant[j])...(-arrParant[j + 1])] = tmp
-                arrParant.remove(at: j)
-                arrParant.remove(at: j)
-                break
-            } else {
-                continue
-            }
-        }
-    }
-    answer = arrChar.filter {$0 != "."}
-    answStr = answer.joined()
-    return answStr
-}
-
-var a = "(bar)"
-var b = "foo(bar)baz"
-var c = "foo(bar)baz(blim)"
-var d = "foo(bar(baz))blim"
-var f = ""
-var g = "()"
-var r = "(abc)d(efg)"
-
-
-print(reverseInParentheses(inputString: a))
-print(reverseInParentheses(inputString: b))
-print(reverseInParentheses(inputString: c))
-print(reverseInParentheses(inputString: d))
-print(reverseInParentheses(inputString: f))
-print(reverseInParentheses(inputString: g))
-print(reverseInParentheses(inputString: r))
+//    while arrChar.contains(")") {
+//        for j in 0 ... arrParant.count - 1 {
+//            if arrParant[j] >= 0 && arrParant[j + 1] < 0 {
+//                arrChar[arrParant[j]] = "."
+//                arrChar[-arrParant[j + 1]] = "."
+//                var tmp = arrChar[(arrParant[j])...(-arrParant[j + 1])]
+//                tmp.reverse()
+//                arrChar[(arrParant[j])...(-arrParant[j + 1])] = tmp
+//                arrParant.remove(at: j)
+//                arrParant.remove(at: j)
+//                break
+//            } else {
+//                continue
+//            }
+//        }
+//    }
+//    answer = arrChar.filter {$0 != "."}
+//    answStr = answer.joined()
+//    return answStr
+//}
+//
+//var a = "(bar)"
+//var b = "foo(bar)baz"
+//var c = "foo(bar)baz(blim)"
+//var d = "foo(bar(baz))blim"
+//var f = ""
+//var g = "()"
+//var r = "(abc)d(efg)"
+//
+//
+//print(reverseInParentheses(inputString: a))
+//print(reverseInParentheses(inputString: b))
+//print(reverseInParentheses(inputString: c))
+//print(reverseInParentheses(inputString: d))
+//print(reverseInParentheses(inputString: f))
+//print(reverseInParentheses(inputString: g))
+//print(reverseInParentheses(inputString: r))
 
 
 
-func reversdddeInParentheses(inputString: String) -> String {
-    var stack = [Character]()
-    
-    for c in inputString {
-        if c == ")" {
-            for e in 0..<stack.count {
-                let index = stack.count - 1 - e
-                if stack[index] == "(" {
-                    stack.remove(at: index)
-                    let chunk = stack[index..<stack.count].reversed()
-                    stack.removeLast(chunk.count)
-                    stack.append(contentsOf: chunk)
-                    break
-                }
-            }
-        } else {
-            stack.append(c)
-        }
-    }
-    
-    return String(stack)
-}
+//func reversdddeInParentheses(inputString: String) -> String {
+//    var stack = [Character]()
+//
+//    for c in inputString {
+//        if c == ")" {
+//            for e in 0..<stack.count {
+/// подсчет в обратную сторону!!!!
+//                let index = stack.count - 1 - e
+//                if stack[index] == "(" {
+//                    stack.remove(at: index)
+//                    let chunk = stack[index..<stack.count].reversed()
+//                    stack.removeLast(chunk.count)
+//                    stack.append(contentsOf: chunk)
+//                    break
+//                }
+//            }
+//        } else {
+//            stack.append(c)
+//        }
+//    }
+//
+//    return String(stack)
+//}
 
 
 //////////
@@ -195,3 +196,91 @@ func reversdddeInParentheses(inputString: String) -> String {
 //
 //    return result
 //}
+
+
+// add border
+
+//func addBorder(picture: [String]) -> [String] {
+//    var newarr = picture.map { "*" + $0 + "*"}
+//    let border = String(repeating: "*", count: (picture[0].count + 2))
+//    newarr.insert(border, at: 0)
+//    newarr.insert(border, at: newarr.count)
+//    return newarr
+//}
+//
+//print(addBorder(picture: ["ff", "ffd", "eed"]))
+//
+//func addBovvrder(picture: [String]) -> [String] {
+//    let asteriks = String(repeating: "*", count: picture[0].characters.count + 2)
+//    var pictureWithBorder = picture.map { "*" + $0 + "*" }
+//    return [asteriks] + pictureWithBorder + [asteriks]
+//}
+
+// similar arrays
+// оптяь очень долго
+
+//func areSimilar(a: [Int], b: [Int]) -> Bool {
+//    var newA = a
+//    guard a != b else {
+//        return true
+//    }
+//
+//    for i in 0 ... (newA.count - 2) {
+//        for j in 1 ... (newA.count - i - 1) {
+//            let tmp = newA[i]
+//            newA[i] = newA[i + j]
+//            newA[i + j] = tmp
+//            if newA == b {
+//                return true
+//            } else {
+//                newA = a
+//            }
+//        }
+//     }
+//    return false
+//}
+//
+//
+//let a =  [3, 1, 2, 3, 4, 8]
+//let b =  [3, 2, 1, 3, 4, 8]
+//
+//areSimilar(a: a, b: b)
+//
+//var aa = [4, 6, 3]
+//var bb = [3, 4, 6]
+//
+//areSimilar(a: aa, b: bb)
+
+// а это гениально
+//сложность алгоритма в разы меньше
+//
+//func areSввimilar(a: [Int], b: [Int]) -> Bool {
+//    var similar: [Int] = []
+//
+//    for i in 0..<a.count {
+//        if a[i] != b[i] {
+//            similar.append(i)
+//        }
+//    }
+//
+//    if similar.count == 0 {
+//        return true
+//    } else if similar.count != 2 {
+//        return false
+//    }
+//
+//    let c = similar[0]
+//    let d = similar[1]
+//
+//    return a[c] == b[d] && a[d] == b[c] ? true : false
+//}
+//
+//let a =  [3, 1, 2, 3, 4, 8]
+//let b =  [3, 2, 1, 3, 4, 8]
+//
+//areSввimilar(a: a, b: b)
+//
+//var aa = [4, 6, 3]
+//var bb = [3, 4, 6]
+//
+//areSввimilar(a: aa, b: bb)
