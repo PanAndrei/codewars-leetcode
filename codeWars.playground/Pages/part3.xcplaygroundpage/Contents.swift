@@ -304,3 +304,58 @@ var greeting = "Hello, playground"
 //}
 //
 //arrayChange(inputArray: [2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15])
+
+
+/// is it palindrom?
+
+var rinputString = [2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15]
+var warrayOfRepeats : [Int] = []
+var proceedElements: [Int] = []
+
+rinputString.forEach({
+    let element = $0
+    
+    guard proceedElements.contains(element) == false
+    else {
+        return
+    }
+    
+    let elementcount = rinputString.filter({$0 == element}).count
+    warrayOfRepeats.append(elementcount)
+    proceedElements.append(element)
+})
+
+print(warrayOfRepeats)
+
+var rrr = "ddddrervs"
+let dd = rrr.map {String($0)}
+print(dd)
+
+func palindromeRearranging(inputString: String) -> Bool {
+    let startArray = inputString.map {String($0)}
+    var arrayOfRepeats : [Int] = []
+    var proceedElements : [String] = []
+    
+    startArray.forEach({
+        let element = $0
+        
+        guard proceedElements.contains(element) == false
+        else {
+            return
+        }
+        
+        let elementcount = startArray.filter({$0 == element}).count
+        arrayOfRepeats.append(elementcount)
+        proceedElements.append(element)
+    })
+    
+    if startArray.count % 2 == 0 {
+        let checArr = arrayOfRepeats.filter({$0 % 2 != 0})
+        return checArr.isEmpty
+    } else {
+        let chechArr = arrayOfRepeats.filter({$0 % 2 != 0})
+        return chechArr.count == 1
+    }
+}
+
+palindromeRearranging(inputString: "abdhuierf")
