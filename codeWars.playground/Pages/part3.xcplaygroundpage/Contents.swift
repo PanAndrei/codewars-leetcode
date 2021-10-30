@@ -284,3 +284,23 @@ var greeting = "Hello, playground"
 //var bb = [3, 4, 6]
 //
 //areSввimilar(a: aa, b: bb)
+
+
+/// increasing array by one
+/// perfect
+
+//func arrayChange(inputArray: [Int]) -> Int {
+//    var newArr = inputArray
+//    var answer = 0
+//    for i in 0 ... newArr.count - 2 {
+//        if newArr[i + 1] > newArr[i] {
+//            continue
+//        } else {
+//            answer += 1 + newArr[i] - newArr[i + 1]
+//            newArr[i + 1] += 1 + newArr[i] - newArr[i + 1]
+//        }
+//    }
+//    return answer
+//}
+//
+//arrayChange(inputArray: [2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15])
