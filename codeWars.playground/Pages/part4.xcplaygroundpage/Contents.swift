@@ -25,3 +25,76 @@ import Foundation
 //    }
 //    return minimumJump
 //}
+
+///// shame fotoes
+/////  почти позор
+//
+//func boxBlur(image: [[Int]]) -> [[Int]] {
+//    var answerArr = Array(repeating: Array(repeating: 0, count: (image.count - 2)), count: (image.count - 2))
+////    var imageFlat = image.flatMap({$0})
+//    var tempInt
+//
+//    for string in 0 ... image.count - 3 {
+//        let tempArr = image[(0 + string) ... (2 + string)]
+//        for element in tempArr {
+//            for row in (0 + string) ... (2 + string) {
+//                tempInt += element[row]
+//            }
+//        }
+//
+//    }
+//
+//    print(answerArr)
+//    return answerArr
+//}
+//
+//var test = [[1,2,3,4],
+//            [1,2,3,4],
+//            [1,2,3,4],
+//            [1,2,3,4]]
+//
+//var ff = test[0...2]
+//var rr = test[1][0...2]
+//
+//print(test)
+//print(ff)
+//print(rr)
+//
+//
+//func bovvvxBlur(image: [[Int]]) -> [[Int]] {
+//  var arr = Array<[Int]>(repeating: Array<Int>(repeating: 0, count: image[0].count - 2), count: image.count - 2)
+//
+//  for i in 0..<arr.count {
+//    for j in 0..<arr[i].count {
+//      arr[i][j] = Int(Double(image[i][j] + image[i][j + 1] + image[i][j + 2] + image[i + 1][j] + image[i + 1][j + 1] + image[i + 1][j + 2] + image[i + 2][j] + image[i + 2][j + 1] + image[i + 2][j + 2]) / Double(9))
+//    }
+//  }
+//
+//  return arr
+//}
+//
+//func getArrayAverage(x: Int, y: Int, imageArray: [[Int]]) -> Int {
+//    var average:Int = 0
+//    for xArray in imageArray[y...(y+2)] {
+//        average += xArray[x...(x+2)].reduce(0, +)
+//    }
+//
+//    return Int((Double(average)/9).rounded(.down))
+//
+//}
+//
+//
+//func boxBlnbur(image: [[Int]]) -> [[Int]] {
+//    let sizeX = image[0].count - 2
+//    let sizeY = image.count - 2
+//    var result: [[Int]] = [[Int]]()
+//    for yIndex in 0..<sizeY {
+//        var xArray = [Int]()
+//        for xIndex in 0..<sizeX {
+//            let av = getArrayAverage(x:xIndex, y:yIndex, imageArray: image)
+//            xArray.append(av)
+//        }
+//        result.append(xArray)
+//    }
+//    return result
+//}
