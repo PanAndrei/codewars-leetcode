@@ -307,55 +307,143 @@ var greeting = "Hello, playground"
 
 
 /// is it palindrom?
+//
+//var rinputString = [2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15]
+//var warrayOfRepeats : [Int] = []
+//var proceedElements: [Int] = []
+//
+//rinputString.forEach({
+//    let element = $0
+//
+//    guard proceedElements.contains(element) == false
+//    else {
+//        return
+//    }
+//
+//    let elementcount = rinputString.filter({$0 == element}).count
+//    warrayOfRepeats.append(elementcount)
+//    proceedElements.append(element)
+//})
+//
+//print(warrayOfRepeats)
+//
+//var rrr = "ddddrervs"
+//let dd = rrr.map {String($0)}
+//print(dd)
+//
+//func palindromeRearranging(inputString: String) -> Bool {
+//    let startArray = inputString.map {String($0)}
+//    var arrayOfRepeats : [Int] = []
+//    var proceedElements : [String] = []
+//
+//    startArray.forEach({
+//        let element = $0
+//
+//        guard proceedElements.contains(element) == false
+//        else {
+//            return
+//        }
+//
+//        let elementcount = startArray.filter({$0 == element}).count
+//        arrayOfRepeats.append(elementcount)
+//        proceedElements.append(element)
+//    })
+//
+//    if startArray.count % 2 == 0 {
+//        let checArr = arrayOfRepeats.filter({$0 % 2 != 0})
+//        return checArr.isEmpty
+//    } else {
+//        let chechArr = arrayOfRepeats.filter({$0 % 2 != 0})
+//        return chechArr.count == 1
+//    }
+//}
+//
+//palindromeRearranging(inputString: "abdhuierf")
+//
+//func palindromeRearnnranging(inputString: String) -> Bool {
+//    Set(inputString).map{unique in inputString.filter{char in char==unique}.count%2}.reduce(0, +)<=1
+//}
 
-var rinputString = [2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15]
-var warrayOfRepeats : [Int] = []
-var proceedElements: [Int] = []
+//var inputString = "abdhuierf"
+//
+//Set(inputString).map{unique in inputString.filter{char in char==unique}.count%2}.reduce(0, +)<=1
 
-rinputString.forEach({
-    let element = $0
-    
-    guard proceedElements.contains(element) == false
-    else {
-        return
-    }
-    
-    let elementcount = rinputString.filter({$0 == element}).count
-    warrayOfRepeats.append(elementcount)
-    proceedElements.append(element)
-})
 
-print(warrayOfRepeats)
+/// two arms
 
-var rrr = "ddddrervs"
-let dd = rrr.map {String($0)}
-print(dd)
+//func areEquallyStrong(yourLeft: Int, yourRight: Int, friendsLeft: Int, friendsRight: Int) -> Bool {
+//return (yourLeft == friendsLeft && yourRight == friendsRight) || (yourLeft == friendsRight && yourRight == friendsLeft)
+//}
+//
+///// красиво сделано
+//func areEquallyStrovvng(yourLeft: Int, yourRight: Int, friendsLeft: Int, friendsRight: Int) -> Bool {
+//    return [yourLeft, yourRight].sorted() == [friendsLeft, friendsRight].sorted()
+//}
 
-func palindromeRearranging(inputString: String) -> Bool {
-    let startArray = inputString.map {String($0)}
-    var arrayOfRepeats : [Int] = []
-    var proceedElements : [String] = []
-    
-    startArray.forEach({
-        let element = $0
-        
-        guard proceedElements.contains(element) == false
-        else {
-            return
-        }
-        
-        let elementcount = startArray.filter({$0 == element}).count
-        arrayOfRepeats.append(elementcount)
-        proceedElements.append(element)
-    })
-    
-    if startArray.count % 2 == 0 {
-        let checArr = arrayOfRepeats.filter({$0 % 2 != 0})
-        return checArr.isEmpty
-    } else {
-        let chechArr = arrayOfRepeats.filter({$0 % 2 != 0})
-        return chechArr.count == 1
-    }
-}
+/// maximal difference betveen two elements
 
-palindromeRearranging(inputString: "abdhuierf")
+//func arrayMaximalAdjacentDifference(inputArray: [Int]) -> Int {
+//    var answer = 0
+//    for i in 0 ... inputArray.count - 2 {
+//        if abs(inputArray[i] - inputArray[i + 1]) > answer {
+//            answer = abs(inputArray[i] - inputArray[i + 1])
+//        }
+//    }
+//    return answer
+//}
+//
+//func arrayMaximvvalAdjacentDifference(inputArray: [Int]) -> Int {
+//    return inputArray.enumerated().map { $0 < inputArray.count - 1 ? abs($1.distance(to: inputArray[$0 + 1])) : 0 }.max()!
+//}
+
+
+/// is it ip4?
+
+//var str = "01"
+//str.count
+//var crt = Int(str)
+//print(crt!)
+//String(crt!).count == str.count
+//
+//
+//func isIPv4Address(inputString: String) -> Bool {
+//    let arrayOfGoodNum = (0...255)
+//    let arrayOfNmbers = inputString.components(separatedBy: ".")
+//    if arrayOfNmbers.count == 4 {
+//        for element in arrayOfNmbers {
+//            if arrayOfGoodNum.contains(Int(String(element)) ?? -1) {
+//                let newElement = String(Int(String(element)) ?? -10000000)
+//                if newElement.count == element.count {
+//                    continue
+//                } else {
+//                    return false
+//                }
+//            } else {
+//                return false
+//            }
+//        }
+//    } else {
+//        return false
+//    }
+//    return true
+//}
+//
+//isIPv4Address(inputString: "01.233.161.131")
+//
+//// подумать над методом hasPrefix
+//
+//func isIPvnn4Address(inputString: String) -> Bool {
+//       let segmentStringArrar = inputString.split(separator: ".", maxSplits: Int.max, omittingEmptySubsequences: false)
+//       if segmentStringArrar.count != 4 {
+//           return false
+//       }
+//       for segmentString in segmentStringArrar {
+//           if (segmentString.hasPrefix("0") && segmentString != "0") || segmentString.hasPrefix("-") {
+//               return false
+//           }
+//           guard let segmentNumber = Int(segmentString), (0...255).contains(segmentNumber) else {
+//               return false
+//           }
+//       }
+//       return true
+//   }
