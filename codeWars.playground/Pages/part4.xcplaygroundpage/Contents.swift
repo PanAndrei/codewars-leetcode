@@ -141,21 +141,56 @@ import Foundation
 //minesweeper(matrix: test)
 
 
-func minebsweeper(matrix: [[Bool]]) -> [[Int]] {
-var arr = Array<[Int]>(repeating: Array<Int>(repeating:0, count: matrix[0].count), count: matrix.count)
-  
-  for i in 0..<matrix.count {
-    for j in 0..<matrix[i].count {
-      for i1 in -1...1 {
-        for j1 in -1...1 {
-            // очень интересная штука ~=
-          if (i1 != 0 || j1 != 0) && 0..<matrix.count ~= (i + i1) && 0..<matrix[i].count ~= (j + j1) {
-            arr[i][j] += matrix[i + i1][j + j1] ? 1 : 0
-          }
-        }
-      }
-    }
-  }
-  
-  return arr
-}
+//func minebsweeper(matrix: [[Bool]]) -> [[Int]] {
+//var arr = Array<[Int]>(repeating: Array<Int>(repeating:0, count: matrix[0].count), count: matrix.count)
+//  
+//  for i in 0..<matrix.count {
+//    for j in 0..<matrix[i].count {
+//      for i1 in -1...1 {
+//        for j1 in -1...1 {
+//            // MARK: очень интересная штука ~=
+//          if (i1 != 0 || j1 != 0) && 0..<matrix.count ~= (i + i1) && 0..<matrix[i].count ~= (j + j1) {
+//            arr[i][j] += matrix[i + i1][j + j1] ? 1 : 0
+//          }
+//        }
+//      }
+//    }
+//  }
+//  
+//  return arr
+//}
+
+
+/// element to replace
+// проверяй граничные случаи!
+
+//func arrayReplace(inputArray: [Int], elemToReplace: Int, substitutionElem: Int) -> [Int] {
+//
+//    guard !inputArray.isEmpty else {
+//        return []
+//    }
+//
+//var answerArr = inputArray
+//    for i in 0 ... answerArr.count - 1 {
+//        if answerArr[i] == elemToReplace {
+//            answerArr[i] = substitutionElem
+//        }
+//    }
+//    return answerArr
+//}
+//
+//arrayReplace(inputArray: [], elemToReplace: 2, substitutionElem: 5)
+
+//func arrayReplssace(inputArray: [Int], elemToReplace: Int, substitutionElem: Int) -> [Int]
+//{
+//    return inputArray.map{$0 == elemToReplace ? substitutionElem : $0 }
+//}
+
+
+/// guard if even
+
+//func evenDigitsOnly(n: Int) -> Bool {
+//    return String(n).map{Int(String($0))}.filter{$0! % 2 != 0}.isEmpty
+//}
+//
+//evenDigitsOnly(n: 248622)

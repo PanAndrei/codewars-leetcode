@@ -255,3 +255,101 @@ import Foundation
 //    }
 //    return result
 //}
+
+
+// minesweeper
+
+//func minesweeper(matrix: [[Bool]]) -> [[Int]] {
+//    var answerArr : [[Int]] = []
+//    let matrixStringLength = matrix[0].count
+//    let matrixColumnLenght = matrix.count
+//    let tempStringArr = Array(repeating: 0, count: matrixStringLength)
+//    answerArr = Array(repeating: tempStringArr, count: matrixColumnLenght)
+//
+//    for y in 0 ... matrixColumnLenght - 1 {
+//        for x in 0 ... matrixStringLength - 1 {
+//            if matrix[y][x] == false {
+//                continue
+//            } else {
+//                for i in (y - 1) ... (y + 1) {
+//                    if i < 0 || i > matrixColumnLenght - 1{
+//                        continue
+//                    }
+//                    for j in (x - 1) ... (x + 1) {
+//                        if j < 0 || j > matrixStringLength - 1{
+//                            continue
+//                        }
+//                        answerArr[i][j] += 1
+//                    }
+//                }
+//            }
+//            answerArr[y][x] -= 1
+//        }
+//    }
+//    print(answerArr)
+//    return answerArr
+//}
+//
+//var test = [[true, false, false, false],
+//            [false, true, false, false],
+//            [false, false, true, false],
+//            [true, false, false, true]]
+//
+//print(test)
+//minesweeper(matrix: test)
+
+
+//func minebsweeper(matrix: [[Bool]]) -> [[Int]] {
+//var arr = Array<[Int]>(repeating: Array<Int>(repeating:0, count: matrix[0].count), count: matrix.count)
+//
+//  for i in 0..<matrix.count {
+//    for j in 0..<matrix[i].count {
+//      for i1 in -1...1 {
+//        for j1 in -1...1 {
+//            // MARK: очень интересная штука ~=
+//          if (i1 != 0 || j1 != 0) && 0..<matrix.count ~= (i + i1) && 0..<matrix[i].count ~= (j + j1) {
+//            arr[i][j] += matrix[i + i1][j + j1] ? 1 : 0
+//          }
+//        }
+//      }
+//    }
+//  }
+//
+//  return arr
+//}
+
+
+
+/// element to replace
+// проверяй граничные случаи!
+
+//func arrayReplace(inputArray: [Int], elemToReplace: Int, substitutionElem: Int) -> [Int] {
+//
+//    guard !inputArray.isEmpty else {
+//        return []
+//    }
+//
+//var answerArr = inputArray
+//    for i in 0 ... answerArr.count - 1 {
+//        if answerArr[i] == elemToReplace {
+//            answerArr[i] = substitutionElem
+//        }
+//    }
+//    return answerArr
+//}
+//
+//arrayReplace(inputArray: [], elemToReplace: 2, substitutionElem: 5)
+
+//func arrayReplace(inputArray: [Int], elemToReplace: Int, substitutionElem: Int) -> [Int]
+//{
+//    return inputArray.map{$0 == elemToReplace ? substitutionElem : $0 }
+//}
+
+
+/// guard if even
+
+//func evenDigitsOnly(n: Int) -> Bool {
+//    return String(n).map{Int(String($0))}.filter{$0! % 2 != 0}.isEmpty
+//}
+//
+//evenDigitsOnly(n: 248622)

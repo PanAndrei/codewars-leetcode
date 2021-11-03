@@ -49,3 +49,11 @@ import Foundation
 //    }
 //    return jump
 //}
+
+/// guard if even
+
+//func evenDigitsOnly(n: Int) -> Bool {
+//    return String(n).map{Int(String($0))}.filter{$0! % 2 != 0}.isEmpty
+//}
+//
+//evenDigitsOnly(n: 248622)
