@@ -194,3 +194,42 @@ import Foundation
 //}
 //
 //evenDigitsOnly(n: 248622)
+
+/// check English letters
+
+//print(UnicodeScalar("f"))
+//
+//let kkk : Character =  "j"
+//kkk.asciiValue
+//
+//var afrrChar = "kdhjbsgb".map { Character((String($0))).asciiValue }
+//print(afrrChar)
+//
+//
+//let arvvr = [Character("A").asciiValue ... Character("Z").asciiValue] +
+//    [Character("a").asciiValue ... Character("z").asciiValue] +
+//    [Character("0").asciiValue ... Character("9").asciiValue] +
+//    [Character("_").asciiValue]
+
+/// пытался решить через юникод скаляры но не получилось
+
+func variableName(name: String) -> Bool {
+    let arrLett = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"]
+    let arrNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    let totalarr = arrLett + arrNum
+    
+    var arrChar = name.map { (String($0)) }
+    
+    if !arrNum.contains(arrChar[0]) && arrChar.filter({!(totalarr).contains($0)}).isEmpty {
+        return true
+    } else {
+        return false
+    }
+}
+
+func varivvableName(name: String) -> Bool {
+    return name.range(of: "^([a-zA-Z]|_)([a-zA-Z0-9]|\\_)*$", options: .regularExpression, range: nil, locale: nil) != nil
+}
+
+varivvableName(name: "kfglnsbo4j4jk")
+variableName(name: "1variable")

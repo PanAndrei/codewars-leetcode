@@ -345,11 +345,24 @@ import Foundation
 //    return inputArray.map{$0 == elemToReplace ? substitutionElem : $0 }
 //}
 
-
-/// guard if even
-
-//func evenDigitsOnly(n: Int) -> Bool {
-//    return String(n).map{Int(String($0))}.filter{$0! % 2 != 0}.isEmpty
+//func variableName(name: String) -> Bool {
+//    let arrLett = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"]
+//    let arrNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+//    let totalarr = arrLett + arrNum
+//
+//    var arrChar = name.map { (String($0)) }
+//
+//    if !arrNum.contains(arrChar[0]) && arrChar.filter({!(totalarr).contains($0)}).isEmpty {
+//        return true
+//    } else {
+//        return false
+//    }
 //}
 //
-//evenDigitsOnly(n: 248622)
+//func varivvableName(name: String) -> Bool {
+//    return name.range(of: "^([a-zA-Z]|_)([a-zA-Z0-9]|\\_)*$", options: .regularExpression, range: nil, locale: nil) != nil
+//}
+//
+//varivvableName(name: "kfglnsbo4j4jk")
+//variableName(name: "1variable")
+//
