@@ -366,3 +366,26 @@ import Foundation
 //varivvableName(name: "kfglnsbo4j4jk")
 //variableName(name: "1variable")
 //
+
+
+//Character(UnicodeScalar(Character("a").asciiValue! - 1))
+//
+//func alphabeticShift(inputString: String) -> String {
+//    var tempStr = inputString.map {$0}
+//    for i in 0 ... tempStr.count - 1 {
+//        if tempStr[i] == "z" {
+//            tempStr[i] = "`"
+//        }
+//    }
+//
+//    var answerStr = String(tempStr.map {(Character(UnicodeScalar($0.asciiValue! + 1)))})
+//
+//    return answerStr
+//}
+//
+//alphabeticShift(inputString: "abcz")
+//
+//func alphavvvbeticShift(inputString: String) -> String {
+//    let bytes = Array(inputString.utf8).map{$0 == 122 ? 97 : $0 + 1}
+//    return String(bytes: bytes, encoding: .utf8)!
+//}

@@ -213,23 +213,48 @@ import Foundation
 
 /// пытался решить через юникод скаляры но не получилось
 
-func variableName(name: String) -> Bool {
-    let arrLett = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"]
-    let arrNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    let totalarr = arrLett + arrNum
-    
-    var arrChar = name.map { (String($0)) }
-    
-    if !arrNum.contains(arrChar[0]) && arrChar.filter({!(totalarr).contains($0)}).isEmpty {
-        return true
-    } else {
-        return false
-    }
-}
+//func variableName(name: String) -> Bool {
+//    let arrLett = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"]
+//    let arrNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+//    let totalarr = arrLett + arrNum
+//
+//    var arrChar = name.map { (String($0)) }
+//
+//    if !arrNum.contains(arrChar[0]) && arrChar.filter({!(totalarr).contains($0)}).isEmpty {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//func varivvableName(name: String) -> Bool {
+//    return name.range(of: "^([a-zA-Z]|_)([a-zA-Z0-9]|\\_)*$", options: .regularExpression, range: nil, locale: nil) != nil
+//}
+//
+//varivvableName(name: "kfglnsbo4j4jk")
+//variableName(name: "1variable")
 
-func varivvableName(name: String) -> Bool {
-    return name.range(of: "^([a-zA-Z]|_)([a-zA-Z0-9]|\\_)*$", options: .regularExpression, range: nil, locale: nil) != nil
-}
 
-varivvableName(name: "kfglnsbo4j4jk")
-variableName(name: "1variable")
+/// change letter to next one
+
+//Character(UnicodeScalar(Character("a").asciiValue! - 1))
+//
+//func alphabeticShift(inputString: String) -> String {
+//    var tempStr = inputString.map {$0}
+//    for i in 0 ... tempStr.count - 1 {
+//        if tempStr[i] == "z" {
+//            tempStr[i] = "`"
+//        }
+//    }
+//    
+//    var answerStr = String(tempStr.map {(Character(UnicodeScalar($0.asciiValue! + 1)))})
+//    
+//    return answerStr
+//}
+//
+//alphabeticShift(inputString: "abcz")
+//
+//func alphavvvbeticShift(inputString: String) -> String {
+//    let bytes = Array(inputString.utf8).map{$0 == 122 ? 97 : $0 + 1}
+//    return String(bytes: bytes, encoding: .utf8)!
+//}
