@@ -389,3 +389,63 @@ import Foundation
 //    let bytes = Array(inputString.utf8).map{$0 == 122 ? 97 : $0 + 1}
 //    return String(bytes: bytes, encoding: .utf8)!
 //}
+
+
+
+// deposit profit
+
+//You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth rate. With the assumption that you don't make any additional deposits, find out how long it would take for your balance to pass a specific threshold.
+
+
+//func depositProfit(deposit: Int, rate: Int, threshold: Int) -> Int {
+//    var answerYears = 0
+//    var newDeposit = Double(deposit)
+//    while newDeposit < Double(threshold) {
+//        newDeposit *= (Double(rate) + 100.0) / 100.0
+//        answerYears += 1
+//    }
+//    return answerYears
+//}
+//
+//
+//depositProfit(deposit: 100, rate: 1, threshold: 101)
+//
+//
+//func depositProddfit(deposit: Int, rate: Int, threshold: Int) -> Int {
+//    let n = log(Double(Double(threshold) / Double(deposit)))  / log(Double(1 + Double(rate) / 100))
+//
+//    return Int(ceil(n))
+//}
+//
+//var t = log(10.0)
+
+
+// another sorted array
+
+//Given a sorted array of integers a, your task is to determine which element of a is closest to all other values of a. In other words, find the element x in a, which minimizes the following sum:
+
+//var a = [2, 4, 7]
+
+// не работает на 10 в 6 степени
+// может переполняется память
+
+//func absoluteValuesSumMinimization(a: [Int]) -> Int {
+//    var minimumValue = Int.max
+//    var answer = 0
+//        for i in 0 ... a.count - 1 {
+//            let tempRes = a.reduce(0) { (total, number) in
+//                total + abs(number - a[i])}
+//            if tempRes < minimumValue {
+//                minimumValue = tempRes
+//                answer = a[i]
+//            }
+//        }
+//    return answer
+//}
+//
+// похоже на бред
+//func absolutddeValuesSumMinimization(a: [Int]) -> Int {
+//    return a[a.count % 2 == 0 ? a.count / 2 - 1 : a.count / 2]
+//}
+
+//absoluteValuesSumMinimization(a: [2, 4, 7])

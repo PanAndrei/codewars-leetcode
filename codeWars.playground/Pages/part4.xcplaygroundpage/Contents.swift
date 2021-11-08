@@ -160,9 +160,12 @@ import Foundation
 //  return arr
 //}
 
+/// MARK : Rains of Reason
 
 /// element to replace
 // проверяй граничные случаи!
+
+//Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
 
 //func arrayReplace(inputArray: [Int], elemToReplace: Int, substitutionElem: Int) -> [Int] {
 //
@@ -189,6 +192,8 @@ import Foundation
 
 /// guard if even
 
+//Check if all digits of the given integer are even.
+
 //func evenDigitsOnly(n: Int) -> Bool {
 //    return String(n).map{Int(String($0))}.filter{$0! % 2 != 0}.isEmpty
 //}
@@ -196,6 +201,10 @@ import Foundation
 //evenDigitsOnly(n: 248622)
 
 /// check English letters
+
+//Correct variable names consist only of English letters, digits and underscores and they can't start with a digit.
+//
+//Check if the given string is a correct variable name.
 
 //print(UnicodeScalar("f"))
 //
@@ -237,6 +246,8 @@ import Foundation
 
 /// change letter to next one
 
+//Given a string, your task is to replace each of its characters by the next one in the English alphabet; i.e. replace a with b, replace b with c, etc (z would be replaced by a).
+
 //Character(UnicodeScalar(Character("a").asciiValue! - 1))
 //
 //func alphabeticShift(inputString: String) -> String {
@@ -258,3 +269,138 @@ import Foundation
 //    let bytes = Array(inputString.utf8).map{$0 == 122 ? 97 : $0 + 1}
 //    return String(bytes: bytes, encoding: .utf8)!
 //}
+
+
+// two cells on chessboard
+
+//Given two cells on the standard chess board, determine whether they have the same color or not.`
+
+//func chessBoardCellColor(cell1: String, cell2: String) -> Bool {
+//    let arr1 = cell1.map {String($0)}
+//    let arr2 = cell2.map {String($0)}
+//
+//    let differenseLetter = Int(Character(arr1[0]).asciiValue!) - Int(Character(arr2[0]).asciiValue!)
+//    let differenseNumbers = Int(arr1[1])! - Int(arr2[1])!
+//
+//    if (abs(differenseLetter) + abs(differenseNumbers)) % 2 == 0 {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//chessBoardCellColor(cell1: "a3", cell2: "b5")
+//
+//func chessBovvardCellColor(cell1: String, cell2: String) -> Bool {
+//    return  cell1.unicodeScalars.map {$0.value}.reduce(0, +) % 2 ==
+//            cell2.unicodeScalars.map {$0.value}.reduce(0, +) % 2
+//}
+
+//func chessvvdBoardCellColor(cell1: String, cell2: String) -> Bool {
+//    let a = Int(cell1.unicodeScalars.first!.value) - 64 + Int("\(cell1.characters.last!)")!
+//    let b = Int(cell2.unicodeScalars.first!.value) - 64 + Int("\(cell2.characters.last!)")!
+//    return (a % 2 == 0) == (b % 2 == 0)
+//}
+
+
+////  MARK: numbers
+
+//Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that 0 and n - 1 are neighboring, too).
+//
+//Given n and firstNumber, find the number which is written in the radially opposite position to firstNumber.
+
+//func circleOfNumbers(n: Int, firstNumber: Int) -> Int {
+//    return firstNumber >= n/2 ? firstNumber - n/2 : firstNumber + n/2
+//}
+
+
+//func circffleOfNumbers(n: Int, firstNumber: Int) -> Int {
+//    return (firstNumber + n/2) % n
+//}
+
+
+// deposit profit
+
+//You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth rate. With the assumption that you don't make any additional deposits, find out how long it would take for your balance to pass a specific threshold.
+
+
+//func depositProfit(deposit: Int, rate: Int, threshold: Int) -> Int {
+//    var answerYears = 0
+//    var newDeposit = Double(deposit)
+//    while newDeposit < Double(threshold) {
+//        newDeposit *= (Double(rate) + 100.0) / 100.0
+//        answerYears += 1
+//    }
+//    return answerYears
+//}
+//
+//
+//depositProfit(deposit: 100, rate: 1, threshold: 101)
+//
+//
+//func depositProddfit(deposit: Int, rate: Int, threshold: Int) -> Int {
+//    let n = log(Double(Double(threshold) / Double(deposit)))  / log(Double(1 + Double(rate) / 100))
+//
+//    return Int(ceil(n))
+//}
+//
+//var t = log(10.0)
+
+
+// another sorted array
+
+//Given a sorted array of integers a, your task is to determine which element of a is closest to all other values of a. In other words, find the element x in a, which minimizes the following sum:
+
+//var a = [2, 4, 7]
+
+// не работает на 10 в 6 степени
+// может переполняется память
+
+//func absoluteValuesSumMinimization(a: [Int]) -> Int {
+//    var minimumValue = Int.max
+//    var answer = 0
+//        for i in 0 ... a.count - 1 {
+//            let tempRes = a.reduce(0) { (total, number) in
+//                total + abs(number - a[i])}
+//            if tempRes < minimumValue {
+//                minimumValue = tempRes
+//                answer = a[i]
+//            }
+//        }
+//    return answer
+//}
+//
+// похоже на бред 
+//func absolutddeValuesSumMinimization(a: [Int]) -> Int {
+//    return a[a.count % 2 == 0 ? a.count / 2 - 1 : a.count / 2]
+//}
+
+//absoluteValuesSumMinimization(a: [2, 4, 7])
+
+
+//Given an array of equal-length strings, you'd like to know if it's possible to rearrange the order of the elements in such a way that each consecutive pair of strings differ by exactly one character. Return true if it's possible, and false if not.
+
+
+
+//var thty = ttt.map {$0.unicodeScalars.map{$0.value}.reduce(0, +)}.sorted()
+//print(thty)
+
+//прекрасно работает если буквы бы отличались на одну
+
+//func stringsRearrangement(inputArray: [String]) -> Bool {
+//    let newArr = inputArray.map {$0.unicodeScalars.map{$0.value}.reduce(0, +)}.sorted()
+//    for i in 0 ... newArr.count - 2 {
+//        if newArr[i + 1] - newArr[i] > 1 {
+//            print(newArr)
+//            return false
+//        }
+//    }
+//    print(newArr)
+//    return true
+//}
+//
+//var ff = ["aa",
+//          "ba",
+//          "cb"]
+//
+//stringsRearrangement(inputArray: ff)

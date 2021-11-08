@@ -57,3 +57,49 @@ import Foundation
 //}
 //
 //evenDigitsOnly(n: 248622)
+
+
+// two cells on chessboard
+
+//Given two cells on the standard chess board, determine whether they have the same color or not.`
+
+//func chessBoardCellColor(cell1: String, cell2: String) -> Bool {
+//    let arr1 = cell1.map {String($0)}
+//    let arr2 = cell2.map {String($0)}
+//
+//    let differenseLetter = Int(Character(arr1[0]).asciiValue!) - Int(Character(arr2[0]).asciiValue!)
+//    let differenseNumbers = Int(arr1[1])! - Int(arr2[1])!
+//
+//    if (abs(differenseLetter) + abs(differenseNumbers)) % 2 == 0 {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//chessBoardCellColor(cell1: "a3", cell2: "b5")
+
+//func chessBovvardCellColor(cell1: String, cell2: String) -> Bool {
+//    return  cell1.unicodeScalars.map {$0.value}.reduce(0, +) % 2 ==
+//            cell2.unicodeScalars.map {$0.value}.reduce(0, +) % 2
+//}
+
+//
+//Given an array of equal-length strings, you'd like to know if it's possible to rearrange the order of the elements in such a way that each consecutive pair of strings differ by exactly one character. Return true if it's possible, and false if not.
+
+
+
+//var thty = ttt.map {$0.unicodeScalars.map{$0.value}.reduce(0, +)}.sorted()
+//print(thty)
+//
+//func stringsRearrangement(inputArray: [String]) -> Bool {
+//    let newArr = inputArray.map {$0.unicodeScalars.map{$0.value}.reduce(0, +)}.sorted()
+//    for i in 0 ... newArr.count - 2 {
+//        if newArr[i + 1] - newArr[i] > 1 {
+//            return false
+//        }
+//    }
+//    return true
+//}
+
+
