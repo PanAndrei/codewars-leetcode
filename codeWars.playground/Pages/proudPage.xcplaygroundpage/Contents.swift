@@ -102,4 +102,8 @@ import Foundation
 //    return true
 //}
 
+//Given a string, find the number of different characters in it.
 
+//func differentSymbolsNaive(s: String) -> Int {
+//    return Set(s.map{$0}).count
+//}
