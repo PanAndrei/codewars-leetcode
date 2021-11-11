@@ -48,3 +48,110 @@ import Foundation
 //func differentSymbolsNaive(s: String) -> Int {
 //    return Set(s.map{$0}).count
 //}
+//
+//var rr = "fnnf"
+//var rrr = Set(rr)
+//print(Set(rr).count)
+
+//Given array of integers, find the maximal possible sum of some of its k consecutive elements.
+
+//func arrayMaxConsecutiveSum(inputArray: [Int], k: Int) -> Int {
+//var maxSum = 0
+//    for i in 0 ... (inputArray.count - k) {
+//        let tempArr = inputArray[i ... (i + k - 1)]
+//        if tempArr.reduce(0, +) > maxSum {
+//            maxSum = tempArr.reduce(0, +)
+//        }
+//    }
+//    return maxSum
+//}
+//
+//arrayMaxConsecutiveSum(inputArray: [1, 3, 2, 4], k: 3)
+
+// Dark Wilderness //
+
+// Caring for a plant can be hard work, but since you tend to it regularly, you have a plant that grows consistently. Each day, its height increases by a fixed amount represented by the integer upSpeed. But due to lack of sunlight, the plant decreases in height every night, by an amount represented by downSpeed.
+
+//Since you grew the plant from a seed, it started at height 0 initially. Given an integer desiredHeight, your task is to find how many days it'll take for the plant to reach this height.
+
+
+//func growingPlant(upSpeed: Int, downSpeed: Int, desiredHeight: Int) -> Int {
+//    var plantsAltDay = 0
+//    var plantsAltNight = 0
+//    var answerDay = 0
+//
+//    for _ in 0... {
+//        plantsAltDay = plantsAltNight + upSpeed
+//        answerDay += 1
+//        if plantsAltDay >= desiredHeight {
+//            break
+//        }
+//        plantsAltNight = plantsAltDay - downSpeed
+//    }
+//    return answerDay
+//}
+//
+//growingPlant(upSpeed: 100, downSpeed: 10, desiredHeight: 910)
+
+
+// You found two items in a treasure chest! The first item weighs weight1 and is worth value1, and the second item weighs weight2 and is worth value2. What is the total maximum value of the items you can take with you, assuming that your max weight capacity is maxW and you can't come back for the items later?
+
+//Note that there are only two items and you can't bring more than one item of each type, i.e. you can't take two first items or two second items.
+
+//func knapsackLight(value1: Int, weight1: Int, value2: Int, weight2: Int, maxW: Int) -> Int {
+//    guard [weight1, weight2].min()! <= maxW else {
+//        return 0
+//    }
+//
+//    if weight1 + weight2 <= maxW {
+//        return value2 + value1
+//    } else if [weight1, weight2].max()! <= maxW {
+//        return [value1, value2].max()!
+//    } else if weight2 > maxW {
+//        return value1
+//    }
+//    return value2
+//}
+//
+//knapsackLight(value1: 15, weight1: 2, value2: 20, weight2: 3, maxW: 2)
+//
+//func knaffpsackLight(value1: Int, weight1: Int, value2: Int, weight2: Int, maxW: Int) -> Int {
+//    return weight1 + weight2 <= maxW ? value1 + value2 : max(weight1 <= maxW ? value1 : 0, weight2 <= maxW ? value2 : 0)
+//}
+
+// Given a string, output its longest prefix which contains only digits.
+
+
+// не увидел что в задаче про префикс -> не считать пробелы
+// и что в середине числа это не префикс
+
+
+
+//func longestDigitsPrefix(inputString: String) -> String {
+//    var answerStr = ""
+//    var tempStr = ""
+//
+//    for element in inputString {
+//        if element == " " {
+//            return answerStr
+//        } else  if Int(String(element)) != nil {
+//            tempStr.append(element)
+//            if tempStr.count > answerStr.count {
+//                answerStr = tempStr
+//            }
+//        } else {
+//            tempStr = ""
+//        }
+//    }
+//    return answerStr
+//}
+//
+//longestDigitsPrefix(inputString: "1j2c42ciu5ie99xr0vq5w1slwhq985fp2239qc196d66m")
+
+//func longestDiffgitsPrefix(inputString: String) -> String {
+//    return inputString.components(separatedBy: CharacterSet.decimalDigits.inverted).first ?? ""
+//}
+
+//func longestDigitsPrefix(inputString: String) -> String {
+//    return String(inputString.prefix{ $0.isNumber })
+//}

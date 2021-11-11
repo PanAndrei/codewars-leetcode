@@ -107,3 +107,57 @@ import Foundation
 //func differentSymbolsNaive(s: String) -> Int {
 //    return Set(s.map{$0}).count
 //}
+
+//Given array of integers, find the maximal possible sum of some of its k consecutive elements.
+
+//func arrayMaxConsecutiveSum(inputArray: [Int], k: Int) -> Int {
+//var maxSum = 0
+//    for i in 0 ... (inputArray.count - k) {
+//        let tempArr = inputArray[i ... (i + k - 1)]
+//        if tempArr.reduce(0, +) > maxSum {
+//            maxSum = tempArr.reduce(0, +)
+//        }
+//    }
+//    return maxSum
+//}
+//
+//arrayMaxConsecutiveSum(inputArray: [1, 3, 2, 4], k: 3)
+
+///
+
+// это решение ище макс первое число
+//func longestDigitsPrefix(inputString: String) -> String {
+//
+//var answerStr = ""
+//
+//for element in inputString {
+//    if element == " " {
+//        return answerStr
+//    } else  if Int(String(element)) != nil {
+//        answerStr.append(element)
+//    } else if  Int(String(element)) == nil {
+//        break
+//    }
+//}
+//return answerStr
+//}
+//// это решение ищет макс число в строке
+//
+//func longesdtDigitsPrefix(inputString: String) -> String {
+//    var answerStr = ""
+//    var tempStr = ""
+//
+//    for element in inputString {
+//        if element == " " {
+//            return answerStr
+//        } else  if Int(String(element)) != nil {
+//            tempStr.append(element)
+//            if tempStr.count > answerStr.count {
+//                answerStr = tempStr
+//            }
+//        } else {
+//            tempStr = ""
+//        }
+//    }
+//    return answerStr
+//}

@@ -533,3 +533,32 @@ import Foundation
 //    } != nil
 //}
 //
+
+//longestDigitsPrefix(inputString: String) -> String {
+//    var answerStr = ""
+//    var tempStr = ""
+//
+//    for element in inputString {
+//        if element == " " {
+//            return answerStr
+//        } else  if Int(String(element)) != nil {
+//            tempStr.append(element)
+//            if tempStr.count > answerStr.count {
+//                answerStr = tempStr
+//            }
+//        } else {
+//            tempStr = ""
+//        }
+//    }
+//    return answerStr
+//}
+//
+//longestDigitsPrefix(inputString: "1j2c42ciu5ie99xr0vq5w1slwhq985fp2239qc196d66m")
+
+//func longestDiffgitsPrefix(inputString: String) -> String {
+//    return inputString.components(separatedBy: CharacterSet.decimalDigits.inverted).first ?? ""
+//}
+
+//func longestDigitsPrefix(inputString: String) -> String {
+//    return String(inputString.prefix{ $0.isNumber })
+//}
