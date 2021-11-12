@@ -161,3 +161,44 @@ import Foundation
 //    }
 //    return answerStr
 //}
+
+//Let's define digit degree of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.
+//
+//Given an integer, find its digit degree.
+// brilliant
+
+//func digitDegree(n: Int) -> Int {
+//    func madeArrReduce (num: Int) -> Int {
+//        return String(num).map { Int(String($0))! }.reduce(0, +)
+//    }
+//    var count = 0
+//    var tempNum = n
+//    while String(tempNum).count > 1 {
+//        tempNum = madeArrReduce(num: tempNum)
+//        count += 1
+//    }
+//    return count
+//}
+//
+//digitDegree(n: 44444444444455555)
+
+// подумать о рекурсии
+
+//func digitDevgree(n: Int) -> Int {
+//    return n > 9 ? 1 + digitDevgree(n: String(n).characters.map { Int(String($0))! }.reduce(0) { $0 + $1 }) : 0
+//}
+
+//Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
+//
+//The bishop has no restrictions in distance for each move, but is limited to diagonal movement. Check out the example below to see how it can move:
+
+// следить за сравниваемым типом данных/
+
+
+//func bishopAndPawn(bishop: String, pawn: String) -> Bool {
+//    let arrBishop = bishop.map { Character(String($0)).asciiValue! }
+//    let arrPawn = pawn.map { Character(String($0)).asciiValue! }
+//
+//    return abs(Int(arrBishop[0]) - Int(arrPawn[0])) == abs(Int(arrBishop[1]) - Int(arrPawn[1]))
+//}
+
