@@ -196,3 +196,277 @@ import UIKit
 //    
 //    return abs(Int(arrBishop[0]) - Int(arrPawn[0])) == abs(Int(arrBishop[1]) - Int(arrPawn[1]))
 //}
+
+
+//A string is said to be beautiful if each letter in the string appears at most as many times as the previous letter in the alphabet within the string; ie: b occurs no more times than a; c occurs no more times than b; etc. Note that letter a has no previous letter.
+//
+//Given a string, check whether it is beautiful.
+
+//func isBeautifulString(inputString: String) -> Bool {
+//    var numArr = [Int]()
+//    var tempArr = [Character]()
+//
+//    guard inputString.contains("a") else {
+//        return false
+//    }
+//
+//    let arrSorted = inputString.map { $0 }.sorted()
+//
+//    arrSorted.forEach {
+//        let element = $0
+//
+//        guard tempArr.contains(element) == false else {
+//            return
+//        }
+//
+//        numArr.append(arrSorted.filter {$0 == element}.count )
+//        tempArr.append(element)
+//    }
+//
+//    return numArr == numArr.sorted().reversed()
+//}
+//
+//isBeautifulString(inputString: "bbbaacdafe")
+//
+
+//An email address such as "John.Smith@example.com" is made up of a local part ("John.Smith"), an "@" symbol, then a domain part ("example.com").
+//
+//The domain name part of an email address may only consist of letters, digits, hyphens and dots. The local part, however, also allows a lot of different special characters. Here you can look at several examples of correct and incorrect email addresses.
+//
+//Given a valid email address, find its domain part.
+
+//func findEmailDomain(address: String) -> String {
+//    var separated = address.components(separatedBy: "@")
+//    return separated.removeLast()
+//}
+
+//Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+
+//var hf = "abcdc"
+
+// что за бред со строками
+
+//hf.append("\(hf.prefix(2).reversed())")
+//print(hf.map({ $0 }))
+//var tt = hf.map({ $0 }) == hf.map { $0 }.reversed()
+//tt
+
+//var j = 2
+//var rf = hf.map({ $0 })
+//print(hf)
+//print(rf == rf.reversed())
+//
+//var ff = rf + rf.prefix(j).reversed()
+//print(ff)
+
+//func buildPalindrome(st: String) -> String {
+//    var answerArr = st.map({ $0 })
+//
+//    for i in 0 ... answerArr.count {
+//        let tempArr = answerArr + answerArr.prefix(i).reversed()
+//        if tempArr.map({ $0 }) == tempArr.map ({ $0 }).reversed() {
+//            answerArr = tempArr
+//            break
+//        }
+//    }
+//        return String(answerArr)
+//}
+//
+//buildPalindrome(st: "abcdcba")
+
+
+//Given an array of the numbers of votes given to each of the candidates so far, and an integer k equal to the number of voters who haven't cast their vote yet, find the number of candidates who still have a chance to win the election.
+//
+//The winner of the election must secure strictly more votes than any other candidate. If two or more candidates receive the same (maximum) number of votes, assume there is no winner at all.
+
+//var tt = [4,5,6]
+//var rr = tt.removeLast()
+//tt
+//
+//func electionsWinners(votes: [Int], k: Int) -> Int {
+//    var newArr = votes.sorted()
+//    let maxMark = newArr.removeLast()
+//    var answer = 1
+//
+//    for element in newArr {
+//        if element == maxMark && k == 0 {
+//            return 0
+//        } else  if (element + k) > maxMark {
+//            answer += 1
+//        }
+//    }
+//    return answer
+//}
+
+
+//func solution(votes: [Int], k: Int) -> Int {
+//    let bestCandidate = votes.max() ?? 0
+//    let candidates = votes.filter{$0 == bestCandidate}.count
+//    if k == 0 &&  candidates == 1 { return 1}
+//    return votes.map{$0 + k}.filter{$0 > bestCandidate}.count
+//}
+
+
+//A media access control address (MAC address) is a unique identifier assigned to network interfaces for communications on the physical network segment.
+//
+//The standard (IEEE 802) format for printing MAC-48 addresses in human-friendly form is six groups of two hexadecimal digits (0 to 9 or A to F), separated by hyphens (e.g. 01-23-45-67-89-AB).
+//
+//Your task is to check by given string inputString whether it corresponds to MAC-48 address or not.
+//var inputdString = "00-1B-63-84-45-E6"
+//var newArr = inputdString.components(separatedBy: "-")
+//var jjg = newArr.flatMap { $0 }
+//jjg
+//
+//("0" ... "9").contains("4")
+//
+//func isMAC48Address(inputString: String) -> Bool {
+//    let newArr = inputString.components(separatedBy: "-")
+//    guard newArr.count == 6 else {
+//        return false
+//    }
+//
+//    for element in newArr {
+//        if element.count != 2 {
+//            return false
+//        }
+//    }
+//
+//    let flatArr = newArr.flatMap { $0 }
+//
+//    for element2 in flatArr {
+//        if !("0" ... "9").contains(element2) && !("A" ... "F").contains(element2) {
+//            return false
+//        }
+//    }
+//    return true
+//}
+//
+//isMAC48Address(inputString: "FF-FF-FF-FF-FF-FF")
+
+// поленился в кодировку лезть
+
+//func solution(inputString: String) -> Bool {
+//    let splitByCharcter = inputString.components(separatedBy: "-")
+//    if splitByCharcter.count != 6 { return false }
+//    return splitByCharcter.map{$0.utf8.map{Int($0)}}.flatMap{$0}.filter{48..<71 ~= $0}.count == 12
+//}
+
+
+//My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
+//
+//I am the one who establishes the list so I told him: "Don't worry any more, I will modify the order of the list". It was decided to attribute a "weight" to numbers. The weight of a number will be from now on the sum of its digits.
+//
+//For example 99 will have "weight" 18, 100 will have "weight" 1 so in the list 100 will come before 99.
+//
+//Given a string with the weights of FFC members in normal order can you give this string ordered by "weights" of these numbers?
+
+
+//let sdf = "2000 10003 1234000 44444444 9999 11 11 22 123"
+//var arrayString = sdf.components(separatedBy: " ")
+//var arrayIntStart = arrayString.map { Int($0)! }
+//var arrayStringFinal = arrayString
+//var arrayIntFinal : [Int] = []
+//
+//arrayStringFinal.forEach {
+//    let element = $0
+//    var value = 0
+//    for part in element {
+//        value += Int(String(part))!
+//    }
+//    arrayIntFinal.append(value)
+//    value = 0
+//}
+//
+//
+//
+//
+//print(sdf)
+//print(arrayString)
+//print(arrayIntStart)
+//print(arrayIntFinal)
+//
+//for _ in 1 ... 10 {
+//    for i in 0 ... arrayIntFinal.count - 2 {
+//        var tmpA = 0
+//        var tmpB = 0
+//        if arrayIntFinal[i] > arrayIntFinal[i + 1] {
+//            tmpA = arrayIntFinal[i]
+//            arrayIntFinal[i] = arrayIntFinal[i + 1]
+//            arrayIntFinal[i + 1] = tmpA
+//
+//            tmpB = arrayIntStart[i]
+//            arrayIntStart[i] = arrayIntStart[i + 1]
+//            arrayIntStart[i + 1] = tmpB
+//        }
+//        tmpA = 0
+//        tmpB = 0
+//    }
+//}
+//
+//print(arrayIntStart)
+//print(arrayIntFinal)
+//
+//
+//for _ in 1 ... 10 {
+//    for i in 0 ... arrayIntFinal.count - 2 {
+//        var tmpA = 0
+//        var tmpB = 0
+//        if arrayIntFinal[i] > arrayIntFinal[i + 1] {
+//            tmpA = arrayIntFinal[i]
+//            arrayIntFinal[i] = arrayIntFinal[i + 1]
+//            arrayIntFinal[i + 1] = tmpA
+//
+//            tmpB = arrayIntStart[i]
+//            arrayIntStart[i] = arrayIntStart[i + 1]
+//            arrayIntStart[i + 1] = tmpB
+//        }
+//        tmpA = 0
+//        tmpB = 0
+//    }
+//}
+
+
+
+//func orderWeight(_ s: String) -> String {
+//    var arrayStart = s.components(separatedBy: " ")
+//    var arrayIntStart = arrayStart.map { Int($0)! }
+//    var arrayStringFinal = arrayStart
+//    var arrayIntFinal : [Int] = []
+//    var stringFinal = ""
+//
+//    arrayStringFinal.forEach {
+//        let element = $0
+//        var value = 0
+//        for part in element {
+//            value += Int(String(part))!
+//        }
+//        arrayIntFinal.append(value)
+//        value = 0
+//    }
+//
+//    for _ in 1 ... 10 {
+//        for i in 0 ... arrayIntFinal.count - 2 {
+//            var tmpA = 0
+//            var tmpB = 0
+//            if arrayIntFinal[i] > arrayIntFinal[i + 1] {
+//                tmpA = arrayIntFinal[i]
+//                arrayIntFinal[i] = arrayIntFinal[i + 1]
+//                arrayIntFinal[i + 1] = tmpA
+//
+//                tmpB = arrayIntStart[i]
+//                arrayIntStart[i] = arrayIntStart[i + 1]
+//                arrayIntStart[i + 1] = tmpB
+//            }
+//            tmpA = 0
+//            tmpB = 0
+//        }
+//    }
+//
+//    for element in arrayIntStart {
+//        stringFinal += (String(element) + " ")
+//    }
+//    stringFinal.removeLast()
+//    return (stringFinal)
+//}
+//
+//print(orderWeight("88 33 22 55 11 44"))

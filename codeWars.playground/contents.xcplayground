@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
     <pages>
+        <page name='part1 - 216'/>
         <page name='part2'/>
-        <page name='part1'/>
         <page name='part3'/>
         <page name='понять и простить '/>
         <page name='proudPage'/>
@@ -10,5 +10,6 @@
         <page name='part5'/>
         <page name='опнять и простить 2'/>
         <page name='супер сложно '/>
+        <page name='не решенные'/>
     </pages>
 </playground>

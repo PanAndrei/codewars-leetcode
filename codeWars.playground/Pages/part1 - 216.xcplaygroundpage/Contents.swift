@@ -1,9 +1,10 @@
-import UIKit
-import Foundation
-
-var greeting = "Hello, playground"
-
+//import UIKit
+//import Foundation
+//
+//var greeting = "Hello, playground"
+///////////////////////////////
 /// don't give me five
+/// проверить содержит ли число 5 в любом из мест
 
 //func doNotGive5(_ a: Int, _ b: Int) -> Int {
 //    var count : Int = 0
@@ -28,7 +29,8 @@ var greeting = "Hello, playground"
 //dontGiveMeFive(2, 61)
 
 // missing letter
-
+// найти пропавшую букву в последовательности
+// после месяца в своем кривом коде сложно разобраться
 
 //func findMissingLetter (_ cgArr: [Character]) -> Character {
 //    var temp : Int
@@ -76,7 +78,7 @@ var greeting = "Hello, playground"
 //findMissingLetter(che)
 //
 //
-//func findMissingLetter(_ chArr: [Character]) -> Character {
+//func findMissinьgLetter(_ chArr: [Character]) -> Character {
 //  for char in chArr {
 //    let next = Character(UnicodeScalar(char.asciiValue! + 1))
 //    if !chArr.contains(next) { return next }
@@ -86,9 +88,9 @@ var greeting = "Hello, playground"
 
 
 // mask for credit card
+// скрыть символы кроме 4 последних
 
 
-//
 //func mask (_ string : String) -> String {
 //    var newArr : Array <Character> = []
 //    var ele : Character
@@ -128,11 +130,12 @@ var greeting = "Hello, playground"
 //b = Int(a) ?? 0
 
 // pow every number
+// возвести в квадрат каждую цифру числа
 
 //func squareDigits (_ num: Int) -> Int {
 //    var resultInt = 0
 //    var arrayStr : String = ""
-//    var strInt = String(num)
+//    let strInt = String(num)
 ////    var newStrInt = strInt.map({(value: Character) -> Int in
 ////        return Int(value) * Int(value)})
 //    for element in strInt {
@@ -144,6 +147,8 @@ var greeting = "Hello, playground"
 //    resultInt = Int(arrayStr) ?? 0
 //    return resultInt
 //}
+//
+//squareDigits(440)
 //
 //func squareDi4gits(_ num: Int) -> Int {
 //    Int(String(num).compactMap() {

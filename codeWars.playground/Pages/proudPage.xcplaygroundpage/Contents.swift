@@ -202,3 +202,29 @@ import Foundation
 //    return abs(Int(arrBishop[0]) - Int(arrPawn[0])) == abs(Int(arrBishop[1]) - Int(arrPawn[1]))
 //}
 
+//An email address such as "John.Smith@example.com" is made up of a local part ("John.Smith"), an "@" symbol, then a domain part ("example.com").
+//
+//The domain name part of an email address may only consist of letters, digits, hyphens and dots. The local part, however, also allows a lot of different special characters. Here you can look at several examples of correct and incorrect email addresses.
+//
+//Given a valid email address, find its domain part.
+
+//func findEmailDomain(address: String) -> String {
+//    var separated = address.components(separatedBy: "@")
+//    return separated.removeLast()
+//}
+
+//Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+
+//func buildPalindrome(st: String) -> String {
+//    var answerArr = st.map({ $0 })
+//
+//    for i in 0 ... answerArr.count {
+//        let tempArr = answerArr + answerArr.prefix(i).reversed()
+//        if tempArr.map({ $0 }) == tempArr.map ({ $0 }).reversed() {
+//            answerArr = tempArr
+//            break
+//        }
+//    }
+//        return String(answerArr)
+//}
+
