@@ -184,3 +184,25 @@ import UIKit
 //}
 //
 //solution(cell: "d4")
+
+//Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
+
+//func solution(n: Int) -> Int {
+//    var arrInt = String(n).map { Int(String($0))! }
+//    var answer = Int.min
+//
+//    for i in 0 ... arrInt.count - 1 {
+//        var temp = arrInt
+//        temp.remove(at: i)
+//        var tempArr = temp.map { String($0) }
+//        var tempAnsw = Int(tempArr.joined())!
+//        if tempAnsw > answer {
+//            answer = tempAnsw
+//        }
+//    }
+//    return answer
+//}
+//
+//solution(n: 152)
+//
+//
