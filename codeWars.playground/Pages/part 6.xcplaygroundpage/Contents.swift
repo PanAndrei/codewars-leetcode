@@ -206,3 +206,61 @@ import UIKit
 //solution(n: 152)
 //
 //
+
+//Define a word as a sequence of consecutive English letters. Find the longest word from the given string.
+
+// костыль и не красиво
+//func solution(text: String) -> String {
+//    let newArr = text.map { String($0) }.filter { ("A" ... "Z").contains($0) || ("a" ... "z").contains($0) || $0 == " "}
+//    var answerStr = ""
+//    var temStr = ""
+//    for element in newArr {
+//        if element == " " {
+//            if temStr.count > answerStr.count {
+//                answerStr = temStr
+//            }
+//            temStr = ""
+//            continue
+//        }
+//        temStr += element
+//    }
+//    return answerStr.count > 0 ? answerStr : temStr
+//}
+
+//solution(text: "...h")
+//
+//
+//func solution(text: String) -> String {
+//    let newArr = text.components(separatedBy: " ").map { $0.map {String($0)}.filter { ("A" ... "Z").contains($0) || ("a" ... "z").contains($0)} }
+//    var answer = ""
+//    var temp = ""
+//
+//    for element in newArr {
+//        temp = element.joined()
+//        if temp.count > answer.count {
+//            answer = temp
+//            temp = ""
+//        }
+//    }
+//    print(answer)
+//   return answer
+//}
+//
+//solutddion(text: "kehflwjbfkwjb... .m! ### hkbfkds bdfkjbd jsdbjksbd")
+//
+//func solutddion(text: String) -> String {
+//    let s = String(text.unicodeScalars.map {!CharacterSet.letters.contains($0) ? " " : Character($0)})
+//    print(s)
+//    return s.components(separatedBy: " ").reduce(into: "", { (max, current) in
+//        if current.count > max.count {
+//            max = current
+//        }
+//    })
+//}
+// ого круто 
+//var ff = "jbj3 ohovd// kojd2/2/v /w//e4//// /e/rfbvknbsb/ /33 vkefr./2"
+//
+//var tt = String(ff.unicodeScalars.map { CharacterSet.letters.contains($0) ? " " : Character($0) })
+//
+//print(ff)
+//print(tt)

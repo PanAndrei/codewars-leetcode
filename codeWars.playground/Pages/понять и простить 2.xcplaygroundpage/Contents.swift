@@ -112,3 +112,32 @@ import Foundation
 //}
 //
 //solution(cell: "d4")
+
+
+//func solution(text: String) -> String {
+//    let newArr = text.components(separatedBy: " ").map { $0.map {String($0)}.filter { ("A" ... "Z").contains($0) || ("a" ... "z").contains($0)} }
+//    var answer = ""
+//    var temp = ""
+//    
+//    for element in newArr {
+//        temp = element.joined()
+//        if temp.count > answer.count {
+//            answer = temp
+//            temp = ""
+//        }
+//    }
+//    print(answer)
+//   return answer
+//}
+//
+//solutddion(text: "kehflwjbfkwjb... .m! ### hkbfkds bdfkjbd jsdbjksbd")
+//
+//func solutddion(text: String) -> String {
+//    let s = String(text.unicodeScalars.map {!CharacterSet.letters.contains($0) ? " " : Character($0)})
+//    print(s)
+//    return s.components(separatedBy: " ").reduce(into: "", { (max, current) in
+//        if current.count > max.count {
+//            max = current
+//        }
+//    })
+//}
