@@ -141,3 +141,114 @@ import Foundation
 //        }
 //    })
 //}
+
+//check if the given string is a correct time representation of the 24-hour clock.
+
+//func solution(time: String) -> Bool {
+//    let newArr = String(time.unicodeScalars.map { !CharacterSet.decimalDigits.contains($0) ? " " : Character($0)})
+//    let answerArr = newArr.components(separatedBy: " ").map { Int($0)! }
+//    return ((0 ... 23).contains(answerArr[0]) && (0 ... 59).contains(answerArr[1]) )
+//}
+//
+//solution(time: "24:00")
+//
+//func solution(time: String) -> Bool {
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "HH:mm"
+//    if let time = dateFormatter.date(from: time) {
+//        return true
+//    }
+//    return false
+//}
+
+
+//func solution(inputString: String) -> Int {
+//    let arrInt = String(inputString.unicodeScalars.map { !CharacterSet.decimalDigits.contains($0) ? " " : Character($0)})
+//    let newArrInt = arrInt.components(separatedBy: " ").map { Int($0) ?? 0 }
+//    return newArrInt.reduce(0, +)
+//}
+//
+//solution(inputString: "2 apples, 12 oranges")
+//
+//func solutdion(inputString: String) -> Int {
+//    return inputString
+//                    .split { !$0.isWholeNumber }
+//                    .map { Int($0)! }
+//                    .reduce(0, +)
+//}
+//
+//solutdion(inputString: " jkdkb 878 okslkv 97 97ohlk 767")
+//
+//var rr = " jkdkb 878 okslkv 97 97ohlk 767"
+//print(rr)
+//var ff = rr.split { !$0.isWholeNumber }
+//print(ff)
+//var gg = ff.map { Int($0)! }
+//print(gg)
+//var nn = gg.reduce(0, +)
+//print(nn)
+
+//func jumpinegNumber(_ number: Int) -> String {
+//  let numbers = String(number).compactMap { c in c.wholeNumberValue };
+//  for i in 1..<numbers.count {
+//      if abs(numbers[i - 1] - numbers[i]) != 1 {
+//          return "Not!!";
+//      }
+//  }
+//  return "Jumping!!";
+//}
+
+
+//Given an integer product, find the smallest positive (i.e. greater than 0) integer the product of whose digits is equal to product. If there is no such integer, return -1 instead.
+//
+//func solution(product: Int) -> Int {
+//
+//    guard product != 0 else {
+//        return 10
+//    }
+//    guard product != 1 else {
+//        return 1
+//    }
+//
+//    var string = ""
+//    var temp = product
+//
+//    big:  for _ in 1 ... 10 {
+//        for i in 2 ... 9 {
+//            if temp % (11 - i) == 0 {
+//                string.insert(Character("\(11 - i)"), at: string.startIndex)
+//                temp /= (11 - i)
+//                continue big
+//            }
+//        }
+//    }
+//
+//    if string.count > 0 {
+//        return Int(string) ?? 0
+//    } else {
+//        return -1
+//    }
+//}
+//
+//solution(product: 3)
+//
+//func soluddtion(product: Int) -> Int {
+//    guard product > 0 else {return 10}
+//    guard product > 1 else {return 1}
+//    var val = product, current = 9
+//    var digits = [Int]()
+//    while val > 1 {
+//        if val % current == 0 {
+//            val = val / current
+//            digits.append(current)
+//            current = 10
+//        }
+//        current -= 1
+//        guard current > 1 else {
+//            return -1
+//        }
+//    }
+//    return Int(digits.sorted().reduce("") { return "\($0)" + "\($1)"})!
+//}
+//
+//soluddtion(product: 450)
