@@ -103,3 +103,53 @@ import Foundation
 //}
 //
 //solution(names: names)
+
+
+//You are taking part in an Escape Room challenge designed specifically for programmers. In your efforts to find a clue, you've found a binary code written on the wall behind a vase, and realized that it must be an encrypted message. After some thought, your first guess is that each consecutive 8 bits of the code stand for the character with the corresponding extended ASCII code.
+//
+//Assuming that your hunch is correct, decode the message.
+
+//var code = "010010000110010101101100011011000110111100100001"
+//// прикольно но можно лучше
+//func solution2(code: String) -> String {
+//    var str = Int(code, radix: 2)
+//    var arrBinary: Array <Array <Int>> = []
+//    var arrInt = code.map { Int(String($0))! }
+//    print(str)
+//    print(arrInt)
+//
+//    for i in 0 ..< (arrInt.count / 8) {
+//        arrBinary.append( Array(arrInt[(0 + (8 * i)) ... (7 + (8 * i))] ))
+//    }
+//    print(arrBinary)
+//
+//    var answer = ""
+//
+//    for i in 0 ..< arrBinary.count {
+//        var char = ""
+//        for j in 0 ..< 8 {
+//            char += String(arrBinary[i][j])
+//        }
+//        print(char)
+//        answer += String(UnicodeScalar(UInt8(char, radix: 2)!))
+//    }
+//
+//    return answer
+//}
+//
+//solution2(code: code)
+//
+//solution(code: code)
+//
+//func solution(code: String) -> String {
+//    var index = code.startIndex
+//    var result = ""
+//
+//    for _ in 0 ..< (code.count / 8) {
+//        let newIndex = code.index(index, offsetBy: 8)
+//        let charBits = code[index ..< newIndex]
+//        result += String(UnicodeScalar(UInt8(charBits, radix: 2)!))
+//        index = newIndex
+//    }
+//    return result
+//}

@@ -275,14 +275,15 @@ import Foundation
 //func solution2(names: [String]) -> [String] {
 //    let namesArr = names
 //    var tempNameArr = [String]()
-//    namesArr.forEach {
-//        var element = $0
-//        var i = 1
+//
+//    for j in 0 ..< namesArr.count {
+//        var element = namesArr[j]
+//        var i = 0
 //
 //        while tempNameArr.contains(element) {
-//
-//            element += "(" + "\(i)" + ")"
 //            i += 1
+//            element = namesArr[j] + "(\(i))"
+//
 //        }
 //        tempNameArr.append(element)
 //        i = 1
@@ -292,8 +293,8 @@ import Foundation
 //    return tempNameArr
 //}
 
-//solution(names: names)
-//solution(names: names2)
+//solution2(names: names)
+//solution2(names: names2)
 
 
 /// как перевести юнискаляр в стринг?
@@ -342,15 +343,18 @@ import Foundation
 //    for i in 0..<names.count {
 //        var count = 0
 //        var name = names[i]
+//        print(name)
 //        while result.contains(name) {
 //            count += 1
 //            name = names[i] + "(\(count))"
 //        }
+//        print(name)
 //        result.append(name)
 //    }
 //    print(names)
 //    print(result)
 //    return result
 //}
-//
+
 //solution(names: names)
+//solution(names: names2)
