@@ -153,3 +153,95 @@ import Foundation
 //    }
 //    return result
 //}
+
+
+//Construct a square matrix with a size N × N containing integers from 1 to N * N in a spiral order, starting from top-left and in clockwise direction.
+
+// почти решил
+//func solution(n: Int) -> [[Int]] {
+//    let maxnumber = n * n
+//    var arrRow : Array<Int> = Array(1 ... n)
+//    var matrix = Array(repeating: arrRow, count: n)
+////    print(matrix)
+//    var row = n
+//    //  row = количество элементов в подстроке
+//    var rout = 1
+//    // проверка на вверх низ // низ вверх
+//    var step = 1
+//    // step = шаг итерации
+//
+//    while row > 1 {
+//        if rout % 2 != 0 {
+//            for i in 0 ..< row {
+//                matrix[i][row - rout] = (n * step) + i
+//            }
+//            step += 1
+//            for i in 0 ..< row {
+//               matrix[row - rout][i] = (n * step  + n - 2) - i
+//            }
+//            step += 1
+//            rout += 1
+//            row  -= 1
+//
+//        } else {
+//            for i in 1 ..< row {
+//                matrix[i][0] = (n * step + n - 3) - i
+//        }
+//            step += 1
+//            for i in 0 ..< row {
+//                matrix[1][i] = (n * step  - 3) + i
+//            }
+//            row -= 1
+//    }
+//
+//
+//    }
+//
+//    print(matrix[0])
+//    print(matrix[1])
+//    print(matrix[2])
+//    print(matrix[3])
+//    print(matrix[4])
+////    print(matrix[5])
+//    return matrix
+//}
+//
+//solution(n: 5)
+
+//func solвution2(n: Int) -> [[Int]] {
+//    var result = [[Int]](repeating: [Int](repeating: 0, count: n), count: n)
+//    var counter = 1
+//    var i = 0
+//    while counter <= n * n {
+//        // Left to right
+//        var j = i
+//        while j < n - i {
+//            result[i][j] = counter
+//            counter += 1
+//            j += 1
+//        }
+//        // Top to bottom
+//        j = i + 1
+//        while j < n - i {
+//            result[j][n - i - 1] = counter
+//            counter += 1
+//            j += 1
+//        }
+//        // Right to left
+//        j = n - i - 2;
+//        while (j > i) {
+//            result[n - i - 1][j] = counter
+//            j -= 1
+//            counter += 1
+//        }
+//        // Bottom to top
+//        j = n - i - 1;
+//        while (j > i) {
+//            result[j][i] = counter
+//            j -= 1
+//            counter += 1
+//        }
+//        i += 1
+//    }
+//    return result
+//}
