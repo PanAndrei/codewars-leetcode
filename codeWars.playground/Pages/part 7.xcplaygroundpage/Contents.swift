@@ -245,3 +245,67 @@ import Foundation
 //    }
 //    return result
 //}
+
+//Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
+//
+//This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
+
+//var grid = [[1,2,3,4,5,6,7,8,9],
+//            [4,6,5,8,7,9,3,2,1],
+//            [7,9,8,2,1,3,6,5,4],
+//            [1,2,3,4,5,6,7,8,9],
+//            [4,6,5,8,7,9,3,2,1],
+//            [7,9,8,2,1,3,6,5,4],
+//            [1,2,3,4,5,6,7,8,9],
+//            [4,6,5,8,7,9,3,2,1],
+//            [7,9,8,2,1,3,6,5,4]]
+//
+//
+//func solution(grid: [[Int]]) -> Bool {
+//    
+//    for element in grid {
+//        let checkString = element
+//        if Set(checkString).count != 9 {
+//            return false
+//        }
+//    }
+//    
+//    var temp: Array<Int> = []
+//    
+//    for i in 0 ..< 9 {
+//        for element in grid {
+//            temp.append(element[i])
+//        }
+//        if Set(temp).count != 9 {
+//            return false
+//        }
+//        temp = []
+//    }
+//    
+//    var x = 0
+//    var y = 0
+//    var tempARR : Array <Int> = []
+//    
+//    for _ in 1 ... 3 {
+//        let checkStrings = grid[(0 + x) ... (2 + x)]
+//        //        print(checkStrings)
+//        
+//        for _ in 1 ... 3 {
+//            for element in checkStrings {
+//                tempARR += element[(0 + y) ... (2 + y)]
+//            }
+//            if Set(tempARR).count != 9 {
+//                return false
+//            }
+//            //            print(tempARR)
+//            y += 3
+//            tempARR = []
+//        }
+//        y = 0
+//        x += 3
+//    }
+//    return true
+//}
+//
+//
+//solution(grid: grid)
