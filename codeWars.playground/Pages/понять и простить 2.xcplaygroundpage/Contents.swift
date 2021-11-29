@@ -450,4 +450,115 @@ import Foundation
 //    }
 //    return result
 //}
+//
+///Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
+//
+//This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
 
+//var grid = [[1,2,3,4,5,6,7,8,9],
+//            [4,6,5,8,7,9,3,2,1],
+//            [7,9,8,2,1,3,6,5,4],
+//            [1,2,3,4,5,6,7,8,9],
+//            [4,6,5,8,7,9,3,2,1],
+//            [7,9,8,2,1,3,6,5,4],
+//            [1,2,3,4,5,6,7,8,9],
+//            [4,6,5,8,7,9,3,2,1],
+//            [7,9,8,2,1,3,6,5,4]]
+//
+//
+//func solution(grid: [[Int]]) -> Bool {
+//
+//    for element in grid {
+//        let checkString = element
+//        if Set(checkString).count != 9 {
+//            return false
+//        }
+//    }
+//
+//    var temp: Array<Int> = []
+//
+//    for i in 0 ..< 9 {
+//        for element in grid {
+//            temp.append(element[i])
+//        }
+//        if Set(temp).count != 9 {
+//            return false
+//        }
+//        temp = []
+//    }
+//
+//    var x = 0
+//    var y = 0
+//    var tempARR : Array <Int> = []
+//
+//    for _ in 1 ... 3 {
+//        let checkStrings = grid[(0 + x) ... (2 + x)]
+//        //        print(checkStrings)
+//
+//        for _ in 1 ... 3 {
+//            for element in checkStrings {
+//                tempARR += element[(0 + y) ... (2 + y)]
+//            }
+//            if Set(tempARR).count != 9 {
+//                return false
+//            }
+//            //            print(tempARR)
+//            y += 3
+//            tempARR = []
+//        }
+//        y = 0
+//        x += 3
+//    }
+//    return true
+//}
+//
+//
+//solution(grid: grid)
+
+//func solution(grid: [[Int]]) -> Bool {
+//
+//    for i in 0..<9 {
+//        var row = [Int]()
+//        var col = [Int]()
+//        var matrix = [Int]()
+//
+//        for j in 0..<9 {
+//            row.append(grid[i][j])
+//            col.append(grid[j][i])
+//            matrix.append(grid[i/3*3+j/3][i%3*3+j%3])
+//        }
+//
+//        if (Array(Set(row)).count != 9 ||
+//            Array(Set(col)).count != 9 ||
+//            Array(Set(matrix)).count != 9) {
+//            return false
+//        }
+//    }
+//
+//    return true
+//}
+
+// тут воспользовались округлением инт в меньшую сторону
+//и это нарушает математику
+//очень элегантно и круто!
+
+//var x: Int
+//var y: Int
+//
+//var i = 7
+//    for j in 0 ..< 9 {
+//        x = (i/3*3+j/3)
+//        y = (i%3*3+j%3)
+//        print(x, y)
+//    }
+
+
+//func solution(n: Int) -> Int {
+//    return Int(String(String(n).first!))! + Int(String(String(n).last!))!
+//}
+//
+//solution(n: 33)
+//
+//func soldution(n: Int) -> Int {
+//    return n/10 + n%10
+//}
