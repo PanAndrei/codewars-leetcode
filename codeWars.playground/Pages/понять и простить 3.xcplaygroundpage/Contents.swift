@@ -62,3 +62,41 @@ import Foundation
 //
 //let dd = "1010"
 //let d = Int(dd, radix: 2)!
+
+
+//In order to stop the Mad Coder evil genius you need to decipher the encrypted message he sent to his minions. The message contains several numbers that, when typed into a supercomputer, will launch a missile into the sky blocking out the sun, and making all the people on Earth grumpy and sad.
+//
+//You figured out that some numbers have a modified single digit in their binary representation. More specifically, in the given number n the kth bit from the right was initially set to 0, but its current value might be different. It's now up to you to write a function that will change the kth bit of n back to 0.
+
+// тупо в лоб и не работает на  маленьких числах
+//func solutiodn(n: Int, k: Int) -> Int {
+//    var binaryInteger = String(n, radix: 2)
+//    print(binaryInteger)
+//    var binaryArr = binaryInteger.map { Int(String($0))! }
+//    print(binaryArr)
+//    if binaryArr[binaryArr.count - k] == 0 {
+//        return n
+//    } else {
+//        binaryArr[binaryArr.count - k] = 0
+//    }
+//    var stringResult = ""
+//    for element in binaryArr {
+//        stringResult += String(element)
+//    }
+//    var intResult = Int(stringResult, radix: 2)
+//    print(intResult)
+//    return intResult!
+//}
+//
+//solutiodn(n: 33 , k: 3)
+
+//var binary = String(8, radix: 2)
+//print (binary)
+//1 << 2
+//~(1 << 2)
+//
+//func solution(n: Int, k: Int) -> Int {
+//    return n & (~(1<<(k - 1)))
+//}
+//
+//solution(n: 37, k: 3)
