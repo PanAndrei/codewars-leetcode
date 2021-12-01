@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
+import CoreFoundation
 
 //Given integers a and b, determine whether the following pseudocode results in an infinite loop
 //
@@ -136,3 +137,86 @@ import Foundation
 // | - OR сравнивает биты двух чисел
 // ~ - NOT инвертирует все битовые числа
 // << -побитовый сдвиг
+
+
+//You are given an array of up to four non-negative integers, each less than 256.
+//
+//Your task is to pack these integers into one number M in the following way:
+//
+//The first element of the array occupies the first 8 bits of M;
+//The second element occupies next 8 bits, and so on.
+//Return the obtained integer M.
+//
+//Note: the phrase "first bits of M" refers to the least significant bits of M - the right-most bits of an integer. For further clarification see the following example.
+
+
+//
+//func solutioddn(a: [Int]) -> Int {
+//    var arrBinary = a.map {String(UInt8($0), radix: 2)}
+//    var stringAnswer = ""
+//
+//    for i in 0 ..< arrBinary.count {
+//        while arrBinary[i].count < 8 {
+//            arrBinary[i].insert("0", at: arrBinary[i].startIndex)
+//        }
+//    }
+//
+//    stringAnswer = arrBinary.reversed().joined(separator: "")
+//
+//    return Int(stringAnswer, radix: 2)!
+//}
+//
+//solution(a: [24, 85, 0])
+//
+//func solution(a: [Int]) -> Int {
+//    var result = 0
+//    for k in a.reversed() {
+//        result <<= 8
+//        result += k
+//    }
+//    return result
+//}
+//
+//var kk = 0
+//print(String(kk, radix: 2))
+//var tt = kk << 8
+//print(String(tt, radix: 2))
+//tt += 0
+//print(String(tt, radix: 2))
+//tt <<= 8
+//print(String(tt, radix: 2))
+//tt += 85
+//print(String(tt, radix: 2))
+//tt <<= 8
+//print(String(tt, radix: 2))
+//tt += 24
+//print(String(tt, radix: 2))
+
+
+//You are given two numbers a and b where 0 ≤ a ≤ b. Imagine you construct an array of all the integers from a to b inclusive. You need to count the number of 1s in the binary representations of all the numbers in the array.
+
+//func solutifon(a: Int, b: Int) -> Int {
+//    var array = [Int]()
+//    for element in a ... b {
+//        array.insert(element, at: 0)
+//    }
+//    var stringAnswer = ""
+//            for element in array {
+//        stringAnswer += String(element, radix: 2)
+//    }
+//    return stringAnswer.map { $0 }.filter { $0 == "1"}.count
+//}
+//
+//solutifon(a: 2, b: 7)
+//solution(a: 2, b: 7)
+//
+//func solution(a: Int, b: Int) -> Int {
+//var result = 0
+//    for element in a ... b {
+//        result <<= 4
+//        result += element
+//    }
+//    print(result)
+////    return String(result, radix: 2).map { $0 }.filter { $0 == "1"}.count
+//    return String(result, radix: 2).map { $0 }.reduce(0, +)
+//}
