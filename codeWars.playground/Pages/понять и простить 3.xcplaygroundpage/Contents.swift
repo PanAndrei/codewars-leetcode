@@ -154,3 +154,101 @@ import Foundation
 //print(String(tt, radix: 2))
 //tt += 24
 //print(String(tt, radix: 2))
+
+//erse the order of the bits in a given integer.
+
+//var a : UInt8 = 97
+//var b : Int = 97
+//
+//MemoryLayout.size(ofValue: a)
+//
+//a << 1
+//~a
+//a >> 1
+//
+//
+//func soluddtion(a: Int) -> Int {
+//    var binary = String(String(a, radix: 2).reversed())
+//    return Int(binary, radix: 2)!
+//}
+//
+//solution(a: 97)
+//
+//func solution(a: Int) -> Int {
+//    var mirrorNumber = 0
+//    var number = a
+//    while number > 0 {
+//       mirrorNumber <<= 1
+//        if number%2 != 0 {
+//            mirrorNumber |= 1
+//        }
+//        number >>= 1
+//    }
+//    return mirrorNumber
+//}
+
+
+//Implement the missing code, denoted by ellipses. You may not modify the pre-existing code.
+//Presented with the integer n, find the 0-based position of the second rightmost zero bit in its binary representation (it is guaranteed that such a bit exists), counting from right to left.
+//
+//Return the value of 2position_of_the_found_bit.
+
+// в лобешник решение
+
+//func solution(n: Int) -> Int {
+//  return Int(pow(Double(2), findSecondZero(n: n)))
+//}
+//
+//func findSecondZero(n: Int) -> Double {
+//    var x = 0
+//    var y = 0
+//    var t = 0
+//    var z = n
+//
+//    while z > 1 {
+//        if z % 2 == 0 {
+//            x += 1
+//            if x == 2 {
+//                t = y
+//                break
+//            }
+//        }
+//        z /= 2
+//        y += 1
+//    }
+//    return Double(t )
+//}
+
+//solution(n: 37)
+//
+//func solution(n: Int) -> Int {
+//   return ~(n + (~n & (n+1))) & ((n + (~n & (n+1))) + 1)
+//}
+
+var v = 55
+~v
+(~v & (v+1))
+(v + (~v & (v+1)))
+~(v + (~v & (v+1)))
+
+~v
+(~v & (v+1))
+(v + (~v & (v+1)))
+(v + (~v & (v+1))) + 1
+
+~(v + (~v & (v+1)))
+((v + (~v & (v+1))) + 1)
+~(v + (~v & (v+1))) & ((v + (~v & (v+1))) + 1)
+
+
+
+/* идея тут в том что мы ищем именно второе число с права
+те в основании двойка
+дальше мы находим позицию этой двойки
+ ее позиция это и есть степень возведения
+ а вот все что было до этого - не понятно 
+*/
+
+for v in 1 ... 100 {
+    print(v, ((v + (~v & (v+1))) + 1), (((v + (~v & (v+1))) + 1) - v))
+}
