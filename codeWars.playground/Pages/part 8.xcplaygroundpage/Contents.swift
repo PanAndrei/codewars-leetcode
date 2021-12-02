@@ -220,3 +220,10 @@ import CoreFoundation
 ////    return String(result, radix: 2).map { $0 }.filter { $0 == "1"}.count
 //    return String(result, radix: 2).map { $0 }.reduce(0, +)
 //}
+
+
+Reverse the order of the bits in a given integer.
+
+func solution(a: Int) -> Int {
+
+}
