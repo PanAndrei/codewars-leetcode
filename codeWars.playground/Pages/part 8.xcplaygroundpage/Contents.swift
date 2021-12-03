@@ -287,7 +287,7 @@ import Darwin
 //    return Double(t )
 //}
 
-//solution(n: 37)
+//soddlution(n: 37)
 //
 //func solution(n: Int) -> Int {
 //   return ~(n + (~n & (n+1))) & ((n + (~n & (n+1))) + 1)
@@ -300,3 +300,51 @@ import Darwin
 //
 //~(v + (~v & (v+1))) & ((v + (~v & (v+1))) + 1)
 //
+
+//func soddlution(n: Int) -> Int {
+//   return (((((n + 1) | n) + 1) | n) - n)
+//}
+//
+//var t = 8
+//t + 1
+//(t + 1) | t
+//((t + 1) | t) + 1
+//(((t + 1) | t) + 1) | t
+//((((t + 1) | t) + 1) | t) - t
+//
+
+//You're given an arbitrary 32-bit integer n. Take its binary representation, split bits into it in pairs (bit number 0 and 1, bit number 2 and 3, etc.) and swap bits in each pair. Then return the result as a decimal number.
+
+//func solution(n: Int) -> Int {
+//  return changeBits(m: n)
+//}
+//
+//func changeBits(m: Int) -> Int {
+//    var stringNum = String(m, radix: 2)
+//    var arrNums = [String]()
+//    if stringNum.count % 2 != 0 {
+//        stringNum.insert("0", at: stringNum.startIndex)
+//    }
+//    var arr = stringNum.map { String($0) }
+//    for i in 0 ..< arr.count - 1 {
+//        if i % 2 == 0 {
+//            var temp = ""
+//            temp = arr[i]
+//            arr[i] = arr[i + 1]
+//            arr[i + 1] = temp
+//        }
+//    }
+//    var finalStr = arr.joined()
+//    return Int(finalStr, radix: 2)!
+//}
+//
+//changeBits(m: 333)
+//solution(n: 333)
+//
+//func solutioen(n: Int) -> Int {
+//  return ( ((n & 0xAAAAAAAA) >> 1) | ((n & 0x55555555) << 1) )
+//}
+//
+//Это просто совпадение, что шестнадцатеричный 0xaaaaaaaa представляет двоичный код с четными позициями, установленными как 1.
+//
+//Точно так же что-то столь же элегантное, как 0x55555555, представляет двоичный файл с нечетными позициями, установленными как 1?
