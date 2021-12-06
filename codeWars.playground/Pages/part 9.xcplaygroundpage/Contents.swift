@@ -81,45 +81,61 @@
 //Given the list of commands the coach has given, count the number of such commands after which the students will be facing the same direction.
 
 // почти работает
-func solutiаon(commands: String) -> Int {
-    let arrayString = commands.map { String($0) }
-    let numLR = arrayString.filter { ($0 == "L") || ($0 == "R") }.count
-    let numA = arrayString.count - numLR
-    
-    return numLR & 2 == 0 ? (numLR / 2 + numA) : (numLR / 2)
-}
-
-var comand = "AALAAALARAR"
-
-solutiаon(commands: comand)
-
-
-func solution(commands: String) -> Int {
-    let arrayString = commands.map { String($0) }
-    var newArr: Array<Int> = []
-    
-    for element in arrayString {
-        if element == "L" {
-            newArr.append(1)
-        } else if element == "R" {
-            newArr.append(-1)
-        } else {
-            newArr.append(0)
-        }
-    }
-    print(newArr)
-    
-    var dir = 0
-    var answer = 0
-    
-    for i in 0 ..< newArr.count {
-        dir += newArr[i]
-        if dir % 2 == 0 {
-            answer += 1
-            print(i)
-        }
-    }
-    return answer
-}
-
-solution(commands: comand)
+//func solutiаon(commands: String) -> Int {
+//    let arrayString = commands.map { String($0) }
+//    let numLR = arrayString.filter { ($0 == "L") || ($0 == "R") }.count
+//    let numA = arrayString.count - numLR
+//
+//    return numLR & 2 == 0 ? (numLR / 2 + numA) : (numLR / 2)
+//}
+//
+//var comand = "AALAAALARAR"
+//
+//solutiаon(commands: comand)
+//
+//
+//func solution(commands: String) -> Int {
+//    let arrayString = commands.map { String($0) }
+//    var newArr: Array<Int> = []
+//
+//    for element in arrayString {
+//        if element == "L" {
+//            newArr.append(1)
+//        } else if element == "R" {
+//            newArr.append(-1)
+//        } else {
+//            newArr.append(0)
+//        }
+//    }
+//    print(newArr)
+//
+//    var dir = 0
+//    var answer = 0
+//
+//    for i in 0 ..< newArr.count {
+//        dir += newArr[i]
+//        if dir % 2 == 0 {
+//            answer += 1
+//            print(i)
+//        }
+//    }
+//    return answer
+//}
+//
+//solution(commands: comand)
+//
+//// более изящно
+//
+//func solution(commands: String) -> Int {
+//    var total = 0
+//    var same = true
+//    for c in commands.characters {
+//        if c != "A" {
+//            same = !same
+//        }
+//        if same {
+//            total += 1
+//        }
+//    }
+//    return total
+//}
