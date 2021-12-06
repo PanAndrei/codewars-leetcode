@@ -292,3 +292,95 @@ import Foundation
 //Это просто совпадение, что шестнадцатеричный 0xaaaaaaaa представляет двоичный код с четными позициями, установленными как 1.
 //
 //Точно так же что-то столь же элегантное, как 0x55555555, представляет двоичный файл с нечетными позициями, установленными как 1?
+
+
+//You're given two integers, n and m. Find position of the rightmost bit in which they differ in their binary representations (it is guaranteed that such a bit exists), counting from right to left.
+//
+//Return the value of 2position_of_the_found_bit (0-based).
+
+// работает, но один из тестов не прошел
+// скорее всего потому что большие числа не влезли в диапазон
+
+//func solution(n: Int, m : Int) -> Int {
+//  return find(n: n, m: m)
+//}
+//
+//func find(n: Int, m: Int) -> Int {
+//    var nBin = String(n, radix: 2).map { String($0)}
+//    var mBin = String(m, radix: 2).map { String($0)}
+//    var answer = 0
+//
+//    for i in 0 ..< [nBin.count, mBin.count].min()! {
+//        if nBin[nBin.count - i - 1] != mBin[mBin.count - i - 1] {
+//            answer = i
+//            break
+//        } else {
+//            answer = [nBin.count, mBin.count].min()! + 1
+//        }
+//    }
+//    return Int(pow(2.0, Double(answer)))
+//}
+//
+//find(n: 7, m: 23)
+//
+// разные биты
+//func solution(n: Int, m : Int) -> Int {
+//  return (n ^ m) & -(n ^ m)
+//}
+//
+// одинаковые биты
+//func solution(n: Int, m : Int) -> Int {
+//  return ~(n ^ m) & ((n ^ m) + 1)
+//}
+
+//Given integers n, l and r, find the number of ways to represent n as a sum of two integers A and B such that l ≤ A ≤ B ≤ r.
+
+//func solution(n: Int, l: Int, r: Int) -> Int {
+//    var set = Set<Int>()
+//    for i in l ... r {
+//        if (l...r).contains(n - i) {
+//            set.insert((n - i))
+//            print(i, (n - i))
+//        }
+//    }
+//    print(set.count)
+//    return ((set.count) % 2 == 0) ? (set.count / 2) : (((set.count / 2) + 1))
+//}
+//
+//solution(n: 24, l: 8, r: 16)
+
+// не понимаю как
+//func solufdtion(n: Int, l: Int, r: Int) -> Int {
+//    return max(0, min(n/2-l, r-n/2) + (n+1)%2)
+//}
+//
+//solufdtion(n: 24, l: 8, r: 16)
+
+
+//You are standing at a magical well. It has two positive integers written on it: a and b. Each time you cast a magic marble into the well, it gives you a * b dollars and then both a and b increase by 1. You have n magic marbles. How much money will you make?
+//
+//func solution(a: Int, b: Int, n: Int) -> Int {
+//    var aa = a, bb = b
+//    var result = 0
+//    for _ in 0 ..< n {
+//        result += aa * bb
+//        aa += 1
+//        bb += 1
+//    }
+//    return result
+//}
+
+// рекурсия
+// изучить
+
+//solutioxn(a: 1, b: 2, n: 2)
+//
+//func solution(a: Int, b: Int, n: Int) -> Int {
+//
+//    if (n > 0){
+//        return (a * b) + solution(a+1,b: b+1,n: n-1)
+//    }else{
+//        return 0
+//    }
+//
+//}

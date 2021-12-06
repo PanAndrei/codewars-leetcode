@@ -2,11 +2,11 @@
 
 import Foundation
 
-var greeting = "Hello, playground"
 
 //: [Next](@next)
 
 // primal integers
+// по хоже тут найти первых два простых числа в диапазоне с разницей в Гап
 
 //Int(sqrt(Double(element + g)))
 
@@ -21,7 +21,7 @@ var greeting = "Hello, playground"
 //        var count = 1
 //        for i in 2 ... Int(sqrt(Double(element))) {
 //            count += 1
-// а еще можно через 2 перескакивать тк четность
+//// а еще можно через 2 перескакивать тк четность
 //            if (element %  i == 0) {
 //                continue primal
 //            } else if count == Int(sqrt(Double(element))) {
@@ -62,7 +62,7 @@ var greeting = "Hello, playground"
 //}
 
 
-// disarium numbers
+// disarium numbers 13
 
 //func disariumNumber (_ number: Int) -> String {
 //    let num = String(number)
@@ -83,7 +83,7 @@ var greeting = "Hello, playground"
 //    return ret == number ? "Disarium !!" : "Not !!"
 //}
 //
-//disariumNumber(89)
+//disarwiumNumber(89)
 //disariumNumber(133)
 
 
@@ -126,7 +126,7 @@ var greeting = "Hello, playground"
 //  return (fn != ln ? "Not " : "") + "Balanced"
 //}
 
-// secolo
+// secolo 15
 
 //func centuryFromYear(year: Int) -> Int {
 //let yearD : Double = Double(year) / 100
@@ -141,7 +141,7 @@ var greeting = "Hello, playground"
 //    return (year + 99) / 100
 //}
 
-// palindrom
+// palindrom 16
 
 //func checkPalindrome(inputString: String) -> Bool {
 //    guard inputString.count > 1 else {
@@ -169,7 +169,7 @@ var greeting = "Hello, playground"
 //  return String(inputString.characters.reverse()) == inputString
 //}
 
-// closed elements
+// closed elements 17
 
 //func adjacentElementsProduct(_ arr: [Int]) -> Int {
 //    var answ = Int.min
@@ -190,7 +190,7 @@ var greeting = "Hello, playground"
 //    return (0..<inputArray.count - 1).map { inputArray[$0] * inputArray[$0 + 1] }.max()!
 //}
 
-// n - polygon
+// n - polygon 18
 
 //func shapeArea(n: Int) -> Int {
 //    return (n * n) + ((n - 1) * (n - 1))

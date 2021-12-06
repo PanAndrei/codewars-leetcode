@@ -311,7 +311,7 @@ import Darwin
 //((t + 1) | t) + 1
 //(((t + 1) | t) + 1) | t
 //((((t + 1) | t) + 1) | t) - t
-//
+
 
 //You're given an arbitrary 32-bit integer n. Take its binary representation, split bits into it in pairs (bit number 0 and 1, bit number 2 and 3, etc.) and swap bits in each pair. Then return the result as a decimal number.
 
@@ -348,3 +348,80 @@ import Darwin
 //Это просто совпадение, что шестнадцатеричный 0xaaaaaaaa представляет двоичный код с четными позициями, установленными как 1.
 //
 //Точно так же что-то столь же элегантное, как 0x55555555, представляет двоичный файл с нечетными позициями, установленными как 1?
+
+//You're given two integers, n and m. Find position of the rightmost bit in which they differ in their binary representations (it is guaranteed that such a bit exists), counting from right to left.
+//
+//Return the value of 2position_of_the_found_bit (0-based).
+
+// работает, но один из тестов не прошел
+// скорее всего потому что большие числа не влезли в диапазон
+
+//func solution(n: Int, m : Int) -> Int {
+//  return find(n: n, m: m)
+//}
+//
+//func find(n: Int, m: Int) -> Int {
+//    var nBin = String(n, radix: 2).map { String($0)}
+//    var mBin = String(m, radix: 2).map { String($0)}
+//    var answer = 0
+//
+//    for i in 0 ..< [nBin.count, mBin.count].min()! {
+//        if nBin[nBin.count - i - 1] != mBin[mBin.count - i - 1] {
+//            answer = i
+//            break
+//        } else {
+//            answer = [nBin.count, mBin.count].min()! + 1
+//        }
+//    }
+//    return Int(pow(2.0, Double(answer)))
+//}
+//
+//find(n: 7, m: 23)
+//
+//func solution(n: Int, m : Int) -> Int {
+//  return (n ^ m) & -(n ^ m)
+//}
+//
+//
+
+//var a = 11
+//var b = 13
+//
+//a ^ b
+//-(a ^ b)
+//(a ^ b) & -(a ^ b)
+
+
+//You're given two integers, n and m. Find position of the rightmost pair of equal bits in their binary representations (it is guaranteed that such a pair exists), counting from right to left.
+//
+//Return the value of 2position_of_the_found_pair (0-based).
+
+// опять в лоб
+// опять один тест не прошел
+
+
+//func solution(n: Int, m : Int) -> Int {
+//  return find(n: n, m: m)
+//}
+//
+//func find(n: Int, m: Int) -> Int {
+//    var nBin = String(n, radix: 2).map { String($0)}
+//    var mBin = String(m, radix: 2).map { String($0)}
+//    var answer = 0
+//
+//    for i in 0 ..< [nBin.count, mBin.count].min()! {
+//        if nBin[nBin.count - i - 1] == mBin[mBin.count - i - 1] {
+//            answer = i
+//            break
+//        } else {
+//            answer = [nBin.count, mBin.count].min()! + 1
+//        }
+//    }
+//    return Int(pow(2.0, Double(answer)))
+//}
+
+//func solution(n: Int, m : Int) -> Int {
+//  return ~(n ^ m) & ((n ^ m) + 1)
+//}
+
+
