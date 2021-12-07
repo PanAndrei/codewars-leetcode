@@ -139,3 +139,116 @@
 //    }
 //    return total
 //}
+
+
+//A little child is studying arithmetic. They have just learned how to add two integers, written one below another, column by column. But the child always forgets about the important part - carrying.
+//
+//Given two integers, your task is to find the result that the child will get.
+
+
+
+//func solution(param1: Int, param2: Int) -> Int {
+//    var arr1 = String(param1).map { Int(String($0)) }
+//    var arr2 = String(param2).map { Int(String($0)) }
+//    var resultArr: Array<Int> = []
+//
+//    if arr1.count < arr2.count {
+//        while arr1.count != arr2.count {
+//            arr1.insert(0, at: 0)
+//        }
+//    } else if arr2.count < arr1.count {
+//        while arr1.count != arr2.count {
+//            arr2.insert(0, at: 0)
+//        }
+//    }
+//
+//    for i in 0 ..< arr1.count {
+//        let num1 = arr1[arr1.count - 1 - i] ?? 0
+//        let num2 = arr2[arr2.count - 1 - i] ?? 0
+//        resultArr.append((num1 + num2) % 10)
+//    }
+//    var result = ""
+//    result = resultArr.reversed().map { String ($0) }.joined(separator: "")
+//    return Int(result)!
+//}
+//
+//solution(param1: 456, param2: 1734)
+//
+//func solution(param1: Int, param2: Int) -> Int {
+//    var total = 0
+//
+//    for n in 0...4 {
+//        let exponent = Int(pow(10.0, Double(n)))
+//        let digit = (param1 / exponent + param2 / exponent) % 10
+//        total += digit * exponent
+//    }
+//    return total
+//}
+
+//You have k apple boxes full of apples. Each square box of size m contains m × m apples. You just noticed two interesting properties about the boxes:
+//
+//The smallest box is size 1, the next one is size 2,..., all the way up to size k.
+//Boxes that have an odd size contain only yellow apples. Boxes that have an even size contain only red apples.
+//Your task is to calculate the difference between the number of red apples and the number of yellow apples.
+
+//func solution(k: Int) -> Int {
+//    var yellow = 0
+//    var red = 0
+//
+//    for i in 1 ... k {
+//        if i % 2 == 0 {
+//            red += i * i
+//        }else {
+//            yellow += i * i
+//        }
+//    }
+//
+//    return red - yellow
+//}
+//
+//solution(k: 5)
+//
+//func solution(k: Int) -> Int {
+//    var diff = 0
+//
+//    for i in 1...k {
+//        diff += i * (i % 2 == 0 ? i : -i)
+//    }
+//
+//    return diff
+//}
+
+//Define an integer's roundness as the number of trailing zeroes in it.
+//
+//Given an integer n, check if it's possible to increase n's roundness by swapping some pair of its digits.
+
+//func solution(n: Int) -> Bool {
+//    let arr = String(n).map { Int(String($0))! }
+//    var resulr = false
+//
+//    for i in 0 ..< arr.count - 1 {
+//        if arr[arr.count - 1 - i] != 0 && arr[arr.count - 2 - i] == 0 {
+//            resulr = true
+//            break
+//        }
+//    }
+//    return resulr
+//}
+//
+//
+//solution(n: 11000)
+
+// прикольно но я исходил из того что это должна была быть пара р]дом стоящих чисел
+
+//func solution(n: Int) -> Bool {
+//    var n = n
+//    
+//    while n % 10 < 1 {
+//        n /= 10
+//        print(n)
+//    }
+//
+//    return "\(n)".contains("0")
+//}
+//
+//solution(n: 902200100)
