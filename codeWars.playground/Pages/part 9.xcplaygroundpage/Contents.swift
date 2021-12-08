@@ -252,3 +252,103 @@
 //}
 //
 //solution(n: 902200100)
+
+//We want to turn the given integer into a number that has only one non-zero digit using a tail rounding approach. This means that at each step we take the last non 0 digit of the number and round it to 0 or to 10. If it's less than 5 we round it to 0 if it's larger than or equal to 5 we round it to 10 (rounding to 10 means increasing the next significant digit by 1). The process stops immediately once there is only one non-zero digit left.
+
+
+//func solution(n: Int) -> Int {
+//    guard n > 10 else {
+//        return n
+//    }
+//    var arrInt = String(n).map { Int(String($0))! }
+//
+//    for i in 0 ... arrInt.count - 2 {
+//        if arrInt[arrInt.count - 1 - i] < 5 {
+//            arrInt[arrInt.count - 1 - i] = 0
+//        } else {
+//            arrInt[arrInt.count - 1 - i] = 0
+//            arrInt[arrInt.count - 2 - i] += 1
+//        }
+//    }
+//
+//    var answ = arrInt.map{ String($0) }.reduce("", +)
+//    return Int(answ)!
+//}
+//
+//solution(n: 1)
+
+//func solution(n: Int) -> Int {
+//    var n = n, x = 10
+//
+//    while x < n {
+//        n += n%x < 5*x/10 ? -n%x : x-n%x
+//        x *= 10
+//    }
+//
+//    return n
+//}
+
+//When a candle finishes burning it leaves a leftover. makeNew leftovers can be combined to make a new candle, which, when burning down, will in turn leave another leftover.
+//
+//You have solutionNumber solution in your possession. What's the total number of solution you can burn, assuming that you create new solution as soon as you have enough leftovers?
+//
+//func solution(candlesNumber: Int, makeNew: Int) -> Int {
+//    var result = candlesNumber
+//    var candles = candlesNumber
+//    var rest = 0
+//
+//    while candles > 0 {
+//        rest += candles
+//        candles = rest / makeNew
+//        rest -= candles * makeNew
+//        result += candles
+//    }
+//    return result
+//}
+//
+//solution(candlesNumber: 5, makeNew: 3)
+//
+//// не понимаю как работает
+//
+//func soluti7on(solutionNumber: Int, makeNew: Int) -> Int {
+//    return solutionNumber + (solutionNumber - 1) / (makeNew - 1)
+//}
+//
+//
+//soluti7on(solutionNumber: 5, makeNew: 3)
+
+
+//Imagine a white rectangular grid of n rows and m columns divided into two parts by a diagonal line running from the upper left to the lower right corner. Now let's paint the grid in two colors according to the following rules:
+//
+//A cell is painted black if it has at least one point in common with the diagonal;
+//Otherwise, a cell is painted white.
+//Count the number of cells painted black.
+
+// прекрасно работает кроме одного какого то теста
+
+//func solution(n: Int, m: Int) -> Int {
+// let arr = [n, m]
+//
+//    if arr.min()! == 1 {
+//        return arr.max()!
+//    } else if arr.min()! == 2 {
+//        return arr.max()! * 2 - 4
+//    } else if Set(arr).count == 1 {
+//        return arr[0] * 3 - 2
+//    } else {
+//        return arr.max()! * 2 - 2
+//    }
+//}
+//
+//solution(n: 10000, m: 10000)
+
+// разобрать
+
+//func solution(n: Int, m: Int) -> Int {
+//    return m + n + gcd(m, n) - 2
+//}
+//
+//func gcd(_ a: Int, _ b: Int) -> Int {
+//    let remainder = a % b
+//    return remainder != 0 ? gcd(b, remainder) : b
+//}
