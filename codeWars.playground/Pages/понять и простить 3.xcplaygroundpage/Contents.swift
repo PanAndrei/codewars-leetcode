@@ -434,3 +434,35 @@ import Foundation
 //    if (arr.count < 2) {return arr}
 //    return [arr.last!] + arr.dropFirst().dropLast() + [arr.first!]
 //}
+
+//Remove a part of a given array between given 0-based indexes l and r (inclusive).
+
+//func solution(inputArray: [Int], l: Int, r: Int) -> [Int] {
+//    return inputArray.prefix(l) + inputArray.suffix(inputArray.count - r - 1)
+//}
+
+//solution(inputArray: [2, 3, 2, 3, 4, 5], l: 2, r: 4)
+//
+//func solution(inputArray: [Int], l: Int, r: Int) -> [Int] {
+//    var a = inputArray
+//    a.removeSubrange(l...r)
+//    return a
+//}
+
+//We define the middle of the array arr as follows:
+//
+//if arr contains an odd number of elements, its middle is the element whose index number is the same when counting from the beginning of the array and from its end;
+//if arr contains an even number of elements, its middle is the sum of the two elements whose index numbers when counting from the beginning and from the end of the array differ by one.
+//An array is called smooth if its first and its last elements are equal to one another and to the middle. Given an array arr, determine if it is smooth or not.
+
+//func solution(arr: [Int]) -> Bool {
+//    var middle = 0
+//    if arr.count % 2 != 0 {
+//        middle = arr[arr.count / 2]
+//    } else {
+//        middle = arr[arr.count / 2 - 1] + arr[arr.count / 2 ]
+//    }
+//    return (arr.first! + arr.last! + middle) / 3 == middle && (arr.first! + arr.last! + middle) / 3 == arr.first!
+//}
+//
+//solution(arr: [3, 4, 5])

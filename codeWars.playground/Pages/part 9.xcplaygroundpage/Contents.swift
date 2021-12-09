@@ -417,3 +417,23 @@
 //    if (arr.count < 2) {return arr}
 //    return [arr.last!] + arr.dropFirst().dropLast() + [arr.first!]
 //}
+
+//Given two arrays of integers a and b, obtain the array formed by the elements of a followed by the elements of b.
+
+//func solution(a: [Int], b: [Int]) -> [Int] {
+//return a + b
+//}
+
+//Remove a part of a given array between given 0-based indexes l and r (inclusive).
+
+//func solution(inputArray: [Int], l: Int, r: Int) -> [Int] {
+//    return inputArray.prefix(l) + inputArray.suffix(inputArray.count - r - 1)
+//}
+
+//solution(inputArray: [2, 3, 2, 3, 4, 5], l: 2, r: 4)
+//
+//func solution(inputArray: [Int], l: Int, r: Int) -> [Int] {
+//    var a = inputArray
+//    a.removeSubrange(l...r)
+//    return a
+//}
