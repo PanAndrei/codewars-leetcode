@@ -325,6 +325,9 @@
 //Count the number of cells painted black.
 
 // прекрасно работает кроме одного какого то теста
+// не работает на больших числах тк не учитывает что в каком то
+// месте может через границу квадратов пройти
+
 
 //func solution(n: Int, m: Int) -> Int {
 // let arr = [n, m]
@@ -339,16 +342,78 @@
 //        return arr.max()! * 2 - 2
 //    }
 //}
-//
-//solution(n: 10000, m: 10000)
+
 
 // разобрать
 
-//func solution(n: Int, m: Int) -> Int {
+//func solutio44n(n: Int, m: Int) -> Int {
 //    return m + n + gcd(m, n) - 2
 //}
 //
 //func gcd(_ a: Int, _ b: Int) -> Int {
 //    let remainder = a % b
 //    return remainder != 0 ? gcd(b, remainder) : b
+//}
+//
+//for i in 0 ... 1_000_000 {
+//    let a = Int.random(in: (1 ... 100000))
+//    let b = Int.random(in: (1 ... 100000))
+//    
+//    if solution(n: a, m: b) != solutio44n(n: a, m: b) {
+//        print(a, b)
+//        print(solution(n: a, m: b))
+//        print(solutio44n(n: a, m: b))
+//        break
+//    }
+//}
+
+//Given an integer size, return array of length size filled with 1s.
+
+//func solution(size: Int) -> [Int] {
+//return Array(repeating: 1, count: size)
+//}
+//
+//func solution(size: Int) -> [Int] {
+//    return (1...size).map{ _ in 1 }
+//}
+
+//Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
+
+//func solution(inputArray: [Int], elemToReplace: Int, substitutionElem: Int) -> [Int] {
+//    var arr = inputArray
+//    for element in 0 ..< arr.count {
+//        if arr[element] == elemToReplace {
+//            arr[element] = substitutionElem
+//        }
+//    }
+//    return arr
+//}
+//
+//func solution(inputArray: [Int], elemToReplace: Int, substitutionElem: Int) -> [Int] {
+//    return inputArray.map { $0 == elemToReplace ? substitutionElem : $0 }
+//}
+
+//Reversing an array can be a tough task, especially for a novice programmer. Mary just started coding, so she would like to start with something basic at first. Instead of reversing the array entirely, she wants to swap just its first and last elements.
+//
+//Given an array arr, swap its first and last elements and return the resulting array.
+//
+//func solution(arr: [Int]) -> [Int] {
+//    guard !arr.isEmpty else {
+//        return arr
+//    }
+//    var arrSol = arr
+//    var first = arr.first!
+//    var last = arr.last!
+//
+//    arrSol[0] = last
+//    arrSol[arr.count - 1] = first
+//    return arrSol
+//}
+//
+//solution(arr: [1,3,4,5,6,7])
+//
+//
+//func solution(arr: [Int]) -> [Int] {
+//    if (arr.count < 2) {return arr}
+//    return [arr.last!] + arr.dropFirst().dropLast() + [arr.first!]
 //}
