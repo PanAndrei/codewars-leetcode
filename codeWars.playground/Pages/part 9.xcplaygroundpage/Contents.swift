@@ -437,3 +437,77 @@
 //    a.removeSubrange(l...r)
 //    return a
 //}
+
+//The master launch sequence consists of several independent sequences for different systems. Your goal is to verify that all the individual system sequences are in strictly increasing order. In other words, for any two elements i and j (i < j) of the master launch sequence that belong to the same system (having systemNames[i] = systemNames[j]), their values should be in strictly increasing order (i.e. stepNumbers[i] < stepNumbers[j]).
+
+//https://app.codesignal.com/company-challenges/spacex/EcQD8xYZotKM77FKM
+
+// долгий алгоритм но работает
+
+//func solutioтn(systemNames: [String], stepNumbers: [Int]) -> Bool {
+//    guard systemNames.count > 1 else {
+//        return true
+//    }
+//    guard Set(systemNames).count > 1 else {
+//        return stepNumbers == stepNumbers.sorted() && Set(stepNumbers).count == stepNumbers.count
+//    }
+//
+//    var checked: Array<String> = []
+//
+//    for i in 0 ..< systemNames.count {
+//        let element = systemNames[i]
+//
+//        if checked.contains(element) {
+//            continue
+//        }
+//
+//        checked.append(element)
+//        var max = stepNumbers[i]
+//        for j in (1 + i) ..< systemNames.count {
+//            if systemNames[j] == element && stepNumbers[j] > max {
+//                max = stepNumbers[j]
+//            } else if systemNames[j] == element && max >= stepNumbers[j] {
+//                return false
+//            }
+//        }
+//        max = 0
+//    }
+//    return true
+//}
+//
+//solution(systemNames: ["Dragon",
+//                       "Falcon 9",
+//                       "Dragon",
+//                       "Falcon 9",
+//                       "Falcon 9",
+//                       "Dragon",
+//                       "Dragon",
+//                       "Dragon",
+//                       "Falcon 9"], stepNumbers: [1, 1, 3, 2, 4, 10, 20, 100, 4])
+//
+
+
+//func solution(arr: [Int]) -> [Int] {
+//    var newArr = arr
+//    if newArr.count % 2 != 0 {
+//        return arr
+//    } else {
+//        var middle = newArr[newArr.count / 2 - 1] + newArr[newArr.count / 2]
+//        newArr.remove(at: newArr.count / 2 - 1)
+//        newArr.remove(at: newArr.count / 2)
+//        newArr.insert(middle, at: newArr.count / 2)
+//        return newArr
+//    }
+//}
+//
+//solution(arr: [7, 2, 2, 5, 10, 7])
+
+//Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
+
+//func solution(statues: [Int]) -> Int {
+//    return (statues.max() ?? 0) - (statues.min() ?? 0) - statues.count + 1
+//}
+//
+//var statues = [6, 2, 3, 8]
+//
+//solution(statues: statues)

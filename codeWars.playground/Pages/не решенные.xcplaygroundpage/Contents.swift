@@ -127,3 +127,128 @@ import Foundation
 //}
 //
 //print(orderWeight("88 33 22 55 11 44"))
+
+
+// space x
+//The master launch sequence consists of several independent sequences for different systems. Your goal is to verify that all the individual system sequences are in strictly increasing order. In other words, for any two elements i and j (i < j) of the master launch sequence that belong to the same system (having systemNames[i] = systemNames[j]), their values should be in strictly increasing order (i.e. stepNumbers[i] < stepNumbers[j]).
+
+//https://app.codesignal.com/company-challenges/spacex/EcQD8xYZotKM77FKM
+
+// долгий алгоритм но работает
+
+//func solutioтn(systemNames: [String], stepNumbers: [Int]) -> Bool {
+//    guard systemNames.count > 1 else {
+//        return true
+//    }
+//    guard Set(systemNames).count > 1 else {
+//        return stepNumbers == stepNumbers.sorted() && Set(stepNumbers).count == stepNumbers.count
+//    }
+//
+//    var checked: Array<String> = []
+//
+//    for i in 0 ..< systemNames.count {
+//        let element = systemNames[i]
+//
+//        if checked.contains(element) {
+//            continue
+//        }
+//
+//        checked.append(element)
+//        var max = stepNumbers[i]
+//        for j in (1 + i) ..< systemNames.count {
+//            if systemNames[j] == element && stepNumbers[j] > max {
+//                max = stepNumbers[j]
+//            } else if systemNames[j] == element && max >= stepNumbers[j] {
+//                return false
+//            }
+//        }
+//        max = 0
+//    }
+//    return true
+//}
+//
+//solution(systemNames: ["Dragon",
+//                       "Dragon",
+//                       "Dragon",
+//                       "Dragon",
+//                       "dragon",
+//                       "Dragon",
+//                       "dragon"], stepNumbers: [1, 3, 5, 7, 7, 9, 8])
+//
+//// намного лучше но не до конца 14/16
+//
+//func solution(systemNames: [String], stepNumbers: [Int]) -> Bool {
+//    //    var numb = Array(repeating: Array(repeating: 0, count: (systemNames.count)), count: systemNames.count)
+//    var numb = [[Int]]()
+//
+//    for i in 0 ..< systemNames.count {
+//        let element = stepNumbers[i]
+//        let position = systemNames.firstIndex(of: systemNames[i])!
+//        numb.append([])
+//        if numb[position].contains(element) {
+//            return false
+//        }
+//        let max = numb[position].max() ?? 0
+//        if max > element {
+//            return false
+//        }
+//        numb[position].append(element)
+//    }
+//
+////    for element in numb {
+////        if element != Array(Set(element).sorted()) {
+////            return false
+////        }
+////    }
+//
+//    return true
+//}
+
+// лучшая попытка 15/16
+
+//func solution(systemNames: [String], stepNumbers: [Int]) -> Bool {
+//    var numb = [[Int]]()
+//
+//    for i in 0 ..< systemNames.count {
+//        let element = stepNumbers[i]
+//        let position = systemNames.firstIndex(of: systemNames[i])!
+//        numb.append([0])
+//        if numb[position].contains(element) {
+//            return false
+//        }
+//        numb[position].append(element)
+//        if numb[position] != numb[position].sorted() {
+//            return false
+//        }
+//    }
+//    return true
+//}
+
+// еще лучше но но прокатывает
+
+//func solution(systemNames: [String], stepNumbers: [Int]) -> Bool {
+//    var numb = [Int]()
+//    var checked = [String]()
+//
+//    for i in 0 ..< systemNames.count {
+//        if !checked.contains(systemNames[i]) {
+//            numb.append(0)
+//            checked.append(systemNames[i])
+//        }
+//        let element = stepNumbers[i]
+//        let position = checked.firstIndex(of: systemNames[i])!
+//        if numb[position] < element {
+//            numb[position] = element
+//        } else {
+//            return false
+//        }
+//    }
+//    return true
+//}
+//
+//if arr contains an odd number of elements, its middle is the element whose index number is the same when counting from the beginning of the array and from its end;
+//if arr contains an even number of elements, its middle is the sum of the two elements whose index numbers when counting from the beginning and from the end of the array differ by one.
+//Given array arr, your task is to find its middle, and, if it consists of two elements, replace those elements with the value of middle. Return the resulting array as the answer.
+
+
+

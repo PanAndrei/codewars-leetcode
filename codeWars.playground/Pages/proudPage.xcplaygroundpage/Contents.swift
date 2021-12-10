@@ -227,4 +227,26 @@ import Foundation
 //    }
 //        return String(answerArr)
 //}
-
+ 
+// part 9 - 400
+//func solution(systemNames: [String], stepNumbers: [Int]) -> Bool {
+//    var numb = [[Int]]()
+//    var checked = [String]()
+//
+//    for i in 0 ..< systemNames.count {
+//        if !checked.contains(systemNames[i]) {
+//            numb.append([0])
+//            checked.append(systemNames[i])
+//        }
+//        let element = stepNumbers[i]
+//        let position = checked.firstIndex(of: systemNames[i])!
+//        if numb[position][0] < element {
+//            numb[position][0] = element
+//        } else {
+//            print(numb)
+//            return false
+//        }
+//    }
+//    print(numb)
+//    return true
+//}
