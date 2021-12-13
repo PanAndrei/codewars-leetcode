@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-import Foundation
+//import Foundation
 
 /// from the first try!
 
@@ -250,3 +250,19 @@ import Foundation
 //    print(numb)
 //    return true
 //}
+
+//Consider a sequence of numbers a0, a1, ..., an, in which an element is equal to the sum of squared digits of the previous element. The sequence ends once an element that has already been in the sequence appears again.
+//
+//Given the first element a0, find the length of the sequence.
+
+//func solution(a0: Int) -> Int {
+//    var array: Array<Int> = [a0]
+//    while array.count == Set(array).count {
+//        let nextNum = String(array.last!).map{ Int(String($0))! }.reduce(0) { (total, number) in
+//            total + Int(pow(Double(number), 2)) }
+//        array.append(nextNum)
+//    }
+//    return array.count
+//}
+//
+//solution(a0: 103)

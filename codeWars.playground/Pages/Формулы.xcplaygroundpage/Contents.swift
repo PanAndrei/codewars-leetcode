@@ -32,3 +32,5 @@
 //    }
 //
 //}
+
+//stride(from: max, through: 2, by: -1) 
