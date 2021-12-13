@@ -87,3 +87,109 @@ import Darwin
 //
 //solution(current: 9, numberOfDigits: 4)
 //
+
+//Let's say that number a feels comfortable with number b if a ≠ b and b lies in the segment [a - s(a), a + s(a)], where s(x) is the sum of x's digits.
+//
+//How many pairs (a, b) are there, such that a < b, both a and b lie on the segment [l, r], and each number feels comfortable with the other (so a feels comfortable with b and b feels comfortable with a)?
+//
+//func solution(l: Int, r: Int) -> Int {
+//    var arr = Array(repeating: Array(repeating: 0, count: 2), count: (r - l + 1))
+//    var count = 0
+//    var result = 0
+//
+//    for i in l ... r {
+//        arr[count].append(findRangeMin(num: i))
+//        arr[count].append(findRangeMax(num: i))
+//        arr[count].removeFirst()
+//        arr[count].removeFirst()
+//        count += 1
+//    }
+//
+//    for i in 0 ..< arr.count - 1 {
+//        for j in 1 ..< arr.count {
+//            guard i + j <= arr.count - 1 else {
+//                continue
+//            }
+//            if (arr[i + j][0] ... arr[i + j][1]).contains((arr[i][0] + arr[i][1]) / 2) &&
+//                (arr[i][0] ... arr[i][1]).contains((arr[i + j][0] + arr[i + j][1]) / 2) {
+//                result += 1
+//            }
+//        }
+//    }
+//    return result
+//}
+//
+//func findRangeMin (num: Int) -> Int {
+//    return num - String(num).map { Int(String($0))! }.reduce(0, +)
+//}
+//
+//func findRangeMax (num: Int) -> Int {
+//    return num + String(num).map { Int(String($0))! }.reduce(0, +)
+//}
+//
+//solution(l: 10, r: 12)
+//
+//// как по другому сумму цифр брать
+//// можно было проще без массивов
+//
+//func getDigitsSum() -> Int {
+//   var sum = 0
+//   var num = self
+//
+//   while num > 0 {
+//       let x = num % 10
+//       sum += x
+//       num = num / 10
+//   }
+//
+//   return sum
+//   }
+
+//We define the weakness of number x as the number of positive integers smaller than x that have more divisors than x.
+//
+//It follows that the weaker the number, the greater overall weakness it has. For the given integer n, you need to answer two questions:
+//
+//what is the weakness of the weakest numbers in the range [1, n]?
+//how many numbers in the range [1, n] have this weakness?
+//Return the answer as an array of two elements, where the first element is the answer to the first question, and the second element is the answer to the second question.
+//
+//extension Int {
+//    func getDivisorsNum() -> Int {
+//        var sum = 0
+//        let num = self
+//        
+//        for i in 1 ... num{
+//            if num % i == 0 {
+//                sum += 1
+//            }
+//        }
+//        return sum
+//    }
+//}
+//
+//func moreThanIt(arr: [Int], num: Int) -> Int {
+//    return arr.filter { $0 > num }.count
+//}
+//
+//func solution(n: Int) -> [Int] {
+//    var arrDivisors = [Int]()
+//    var weakness = [Int]()
+//    var answer = [Int]()
+//    
+//    for i in 1 ... n {
+//        arrDivisors.append(i.getDivisorsNum())
+//        guard i > 2 else {
+//            weakness.append(0)
+//            continue
+//        }
+//        var arr = Array(arrDivisors[0 ... (i - 2)])
+//        var num = arrDivisors[i - 1]
+//        weakness.append(moreThanIt(arr: arr, num: num))
+//    }
+//    let max = weakness.max()!
+//    answer.append(max)
+//    answer.append(weakness.filter { $0 == max }.count)
+//    return answer
+//}
+//
+//solution(n: 9)

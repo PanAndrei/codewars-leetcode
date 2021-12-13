@@ -466,3 +466,61 @@ import Foundation
 //}
 //
 //solution(arr: [3, 4, 5])
+
+
+//Let's say that number a feels comfortable with number b if a ≠ b and b lies in the segment [a - s(a), a + s(a)], where s(x) is the sum of x's digits.
+//
+//How many pairs (a, b) are there, such that a < b, both a and b lie on the segment [l, r], and each number feels comfortable with the other (so a feels comfortable with b and b feels comfortable with a)?
+//
+//func solution(l: Int, r: Int) -> Int {
+//    var arr = Array(repeating: Array(repeating: 0, count: 2), count: (r - l + 1))
+//    var count = 0
+//    var result = 0
+//
+//    for i in l ... r {
+//        arr[count].append(findRangeMin(num: i))
+//        arr[count].append(findRangeMax(num: i))
+//        arr[count].removeFirst()
+//        arr[count].removeFirst()
+//        count += 1
+//    }
+//
+//    for i in 0 ..< arr.count - 1 {
+//        for j in 1 ..< arr.count {
+//            guard i + j <= arr.count - 1 else {
+//                continue
+//            }
+//            if (arr[i + j][0] ... arr[i + j][1]).contains((arr[i][0] + arr[i][1]) / 2) &&
+//                (arr[i][0] ... arr[i][1]).contains((arr[i + j][0] + arr[i + j][1]) / 2) {
+//                result += 1
+//            }
+//        }
+//    }
+//    return result
+//}
+//
+//func findRangeMin (num: Int) -> Int {
+//    return num - String(num).map { Int(String($0))! }.reduce(0, +)
+//}
+//
+//func findRangeMax (num: Int) -> Int {
+//    return num + String(num).map { Int(String($0))! }.reduce(0, +)
+//}
+//
+//solution(l: 10, r: 12)
+//
+//// как по другому сумму цифр брать
+//// можно было проще без массивов
+//
+//func getDigitsSum() -> Int {
+//   var sum = 0
+//   var num = self
+//
+//   while num > 0 {
+//       let x = num % 10
+//       sum += x
+//       num = num / 10
+//   }
+//
+//   return sum
+//   }
