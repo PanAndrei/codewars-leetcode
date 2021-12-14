@@ -193,3 +193,37 @@ import Darwin
 //}
 //
 //solution(n: 9)
+
+
+//A rectangle with sides equal to even integers a and b is drawn on the Cartesian plane. Its center (the intersection point of its diagonals) coincides with the point (0, 0), but the sides of the rectangle are not parallel to the axes; instead, they are forming 45 degree angles with the axes.
+//
+//How many points with integer coordinates are located inside the given rectangle (including on its sides)?
+
+//func solution(a: Int, b: Int) -> Int {
+//    var total = 0
+//    var numA = 0
+//    var numB = 0
+//
+//    numA = Int(Double(a) / sqrt(2)) + 1
+//    numB = Int(Double(b) / sqrt(2)) + 1
+//
+//    total = (numA * numB) + (numA - 1) * (numB - 1)
+//
+//    return total % 2 == 0 ? total - 1 : total
+//}
+//
+//solution(a: 8, b: 6)
+//
+//func solutionn(a: Int, b: Int) -> Int {
+//    let a = floor(Float(a) / 2 / sqrt(2.0) * 2), b = floor(Float(b) / 2 / sqrt(2.0) * 2)
+//    let s = Int(a * b + (a + 1) * (b + 1))
+//    return s - (s - 1) % 2 * 1
+//}
+
+//You're a crossword fanatic, and have finally decided to try and create your own. However, you also love symmetry and good design, so you come up with a set of rules they should follow:
+//
+//the crossword must contain exactly four words;
+//these four words should form four pairwise intersections;
+//all words must be written either left-to-right or top-to-bottom;
+//the area of the rectangle formed by empty cells inside the intersections isn't equal to zero.
+//Given 4 words, find the number of ways to make a crossword following the above-described rules. Note that two crosswords which differ by rotation are considered different.
