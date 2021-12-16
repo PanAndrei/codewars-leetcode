@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Darwin
+import Foundation
 
 //Determine if the given number is a power of some non-negative integer.
 
@@ -349,3 +350,65 @@ import Darwin
 //        }
 //        return count
 //    }
+
+
+//Given a string, enclose it in round brackets.
+
+//func solution(inputString: String) -> String {
+//return "(" + inputString + ")"
+//}
+
+//Proper nouns always begin with a capital letter, followed by small letters.
+//
+//Correct a given proper noun so that it fits this statement.
+
+
+//let a = "a"
+//let A = "A"
+//97
+//122
+//65
+//90
+//
+//Character(a).asciiValue
+//Character(A).asciiValue
+//
+//func solution(noun: String) -> String {
+//    var arr = noun.map { $0 }
+//    var newArr = [String]()
+//    var answer = ""
+//
+//    for i in 0 ..< arr.count {
+//        if i == 0 {
+//            if (97 ... 122).contains(arr[i].asciiValue!) {
+//                arr[i] = Character(UnicodeScalar(arr[i].asciiValue! - 32))
+//            }
+//        } else {
+//            if (65 ... 90).contains(arr[i].asciiValue!) {
+//                arr[i] = Character(UnicodeScalar(arr[i].asciiValue! + 32))
+//            }
+//        }
+//    }
+//    newArr = arr.map { String($0) }
+//    answer = newArr.joined(separator: "")
+//
+//    return answer
+//}
+
+//solution(noun: "ffHHfbf")
+
+// этих методов уже нет
+//func solution(noun: String) -> String {
+//    let s = noun.lowercased()
+//
+//    let f = String(s.characters.prefix(1)).capitalized
+//    let o = String(s.characters.dropFirst())
+//    return f + o
+//}
+
+var gg = "HHnnnKhuh"
+
+NSString(string: gg).uppercased
+NSString(string: gg).lowercased
+NSString(string: gg).capitalized
+

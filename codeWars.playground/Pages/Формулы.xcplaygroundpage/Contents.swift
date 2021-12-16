@@ -34,3 +34,13 @@
 //}
 
 //stride(from: max, through: 2, by: -1) 
+
+
+//    newArr = arr.map { String($0) }
+//    answer = newArr.joined(separator: "")
+
+//var gg = "HHnnnKhuh"
+//
+//NSString(string: gg).uppercased
+//NSString(string: gg).lowercased
+//NSString(string: gg).capitalized
