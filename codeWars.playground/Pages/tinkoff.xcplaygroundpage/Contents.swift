@@ -83,19 +83,19 @@ var answer = [Int]()
 //print(normal)
 
 
-var a1 = Array([1,2, 3, 4, 6, 7, 8, 9].reversed())
-var a2 = Array([3, 5, 7, 8, 9].reversed())
-var a3 = Array([1, 2, 5, 7, 8, 9].reversed())
-var a4 = Array([3, 4, 5, 6, 7, 8].reversed())
-var a5 = Array([1, 3, 5, 7, 9].reversed())
-var a6 = Array([3, 5, 6, 7].reversed())
-var a7 = Array([2, 5, 6, 7, 8, 9].reversed())
-var a8 = [9]
-var a9 = Array([4, 8].reversed())
-var a10 = Array([2, 5, 6, 7].reversed())
-
-var all = [a1,a2,a3,a4,a5,a6,a7,a8,a9,a10]
-var ans = ""
+//var a1 = Array([1,2, 3, 4, 6, 7, 8, 9].reversed())
+//var a2 = Array([3, 5, 7, 8, 9].reversed())
+//var a3 = Array([1, 2, 5, 7, 8, 9].reversed())
+//var a4 = Array([3, 4, 5, 6, 7, 8].reversed())
+//var a5 = Array([1, 3, 5, 7, 9].reversed())
+//var a6 = Array([3, 5, 6, 7].reversed())
+//var a7 = Array([2, 5, 6, 7, 8, 9].reversed())
+//var a8 = [9]
+//var a9 = Array([4, 8].reversed())
+//var a10 = Array([2, 5, 6, 7].reversed())
+//
+//var all = [a1,a2,a3,a4,a5,a6,a7,a8,a9,a10]
+//var ans = ""
 
 //for i in 0 ..< normal.count {
 //    ans += String(all[i][normal[i]])

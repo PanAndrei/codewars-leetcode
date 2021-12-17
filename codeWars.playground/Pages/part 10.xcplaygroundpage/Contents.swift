@@ -406,9 +406,19 @@ import Foundation
 //    return f + o
 //}
 
-var gg = "HHnnnKhuh"
+//var gg = "HHnnnKhuh"
+//
+//NSString(string: gg).uppercased
+//NSString(string: gg).lowercased
+//NSString(string: gg).capitalized
 
-NSString(string: gg).uppercased
-NSString(string: gg).lowercased
-NSString(string: gg).capitalized
 
+//Determine whether the given string can be obtained by one concatenation of some string to itself.
+
+//func solution(inputString: String) -> Bool {
+//    let indexR = inputString.index(inputString.startIndex, offsetBy: (inputString.count / 2 - 1))
+//    let newStr = inputString[inputString.startIndex ... indexR]
+//    return (newStr + newStr) == inputString
+//}
+//
+//solution(inputString: "tandemtandem")
