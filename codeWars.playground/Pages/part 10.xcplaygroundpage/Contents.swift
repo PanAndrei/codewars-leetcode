@@ -422,3 +422,28 @@ import Foundation
 //}
 //
 //solution(inputString: "tandemtandem")
+
+
+//Given a string, check if it can become a palindrome through a case change of some (possibly, none) letters.
+
+//var bb = "vbn"
+//var tt = String(bb.reversed())
+//
+//func solution(inputString: String) -> Bool {
+//    return NSString(string: inputString).lowercased == NSString(string: String(inputString.reversed())).lowercased
+//}
+//
+//solution(inputString: "AaBaac")
+
+//An email address such as "John.Smith@example.com" is made up of a local part ("John.Smith"), an "@" symbol, then a domain part ("example.com").
+//
+//The domain name part of an email address may only consist of letters, digits, hyphens and dots. The local part, however, also allows a lot of different special characters. Here you can look at several examples of correct and incorrect email addresses.
+//
+//Given a valid email address, find its domain part.
+
+//func solution(address: String) -> String {
+//    return address.components(separatedBy: "@").last!
+//}
+//
+//solution(address: "kdfh@kndvnk")
+
