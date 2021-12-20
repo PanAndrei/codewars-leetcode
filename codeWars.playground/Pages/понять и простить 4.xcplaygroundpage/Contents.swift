@@ -129,3 +129,27 @@
 //        }
 //        return count
 //    }
+
+//func solution(startTag: String) -> String {
+//    var tag = startTag.components(separatedBy: " ").first ?? ""
+//    tag += tag.contains(">") ? "" : ">"
+//    let closingTag = tag.replacingOccurrences(of: "<", with: "</")
+//    return closingTag
+//}
+
+// разобраться
+
+
+//Given two filenames, check whether they form an unstable pair.
+
+//func solution(filename1: String, filename2: String) -> Bool {
+//    return [filename1, filename2].max()!.lowercased() != String([NSString(string: filename1).uppercased, NSString(string: filename2).uppercased].max()!).lowercased()
+//}
+//
+//solution(filename1: "A", filename2: "z")
+
+//func solution(filename1: String, filename2: String) -> Bool {
+//    let before = filename1.compare(filename2)
+//    let after = filename1.caseInsensitiveCompare(filename2)
+//    return before != after
+//}

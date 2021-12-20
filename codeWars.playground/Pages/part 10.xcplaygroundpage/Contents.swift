@@ -447,3 +447,66 @@ import Foundation
 //
 //solution(address: "kdfh@kndvnk")
 
+//You are implementing your own HTML editor. To make it more comfortable for developers you would like to add an auto-completion feature to it.
+//
+//Given the starting HTML tag, find the appropriate end tag which your editor should propose.
+//
+//If you are not familiar with HTML, consult with this note.
+
+//func solution(startTag: String) -> String {
+//    var tag = startTag.components(separatedBy: " ").first ?? ""
+//    tag += tag.contains(">") ? "" : ">"
+//    let closingTag = tag.replacingOccurrences(of: "<", with: "</")
+//    return closingTag
+//}
+
+//A media access control address (MAC address) is a unique identifier assigned to network interfaces for communications on the physical network segment.
+//
+//The standard (IEEE 802) format for printing MAC-48 addresses in human-friendly form is six groups of two hexadecimal digits (0 to 9 or A to F), separated by hyphens (e.g. 01-23-45-67-89-AB).
+//
+//Your task is to check by given string inputString whether it corresponds to MAC-48 address or not.
+//
+//func solution(inputString: String) -> Bool {
+//    guard inputString.count == 17 else {
+//        return false
+//    }
+//
+//    let newSrt = inputString.components(separatedBy: "-")
+//    guard newSrt.count == 6 else {
+//        return false
+//    }
+//    
+//    for element in newSrt {
+//        if UInt8(element, radix: 16) == nil {
+//            return false
+//        }
+//    }
+//    return true
+//}
+//
+//solution(inputString: "00-1B-63-84-45-E6")
+//
+//var gg = "00-1B-63-84-45-E6"
+//gg.count
+//var tj = gg.components(separatedBy: "-")
+//UInt8(tj[1], radix: 16)
+
+//Some file managers sort filenames taking into account case of the letters, others compare strings as if all of the letters are of the same case. That may lead to different ways of filename ordering.
+//
+//Call two filenames an unstable pair if their ordering depends on the case.
+//
+//To compare two filenames a and b, find the first position i at which a[i] ≠ b[i]. If a[i] < b[i], then a < b. Otherwise a > b. If such position doesn't exist, the shorter string goes first.
+//
+//Given two filenames, check whether they form an unstable pair.
+
+//func solution(filename1: String, filename2: String) -> Bool {
+//    return [filename1, filename2].max()!.lowercased() != String([NSString(string: filename1).uppercased, NSString(string: filename2).uppercased].max()!).lowercased()
+//}
+//
+//solution(filename1: "A", filename2: "z")
+
+//func solution(filename1: String, filename2: String) -> Bool {
+//    let before = filename1.compare(filename2)
+//    let after = filename1.caseInsensitiveCompare(filename2)
+//    return before != after
+//}
