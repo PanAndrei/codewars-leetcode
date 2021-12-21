@@ -153,3 +153,51 @@
 //    let after = filename1.caseInsensitiveCompare(filename2)
 //    return before != after
 //}
+
+//A ciphertext alphabet is obtained from the plaintext alphabet by means of rearranging some characters. For example "bacdef...xyz" will be a simple ciphertext alphabet where a and b are rearranged.
+////
+////A substitution cipher is a method of encoding where each letter of the plaintext alphabet is replaced with the corresponding (i.e. having the same index) letter of some ciphertext alphabet.
+////
+////Given two strings, check whether it is possible to obtain them from each other using some (possibly, different) substitution ciphers.
+//
+//func solution7(string1: String, string2: String) -> Bool {
+//    let arr1 = string1.map { $0.asciiValue! }
+//    let arr2 = string2.map { $0.asciiValue! }
+//    print(arr1)
+//    print(arr2)
+//
+//    for i in 0 ..< arr1.count - 2 {
+//        if arr1[i] == arr2[i] {
+//            continue
+//        } else if abs(Int(arr1[i] - arr2[i])) != abs(Int(arr1[(i + 1)] - arr2[(i + 1)])) {
+//            return false
+//        }
+//    }
+//    return true
+//}
+//
+////solution(string1: "abcd", string2: "acbd")
+//
+//func solution(string1: String, string2: String) -> Bool {
+//    let arr1 = string1.map { $0.asciiValue! }
+//    let arr2 = string2.map { $0.asciiValue! }
+//
+//
+//    for i in 0 ... arr1.count - 2 {
+//        if arr1[i] == arr2[i] {
+//            continue
+//        } else if abs(Int(arr1[i]) - Int(arr2[i])) != abs(Int(arr1[i + 1]) - Int(arr2[i + 1])) || abs(Int(arr1[i]) - Int(arr2[i])) != abs(Int(arr1[i - 1]) - Int(arr2[i - 1]))
+//        {
+//
+//            return false
+//        }
+//    }
+//    return true
+//}
+//
+//solution(string1: "abcd", string2: "acbd")
+//
+//
+//func solfution(string1: String, string2: String) -> Bool {
+//    return Set(Array(zip(Array(string1).map { String($0) }, Array(string2).map { String($0) })).map { $0.0 + $0.1 }).count == Set(Array(string1)).count && Set(Array(string1)).count == Set(Array(string2)).count
+//}
