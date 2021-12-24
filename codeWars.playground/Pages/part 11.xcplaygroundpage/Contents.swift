@@ -100,3 +100,22 @@ import Foundation
 //func solfution(string1: String, string2: String) -> Bool {
 //    return Set(Array(zip(Array(string1).map { String($0) }, Array(string2).map { String($0) })).map { $0.0 + $0.1 }).count == Set(Array(string1)).count && Set(Array(string1)).count == Set(Array(string2)).count
 //}
+
+//You are given two strings s and t of the same length, consisting of uppercase English letters. Your task is to find the minimum number of "replacement operations" needed to get some anagram of the string t from the string s. A replacement operation is performed by picking exactly one character from the string s and replacing it by some other character.
+
+//func solution(s: String, t: String) -> Int {
+//    var arrS = s.map { String($0) }
+//    var arrT = t.map { String($0) }
+//
+//    for element in arrS  {
+//        if arrT.contains(element) {
+//            let indexS = arrS.firstIndex(of: element)!
+//            let indext = arrT.firstIndex(of: element)!
+//            arrS.remove(at: indexS)
+//            arrT.remove(at: indext)
+//        }
+//    }
+//    return arrT.count
+//}
+//
+//solution(s: "OVGHK", t: "RPGUC")
