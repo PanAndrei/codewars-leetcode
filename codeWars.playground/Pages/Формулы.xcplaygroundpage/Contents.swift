@@ -78,3 +78,8 @@
 //print(b4) // "1111101011001110"
 //Share
 //Improve this ans
+
+//// ceil округляет до верхнего
+// a.count + Set( a.map{ Int(ceil(Double($0) / 10000.0 )) }).count
+
+
