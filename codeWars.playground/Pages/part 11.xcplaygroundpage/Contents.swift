@@ -190,7 +190,7 @@ import Foundation
 //each number in a group occupies one line.
 //Calculate how many lines the resulting text file will have.
 
-//let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
+let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 
 
 //// работает но слишком долго
@@ -229,8 +229,73 @@ import Foundation
 //    var gs = Set<Int>()
 //    for i in a {
 //        let g = (i - 1 ) / 10000
+//        print(i, g)
 //        gs.insert(g + 1)
 //    }
+//    print(a.sorted(), gs.sorted())
 //    return a.count + gs.count
 //}
+//
+//solution(a: a)
 
+//Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+
+//let matrix = [[1, 2, 1],
+//              [2, 2, 2],
+//              [2, 2, 2],
+//              [1, 2, 3],
+//              [2, 2, 1]]
+//
+//func solution(matrix: [[Int]]) -> Int {
+//var arrCheck = [[Int]]()
+//    for i in 0 ..< matrix.count - 1 {
+//        for j in 0 ..< matrix[0].count - 1 {
+//            var element = [Int]()
+//            element.append(matrix[i][j])
+//            element.append(matrix[i][j + 1])
+//            element.append(matrix[i + 1][j])
+//            element.append(matrix[i + 1][j + 1])
+//            if !arrCheck.contains(element) {
+//                arrCheck.append(element)
+//            }
+//        }
+//    }
+//    return arrCheck.count
+//}
+//
+//solution(matrix: matrix)
+
+//A step(x) operation works like this: it changes a number x into x - s(x), where s(x) is the sum of x's digits. You like applying functions to numbers, so given the number n, you decide to build a decreasing sequence of numbers: n, step(n), step(step(n)), etc., with 0 as the last element.
+//
+//Building a single sequence isn't enough for you, so you replace all elements of the sequence with the sums of their digits (s(x)). Now you're curious as to which number appears in the new sequence most often. If there are several answers, return the maximal one.
+//
+//func solution(n: Int) -> Int {
+//    var arrNum = [Int]()
+//    var num = n
+//    
+//    while num > 0 {
+//        var sX = String(num).map { Int(String($0))!}.reduce(0, +)
+//        arrNum.append(sX)
+//        num = num - sX
+//    }
+//    var arrRepeats = [Int]()
+//    var arrAns = 0
+//    var answer = 0
+//    print(arrNum)
+//    
+//    for element in arrNum {
+//        if !arrRepeats.contains(element) {
+//            arrRepeats.append(element)
+//            if arrNum.filter { $0 == element}.count >= arrAns {
+//                arrAns = arrNum.filter { $0 == element}.count
+//                answer = element
+//                if element > answer {
+//                    answer = element
+//                }
+//            }
+//        }
+//    }
+//    return answer
+//}
+//
+//solution(n: 88)
