@@ -272,7 +272,7 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //func solution(n: Int) -> Int {
 //    var arrNum = [Int]()
 //    var num = n
-//    
+//
 //    while num > 0 {
 //        var sX = String(num).map { Int(String($0))!}.reduce(0, +)
 //        arrNum.append(sX)
@@ -282,7 +282,7 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //    var arrAns = 0
 //    var answer = 0
 //    print(arrNum)
-//    
+//
 //    for element in arrNum {
 //        if !arrRepeats.contains(element) {
 //            arrRepeats.append(element)
@@ -299,3 +299,103 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //}
 //
 //solution(n: 88)
+
+//Let's call two integers A and B friends if each integer from the array divisors is either a divisor of both A and B or neither A nor B. If two integers are friends, they are said to be in the same clan. How many clans are the integers from 1 to k, inclusive, broken into?
+//
+//Example
+//
+//For divisors = [2, 3] and k = 6, the output should be
+//solution(divisors, k) = 4.
+//
+//The numbers 1 and 5 are friends and form a clan, 2 and 4 are friends and form a clan, and 3 and 6 do not have friends and each is a clan by itself. So the numbers 1 through 6 are broken into 4 clans.
+
+//
+//func divis(divis: [Int], k: Int) -> String {
+//    var answer = ""
+//    for i in 0 ..< divis.count {
+//        if k % divis[i] == 0 {
+//            answer += String(i)
+//        }
+//    }
+//    return answer
+//}
+//
+//func notDivis(divis: [Int], k: Int) -> String {
+//    var answer = ""
+//    for i in 0 ..< divis.count {
+//        if k % divis[i] != 0 {
+//            answer += String(i)
+//        }
+//    }
+//    return answer
+//}
+//
+//
+//func solution(divisors: [Int], k: Int) -> Int {
+//    var checkedInt = [Int]()
+//    var count = 0
+//    
+//    for i in 1 ... k {
+//        var friends = [Int]()
+//        if !checkedInt.contains(i) {
+//            for j in 1 ... k {
+//                if i != j && !checkedInt.contains(j) {
+//                    if divis(divis: divisors, k: i) == divis(divis: divisors, k: j) {
+//                        checkedInt.append(i)
+//                        checkedInt.append(j)
+//                        friends.append(i)
+//                        friends.append(j)
+//                    }
+//                }
+//            }
+//        }
+//        if friends.count > 0 {
+//            count += 1
+//        }
+//        friends = []
+//    }
+//    print(checkedInt)
+//    
+//    for i in 2 ... k {
+//        var friends = [Int]()
+//        if !checkedInt.contains(i) {
+//            for j in 2 ... k {
+//                if i != j && !checkedInt.contains(j) {
+//                    if notDivis(divis: divisors, k: i) == notDivis(divis: divisors, k: j) {
+//                        checkedInt.append(i)
+//                        checkedInt.append(j)
+//                        friends.append(i)
+//                        friends.append(j)
+//                    }
+//                }
+//            }
+//        }
+//        if friends.count > 0 {
+//            count += 1
+//        }
+//        friends = []
+//    }
+//    print(checkedInt)
+//    
+//    return count + (k - Set(checkedInt).count)
+//}
+//
+//solution(divisors: [2, 3], k: 6)
+//
+//// а можно было лучше
+//func solution(divisors: [Int], k: Int) -> Int {
+//    var s = Set<String>()
+//    
+//    for i in 1...k {
+//        var d = ""
+//        for j in 0..<divisors.count {
+//            if i % divisors[j] == 0 {
+//                d += "\(divisors[j])"
+//            }
+//        }
+//        s.insert(d)
+//    }
+//    
+//    return s.count
+//
+//}
