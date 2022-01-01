@@ -334,7 +334,7 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //func solution(divisors: [Int], k: Int) -> Int {
 //    var checkedInt = [Int]()
 //    var count = 0
-//    
+//
 //    for i in 1 ... k {
 //        var friends = [Int]()
 //        if !checkedInt.contains(i) {
@@ -355,7 +355,7 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //        friends = []
 //    }
 //    print(checkedInt)
-//    
+//
 //    for i in 2 ... k {
 //        var friends = [Int]()
 //        if !checkedInt.contains(i) {
@@ -376,7 +376,7 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //        friends = []
 //    }
 //    print(checkedInt)
-//    
+//
 //    return count + (k - Set(checkedInt).count)
 //}
 //
@@ -395,7 +395,58 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //        }
 //        s.insert(d)
 //    }
-//    
+//
 //    return s.count
 //
 //}
+
+//A boy is walking a long way from school to his home. To make the walk more fun he decides to add up all the numbers of the houses that he passes by during his walk. Unfortunately, not all of the houses have numbers written on them, and on top of that the boy is regularly taking turns to change streets, so the numbers don't appear to him in any particular order.
+//
+//At some point during the walk the boy encounters a house with number 0 written on it, which surprises him so much that he stops adding numbers to his total right after seeing that house.
+//
+//For the given sequence of houses determine the sum that the boy will get. It is guaranteed that there will always be at least one 0 house on the path.
+
+//func solution(inputArray: [Int]) -> Int {
+//var answer = 0
+//    for element in inputArray {
+//        if element != 0 {
+//            answer += element
+//        } else {
+//            return answer
+//        }
+//    }
+//    return answer
+//}
+
+//Given an array of strings, return another array containing all of its longest strings.
+
+//func solution(inputArray: [String]) -> [String] {
+//    var length = 0
+//    var answer = [String]()
+//    for element in inputArray {
+//        if element.count > length {
+//            length = element.count
+//        }
+//    }
+//    for element in inputArray {
+//        if element.count == length {
+//            answer.append(element)
+//        }
+//    }
+//    return answer
+//}
+
+//There are some people and cats in a house. You are given the number of legs they have all together. Your task is to return an array containing every possible number of people that could be in the house sorted in ascending order. It's guaranteed that each person has 2 legs and each cat has 4 legs.
+
+//func solution(legs: Int) -> [Int] {
+//    var answer = [Int]()
+//    var cats = 0
+//
+//    while legs - cats * 4 >= 0 {
+//        answer.append((legs - cats * 4) / 2)
+//        cats += 1
+//    }
+//    return answer.sorted()
+//}
+//
+//solution(legs: 6)
