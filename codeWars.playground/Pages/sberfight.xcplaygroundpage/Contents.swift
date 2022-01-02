@@ -66,3 +66,59 @@ import Foundation
 //}
 //
 //getResult(cash: [1, 7, 8, 3, 4], k: 3)
+
+//Вы сравниваете возраст и имя с паспортными данными и принимаете решение – впустить человека в страну или нет. Впускаем в страну, когда данные совпадают.
+//
+//Однако, вы можете расслышать имя неправильно. Если ошибка в имени одна (не хватает буквы, лишняя буква или одна буква другая), то считайте вам сказали правду. Регистр букв в имени не учитывается.
+//
+//На входе:
+//
+//calendar – нынешний год (integer)
+//date_of_birth – год рождения в паспорте (integer)
+//name – имя человека в паспорте (string).
+//phrases – строковый массив – показания человека phrases[a, b], где a – возраст человека, b–имя.
+//На выходе:
+//
+//Boolean – решение, которые вы приняли (True – впустить, False – нет, то есть если возраст не соответствует паспортным данным или различий в имени больше одного)
+//Пример:
+//
+//calendar = 1984
+//date_of_birth =1950
+//name =“Anna”
+//phrases = [“34”, “Ana”]
+//getResult(calendar , date_of_birth, name, phrases) =True
+
+//
+//func getResult(calendar: Int, dateOfBirth: Int, name: String, phrases: [String]) -> Bool {
+//    guard Int(phrases[0])! == calendar - dateOfBirth else { return false }
+//
+//    if name.lowercased() == phrases[1].lowercased() {
+//        return true
+//    }
+//
+//    var newName = name.lowercased().map { String($0) }
+//    var toldName = phrases[1].lowercased().map { String($0) }
+//
+//    if newName.count > toldName.count {
+//        for element in newName {
+//            let indexNew = newName.firstIndex(of: element)!
+//            if toldName.contains(element) {
+//                let indexTold = toldName.firstIndex(of: element)!
+//                newName.remove(at: indexNew)
+//                toldName.remove(at: indexTold)
+//            }
+//        }
+//    } else {
+//        for element in toldName {
+//            let indexTold = toldName.firstIndex(of: element)!
+//            if newName.contains(element) {
+//                let indexNew = newName.firstIndex(of: element)!
+//                newName.remove(at: indexNew)
+//                toldName.remove(at: indexTold)
+//            }
+//        }
+//    }
+//    return abs(newName.count - toldName.count) <= 1
+//}
+//
+//getResult(calendar: 1984, dateOfBirth: 1950, name: "Anna", phrases: ["34", "Anmnna"])

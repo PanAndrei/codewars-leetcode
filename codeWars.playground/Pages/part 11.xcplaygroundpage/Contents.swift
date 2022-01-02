@@ -450,3 +450,20 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //}
 //
 //solution(legs: 6)
+
+
+
+//Check whether the given string is a subsequence of the plaintext alphabet.
+
+//func solution(s: String) -> Bool {
+//    guard Set(s.map { String($0) }).count == s.count else { return false }
+//    guard CharacterSet(charactersIn: s).isSubset(of: CharacterSet.lowercaseLetters) else { return false }
+//
+//    if s.map { String($0) }.sorted() == s.map { String($0) } {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//solution(s: "abobc")
