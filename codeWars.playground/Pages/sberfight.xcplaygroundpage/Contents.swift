@@ -122,3 +122,50 @@ import Foundation
 //}
 //
 //getResult(calendar: 1984, dateOfBirth: 1950, name: "Anna", phrases: ["34", "Anmnna"])
+
+
+//Вы сбежали от тянущейся рутины и отправились в приключение! Каждый день вы можете спуститься в подземелье и найти сокровища. Ваша задача забрать с собой как можно больше сокровищ. Однако, если вы пойдёте за сокровищами во второй день подряд, то у вас украдут половину сокровищ текущего, второго дня другие искатели приключений, действуйте осторожно!
+//
+//Чтобы этого избежать, вы можете взять паузу в один день.
+//
+// Ввод:
+//treasures - массив сокровищ, treasures[i] - количество сокровищ, i - номер дня, 0<length(treasures)<=10, 0<treasures[i]<100
+//
+// Вывод:
+//integer - максимальное количество сокровищ за приключение, округленное в большую сторону
+
+//func getResult(treasures: [Int]) -> Int {
+//    var result = 0.0
+//    var step = 0
+//    var resultTemp = 0.0
+//    
+//    for j in 0 ... 1 {
+//        step = j
+//        resultTemp += Double(treasures[step])
+//        
+//        for _ in 1 ... treasures.count {
+//            print(resultTemp, step)
+//            if (step + 2) <= (treasures.count - 1) {
+//                if (treasures[step + 1] / 2) >= treasures[step + 2] {
+//                    resultTemp += (Double(treasures[step + 1]) / 2)
+//                    step += 1
+//                } else {
+//                    resultTemp += Double(treasures[step + 2])
+//                    step += 2
+//                }
+//            } else if (step + 1) <= (treasures.count - 1) {
+//                resultTemp += (Double(treasures[step + 1]) / 2)
+//                step += 1
+//            } else {
+//                break
+//            }
+//        }
+//        if resultTemp > result {
+//            result = resultTemp
+//        }
+//        resultTemp = 0
+//    }
+//    return Int(ceil(result))
+//}
+//
+//getResult(treasures: [3, 1, 10, 6, 3, 10])
