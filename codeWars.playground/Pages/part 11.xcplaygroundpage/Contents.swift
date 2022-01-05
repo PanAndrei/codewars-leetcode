@@ -467,3 +467,29 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //}
 //
 //solution(s: "abobc")
+
+//You find yourself in Bananaland trying to buy a banana. You are super rich so you have an unlimited supply of banana-coins, but you are trying to use as few coins as possible.
+//
+//The coin values available in Bananaland are stored in a sorted array coins. coins[0] = 1, and for each i (0 < i < coins.length) coins[i] is divisible by coins[i - 1]. Find the minimal number of banana-coins you'll have to spend to buy a banana given the banana's price.
+
+//func solution(coins: [Int], price: Int) -> Int {
+//    var result = 0
+//    var pay = 0
+//    var step = 0
+//    let array = Array(coins.reversed())
+//    
+//    while pay <= price {
+//        if (pay + array[step]) <= price {
+//            pay += array[step]
+//            result += 1
+//            if pay == price {
+//                break
+//            }
+//        } else if (step + 1) < array.count {
+//            step += 1
+//        }
+//    }
+//    return result
+//}
+//
+//solution(coins: [1, 2, 10], price: 28)
