@@ -477,7 +477,7 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //    var pay = 0
 //    var step = 0
 //    let array = Array(coins.reversed())
-//    
+//
 //    while pay <= price {
 //        if (pay + array[step]) <= price {
 //            pay += array[step]
@@ -493,3 +493,4 @@ let a = [20000, 239, 10001, 999999, 10000, 20566, 29999]
 //}
 //
 //solution(coins: [1, 2, 10], price: 28)
+
