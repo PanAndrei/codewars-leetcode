@@ -86,3 +86,9 @@
 //let alphabet = CharacterSet.lowercaseLetters
 //     guard CharacterSet(charactersIn: s).isSubset(of: CharacterSet.lowercaseLetters) else { return false }
 
+//func solution(maxLength: Int, text: String) -> Int {
+//    var text = text.components(separatedBy: CharacterSet.letters.inverted).filter { $0 != "" }
+//    return text.filter { $0.count <= maxLength}.count
+//}
+//
+//solution(maxLength: 4, text: "The Fox asked the stork, 'How is the soup?'")
