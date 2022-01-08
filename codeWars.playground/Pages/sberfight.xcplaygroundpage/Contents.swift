@@ -169,3 +169,37 @@ import Foundation
 //}
 //
 //getResult(treasures: [3, 1, 10, 6, 3, 10])
+
+//На вход подается числовой массив. За одну операцию вы можете разделить любое число в массиве на два (целочисленное деление). Определите, может ли сумма всех элементов в массиве быть не больше w. Общее количество операций не должно превышать значение самого большого числа в массиве.
+//
+//Возможное общее количество операций меняется динамически, то есть если Вы будете делить самое крупное число, то общее количество возможных операций уменьшится.
+//
+//Ввод:
+//
+//arr - массив чисел (integer[]), 1<length(arr)<10
+//w - число, максимальный предел для суммы массива (integer), 0<w<100
+//Вывод:
+//
+//Boolean - возможно ли удовлетворить условие sum(arr) <= w
+
+//perfect!!
+//func getResult(arr: [Int], w: Int) -> Bool {
+//    var newArr = arr
+//    var count = 0
+//    var operation = newArr.max()
+//    while newArr.reduce(0, +) >= w {
+//        if count > operation! {
+//            return false
+//        }
+//        print(newArr)
+//        var max = newArr.max()!
+//        var indexMax = newArr.firstIndex(of: max)!
+//        newArr[indexMax] /= 2
+//        count += 1
+//        operation = max
+//    }
+//    return true
+//}
+//
+//getResult(arr: [3, 2, 4, 5], w: 6)
+//getResult(arr: [3, 2, 4, 5], w: 9)
