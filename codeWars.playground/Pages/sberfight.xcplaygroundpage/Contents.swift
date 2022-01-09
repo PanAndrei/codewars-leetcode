@@ -203,3 +203,89 @@ import Foundation
 //
 //getResult(arr: [3, 2, 4, 5], w: 6)
 //getResult(arr: [3, 2, 4, 5], w: 9)
+
+//Вам даётся массив имён трёх братьев и массив утверждений, которые являются правдивыми. Список возможных утверждений:
+//
+//“is youngest” – самый младший
+//“is not youngest” – не самый младший
+//“is not oldest” – не самый старший
+//“is oldest” – самый старший
+//Вам предстоит расставить всех братьев по возрастанию возраста
+// Ввод:
+//
+//names – массив имён трёх братьев, length(names)=3
+//statements – массив(string[]), statements[i] = [“a-b”], где a – имя брата, b – утверждение, их разделяет тире без пробелов. Для одного брата может быть несколько утверждений
+// Вывод:
+//
+//String[] – список братьев от самого младшего до самого старшего, решение всегда есть и всегда одно
+
+//names=[“Kevin”, “Jack”, “Mark”]
+//statements=[“Kevin-is not youngest”, “Jack-is oldest”, “Mark-is not oldest”]
+//getResult(names, statements)=[“Mark”, “Kevin”, “Jack”]
+
+//func getResult(names: [String], statements: [String]) -> [String] {
+    
+//
+//    var resultNames = Array(repeating: "", count: 4)
+//    var totalStatement = ""
+//    for element in statements {
+//        totalStatement += element
+//    }
+//    var count = 0
+//    for element in names {
+//        if totalStatement.contains(element) {
+//            count += 1
+//        }
+//    }
+//
+//    for element in statements {
+//        if element.contains("is youngest") {
+//            let name = element.split(separator: "-").first!
+//            resultNames.insert(String(name), at: 0)
+//        } else if element.contains("is not youngest") {
+//            let name = element.split(separator: "-").first!
+//            resultNames.insert(String(name), at: 2)
+//        } else if element.contains("is not oldest") {
+//            let name = element.split(separator: "-").first!
+//            resultNames.insert(String(name), at: 1)
+//        } else if element.contains("is oldest") {
+//            let name = element.split(separator: "-").first!
+//            resultNames.insert(String(name), at: 3)
+//        }
+//    }
+//
+//    if count < 3 {
+//        for element in names {
+//            if !resultNames.contains(element) {
+//                if totalStatement.contains("is not oldest") && totalStatement.contains("is not youngest") && totalStatement.contains("is youngest") {
+//                    resultNames.insert(element, at: 3)
+//                    continue
+//                } else if totalStatement.contains("is not oldest") && totalStatement.contains("is not youngest") && totalStatement.contains("is oldest") {
+//                    resultNames.insert(element, at: 0)
+//                    continue
+//                } else if totalStatement.contains("is youngest") && totalStatement.contains("is oldest") {
+//                    resultNames.insert(element, at: 1)
+//                    continue
+//                } else if totalStatement.contains("is youngest") && totalStatement.contains("is not oldest") {
+//                    resultNames.insert(element, at: 3)
+//                    continue
+//                } else if totalStatement.contains("is oldest") && totalStatement.contains("is not youngest") {
+//                    resultNames.insert(element, at: 0)
+//                    continue
+//                }
+//                }
+//            }
+//        }
+//
+//
+//        return resultNames.filter { $0 != "" }
+//
+    
+//    }
+
+//getResult(names: ["Kevin", "Jack", "Mark"], statements: ["Kevin-is not youngest", "Jack-is oldest", "Mark-is not oldest"])
+//
+//getResult(names: ["Kevin", "Jack", "Mark"], statements: ["Kevin-is youngest", "Mark-is oldest"])
+
+//getResult(names: ["Kevin", "Jack", "Mark"], statements: ["Kevin-is not youngest", "Jack-is oldest", "Kevin-is not oldest"])
+
