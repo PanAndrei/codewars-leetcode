@@ -87,3 +87,77 @@ import Foundation
 //}
 //
 //solution(number: 1234, width: 5)
+
+
+//Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
+//
+//Given two arrays a and b, check whether they are similar.
+
+//func solution(a: [Int], b: [Int]) -> Bool {
+//    guard a != b else { return true }
+//    guard Set(a) == Set(b) && a.reduce(0, +) == b.reduce(0, +) else { return false }
+//    var count = 0
+//
+//    for i in 0 ..< a.count {
+//        if a[i] != b[i] {
+//            count += 1
+//        }
+//        if count > 2 {
+//            return false
+//        }
+//    }
+//    return true
+//}
+//
+//solution(a: [1, 4, 2, 5, 3, 7, 4, 8, 4, 2, 25], b: [1, 4, 2, 5, 3, 3, 7, 8, 4, 2, 25])
+//
+//let a = [1, 4, 2, 5, 3, 7, 4, 8, 4, 2, 25]
+//let b = [1, 4, 2, 5, 3, 3, 7, 8, 4, 2, 25]
+//
+//a == b
+//Set(a) == Set(b)
+
+//You have a long strip of paper with integers written on it in a single line from left to right. You wish to cut the paper into exactly three pieces such that each piece contains at least one integer and the sum of the integers in each piece is the same. You cannot cut through a number, i.e. each initial number will unambiguously belong to one of the pieces after cutting. How many ways can you do it?
+//
+//It is guaranteed that the sum of all elements in the array is divisible by 3.
+
+//func solution(a: [Int]) -> Int {
+//    let num = a.reduce(0, +) / 3
+//    let count = 0
+//
+//    for i in 0 ..< a.count {
+//
+//    }
+//
+//    return count
+//}
+//
+//solution(a: [0, -1, 0, -1, 0, -1])
+////solution(a: [-1, 1, -1, 1, -1, 1, -1, 1])
+//
+//func solusstion(a: [Int]) -> Int {
+//    var sum = 0
+//    for num in a {
+//        sum += num
+//    }
+//    var temp = sum%3
+//    if !(temp==0) {
+//        return 0
+//    }
+//    sum /= 3
+//    var cut1 = 0, cut2 = 0, count = 0
+//    var sum1 = 0, sum2 = 0
+//    for cut1 in 0..<a.count-2 {
+//        sum1 += a[cut1]
+//        if sum1 == sum {
+//            sum2 = 0
+//            for cut2 in (cut1 + 1)..<a.count-1 {
+//                sum2 += a[cut2]
+//                if sum2 == sum {
+//                    count += 1
+//                }
+//            }
+//        }
+//    }
+//    return count
+//}

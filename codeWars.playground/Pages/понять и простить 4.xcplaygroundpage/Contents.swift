@@ -201,3 +201,48 @@
 //func solfution(string1: String, string2: String) -> Bool {
 //    return Set(Array(zip(Array(string1).map { String($0) }, Array(string2).map { String($0) })).map { $0.0 + $0.1 }).count == Set(Array(string1)).count && Set(Array(string1)).count == Set(Array(string2)).count
 //}
+
+//You have a long strip of paper with integers written on it in a single line from left to right. You wish to cut the paper into exactly three pieces such that each piece contains at least one integer and the sum of the integers in each piece is the same. You cannot cut through a number, i.e. each initial number will unambiguously belong to one of the pieces after cutting. How many ways can you do it?
+//
+//It is guaranteed that the sum of all elements in the array is divisible by 3.
+
+//func solution(a: [Int]) -> Int {
+//    let num = a.reduce(0, +) / 3
+//    let count = 0
+//
+//    for i in 0 ..< a.count {
+//
+//    }
+//
+//    return count
+//}
+//
+//solution(a: [0, -1, 0, -1, 0, -1])
+////solution(a: [-1, 1, -1, 1, -1, 1, -1, 1])
+//
+//func solusstion(a: [Int]) -> Int {
+//    var sum = 0
+//    for num in a {
+//        sum += num
+//    }
+//    var temp = sum%3
+//    if !(temp==0) {
+//        return 0
+//    }
+//    sum /= 3
+//    var cut1 = 0, cut2 = 0, count = 0
+//    var sum1 = 0, sum2 = 0
+//    for cut1 in 0..<a.count-2 {
+//        sum1 += a[cut1]
+//        if sum1 == sum {
+//            sum2 = 0
+//            for cut2 in (cut1 + 1)..<a.count-1 {
+//                sum2 += a[cut2]
+//                if sum2 == sum {
+//                    count += 1
+//                }
+//            }
+//        }
+//    }
+//    return count
+//}
