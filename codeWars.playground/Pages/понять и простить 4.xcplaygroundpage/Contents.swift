@@ -246,3 +246,33 @@
 //    }
 //    return count
 //}
+
+//Define an alphabet reflection as follows: a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.
+//
+//Define a string reflection as the result of applying the alphabet reflection to each of its characters.
+//
+//Reflect the given string.
+
+//let sym = "abc xyz"
+//print(sym.map { $0.asciiValue })
+
+//func solution(inputString: String) -> String {
+//    let inputStr = inputString.map { $0.asciiValue! }
+//    var string = ""
+//
+//    for element in inputStr {
+//        if element <= 109 {
+//            string.append(Character(UnicodeScalar(109 + (110 - element))))
+//        } else {
+//            string.append(Character(UnicodeScalar(110 - (element - 109))))
+//        }
+//    }
+//    return string
+//}
+//
+//solution(inputString: "name")
+//
+//func solution(inputString: String) -> String {
+//    let asciis = inputString.utf8.map { 26 - ($0 - 96) + 1 + 96 }
+//    return String(bytes: asciis, encoding: .utf8) ?? ""
+//}

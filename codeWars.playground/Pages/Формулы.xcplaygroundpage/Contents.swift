@@ -92,3 +92,26 @@
 //}
 //
 //solution(maxLength: 4, text: "The Fox asked the stork, 'How is the soup?'")
+
+/// ascii
+
+//func solution(inputString: String) -> String {
+//    let inputStr = inputString.map { $0.asciiValue! }
+//    var string = ""
+//
+//    for element in inputStr {
+//        if element <= 109 {
+//            string.append(Character(UnicodeScalar(109 + (110 - element))))
+//        } else {
+//            string.append(Character(UnicodeScalar(110 - (element - 109))))
+//        }
+//    }
+//    return string
+//}
+//
+//solution(inputString: "name")
+//
+//func solution(inputString: String) -> String {
+//    let asciis = inputString.utf8.map { 26 - ($0 - 96) + 1 + 96 }
+//    return String(bytes: asciis, encoding: .utf8) ?? ""
+//}
