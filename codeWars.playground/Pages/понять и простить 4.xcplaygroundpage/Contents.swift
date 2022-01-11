@@ -276,3 +276,50 @@
 //    let asciis = inputString.utf8.map { 26 - ($0 - 96) + 1 + 96 }
 //    return String(bytes: asciis, encoding: .utf8) ?? ""
 //}
+
+
+//You've intercepted an encrypted message, and you are really curious about its contents. You were able to find out that the message initially contained only lowercase English letters, and was encrypted with the following cipher:
+//
+//Let all letters from 'a' to 'z' correspond to the numbers from 0 to 25, respectively.
+//The number corresponding to the ith letter of the encrypted message is then equal to the sum of numbers corresponding to the first i letters of the initial unencrypted message modulo 26.
+//Now that you know how the message was encrypted, implement the algorithm to decipher it.
+
+//27 % 26
+//
+//func solution(message: String) -> String {
+//    let asciiToalph =  message.map { ($0.asciiValue! - 97)}
+//    print(asciiToalph)
+//    var answer = ""
+//    for i in 0 ..< asciiToalph.count {
+//        let sum = (asciiToalph[0 ... i].reduce(0, +) % 26) + 97
+//        answer.append(Character(UnicodeScalar(sum)))
+//        print(answer)
+//
+//    }
+//    print(answer)
+//    return answer
+//}
+//
+//solution(message: "taiaiaertkixquxjnfxxdh")
+//
+//
+//func solution(message: String) -> String {
+//
+//    var sum = 0
+//    var result = ""
+//
+//    for char in message.utf8 {
+//        let value = Int(char - 97)
+//        var diff = value - sum
+//
+//        if diff < 0 {
+//            diff += 26
+//        }
+//
+//        result += String(UnicodeScalar(diff + 97)!)
+//        sum = value
+//    }
+//
+//
+//    return result
+//}

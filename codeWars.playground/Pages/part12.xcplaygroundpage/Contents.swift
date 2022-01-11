@@ -205,3 +205,74 @@ import Foundation
 //    let asciis = inputString.utf8.map { 26 - ($0 - 96) + 1 + 96 }
 //    return String(bytes: asciis, encoding: .utf8) ?? ""
 //}
+
+
+//Your Informatics teacher at school likes coming up with new ways to help you understand the material. When you started studying numeral systems, he introduced his own numeral system, which he's convinced will help clarify things. His numeral system has base 26, and its digits are represented by English capital letters - A for 0, B for 1, and so on.
+//
+//The teacher assigned you the following numeral system exercise: given a one-digit number, you should find all unordered pairs of one-digit numbers whose values add up to the number.
+
+
+
+//func solution(number: Character) -> [String] {
+//    var answer = [String]()
+//    let asciiNum = number.asciiValue! - 65
+//
+//    for i in 0 ..< asciiNum / 2 + 1 {
+//        let secondNum = asciiNum - i
+//        var string = ""
+//        string.append(Character(UnicodeScalar(i + 65)))
+//        string += " + "
+//        string.append(Character(UnicodeScalar(secondNum + 65)))
+//        answer.append(string)
+//    }
+//    print(answer)
+//    return answer
+//}
+//
+//solution(number: "G")
+
+//You've intercepted an encrypted message, and you are really curious about its contents. You were able to find out that the message initially contained only lowercase English letters, and was encrypted with the following cipher:
+//
+//Let all letters from 'a' to 'z' correspond to the numbers from 0 to 25, respectively.
+//The number corresponding to the ith letter of the encrypted message is then equal to the sum of numbers corresponding to the first i letters of the initial unencrypted message modulo 26.
+//Now that you know how the message was encrypted, implement the algorithm to decipher it.
+
+//27 % 26
+//
+//func solution(message: String) -> String {
+//    let asciiToalph =  message.map { ($0.asciiValue! - 97)}
+//    print(asciiToalph)
+//    var answer = ""
+//    for i in 0 ..< asciiToalph.count {
+//        let sum = (asciiToalph[0 ... i].reduce(0, +) % 26) + 97
+//        answer.append(Character(UnicodeScalar(sum)))
+//        print(answer)
+//
+//    }
+//    print(answer)
+//    return answer
+//}
+//
+//solution(message: "taiaiaertkixquxjnfxxdh")
+//
+//
+//func solution(message: String) -> String {
+//
+//    var sum = 0
+//    var result = ""
+//
+//    for char in message.utf8 {
+//        let value = Int(char - 97)
+//        var diff = value - sum
+//
+//        if diff < 0 {
+//            diff += 26
+//        }
+//
+//        result += String(UnicodeScalar(diff + 97)!)
+//        sum = value
+//    }
+//
+//
+//    return result
+//}
