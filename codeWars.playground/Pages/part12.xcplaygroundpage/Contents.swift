@@ -276,3 +276,28 @@ import Foundation
 //
 //    return result
 //}
+
+//When you recently visited your little nephew, he told you a sad story: there's a bully at school who steals his lunch every day, and locks it away in his locker. He also leaves a note with a strange, coded message. Your nephew gave you one of the notes in hope that you can decipher it for him. And you did: it looks like all the digits in it are replaced with letters and vice versa. Digit 0 is replaced with 'a', 1 is replaced with 'b' and so on, with digit 9 replaced by 'j'.
+//
+//The note is different every day, so you decide to write a function that will decipher it for your nephew on an ongoing basis.
+
+//let note = "you'll n4v4r 6u4ss 8t: cdja"
+//
+//func solution(note: String) -> String {
+//    var newStr = note.map { String($0) }
+//    var answer = ""
+//
+//    for i in 0 ..< newStr.count {
+//        if (48 ... 57).contains(Character(newStr[i]).asciiValue!) {
+//            newStr[i] = String(UnicodeScalar(Character(newStr[i]).asciiValue! + 49))
+//        } else if (97 ... 106).contains(Character(newStr[i]).asciiValue!) {
+//                newStr[i] = String(UnicodeScalar(Character(newStr[i]).asciiValue! - 49))
+//            }
+//        }
+//
+//    answer = newStr.joined(separator: "")
+//
+//    return answer
+//}
+//
+//solution(note: note)
