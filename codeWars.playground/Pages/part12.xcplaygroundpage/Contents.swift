@@ -328,3 +328,28 @@ import Foundation
 //}
 //
 //solution(ver1: "10", ver2: "9")
+
+//Consider the following ciphering algorithm:
+//
+//For each character replace it with its code.
+//Concatenate all of the obtained numbers.
+//Given a ciphered string, return the initial one if it is known that it consists only of lowercase letters.
+//
+//Note: here the character's code means its decimal ASCII code, the numerical representation of a character used by most modern programming languages.
+
+//func solution(cipher: String) -> String {
+//    var answer = ""
+//    let arrCiper = cipher.map { $0 }
+//    var letter = ""
+//    
+//    for i in 0 ..< arrCiper.count {
+//        letter += String(arrCiper[i])
+//        if (97 ... 122).contains(Int(letter)!) {
+//            answer.append(Character(UnicodeScalar(Int(letter)!)!))
+//            letter = ""
+//        }
+//    }
+//    return answer
+//}
+//
+//solution(cipher: "10197115121")
