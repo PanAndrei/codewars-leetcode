@@ -289,3 +289,78 @@ import Foundation
 
 //getResult(names: ["Kevin", "Jack", "Mark"], statements: ["Kevin-is not youngest", "Jack-is oldest", "Kevin-is not oldest"])
 
+//Сантехник устал от того, что ему приходится самому рассчитывать количество и цену каждой трубы. Поэтому он решил написать программу, которая будет принимать бинарную схему труб (0-нет трубы, 1- есть труба) и выдавать стоимость проекта, в зависимости от типа каждой трубы.
+//
+//Цены на трубы постоянные и указаны на рисунке, берем их именно отсюда:
+//
+//Примечание:
+//
+//если труба находится у начала или конца матрицы, то считаем, что за границей находится другая труба
+//труба всегда одна и нигде не прерывается
+//нам тоже показалось странным, что одинаковые трубы под разными углами могут стоить дороже, мы считаем, что сантехника обманывают, но сообщить ему почему-то не решились
+//На входе:
+//
+//scheme - бинарная матрица схемы труб, scheme[i]=0|1
+//На выходе:
+//
+//Integer - общая стоимость всех труб, которые надо купить
+
+//let scheme = ["0-0-1-0-0-0-0-0", "0-0-1-0-1-1-1-0", "0-0-1-1-1-0-1-0", "0-0-0-0-0-0-1-0", "0-0-0-0-0-0-1-0", "0-0-0-0-1-1-1-0", "0-0-0-0-1-0-0-0"]
+//
+//func getResult(scheme: [String]) -> Int {
+//    var newScheme =  [[Int]]()
+//    for i in 0 ..< scheme.count {
+//        let element = [0] + scheme[i].filter { $0 != "-"}.map { Int(String($0))! } + [0]
+//        newScheme.append(element)
+//    }
+//    let addArr = Array(repeating: 0, count: newScheme[0].count)
+//    newScheme.insert(addArr, at: 0)
+//    newScheme.append(addArr)
+//    var schemeCalculate = newScheme
+//
+//    for i in 1 ..< newScheme.count - 1 {
+//        for j in 1 ..< newScheme[0].count - 1 {
+//            if newScheme[i][j] == 0 {
+//                continue
+//            } else if newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i + 1][j] == 1 && newScheme[i][j - 1] == 1 && newScheme[i][j + 1] == 1 {
+//                schemeCalculate[i][j] = 63
+//            } else if newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i + 1][j] == 1  && newScheme[i][j + 1] == 1 {
+//                schemeCalculate[i][j] = 40
+//            } else if newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i + 1][j] == 1 && newScheme[i][j - 1] == 1  {
+//                schemeCalculate[i][j] = 31
+//            } else if newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i][j - 1] == 1 && newScheme[i][j + 1] == 1 {
+//                schemeCalculate[i][j] = 29
+//            } else if newScheme[i][j] == 1 && newScheme[i + 1][j] == 1 && newScheme[i][j - 1] == 1 && newScheme[i][j + 1] == 1 {
+//                schemeCalculate[i][j] = 32
+//            } else if newScheme[i][j] == 1  && newScheme[i + 1][j] == 1  && newScheme[i][j + 1] == 1 {
+//                schemeCalculate[i][j] = 17
+//            } else if newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i][j - 1] == 1  {
+//                schemeCalculate[i][j] = 13
+//            } else if newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i][j + 1] == 1 {
+//                schemeCalculate[i][j] = 15
+//            } else if newScheme[i][j] == 1 &&  newScheme[i + 1][j] == 1 && newScheme[i][j - 1] == 1 {
+//                schemeCalculate[i][j] = 10
+//            } else if newScheme[i][j] == 1 && newScheme[i][j - 1] == 1 && newScheme[i][j + 1] == 1 ||
+//                      newScheme[i][j] == 1 && newScheme[i][j - 1] == 0 && newScheme[i][j + 1] == 1 ||
+//                      newScheme[i][j] == 1 && newScheme[i][j - 1] == 1 && newScheme[i][j + 1] == 0 {
+//                schemeCalculate[i][j] = 21
+//            } else if newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i + 1][j] == 1 ||
+//                      newScheme[i][j] == 1 && newScheme[i - 1][j] == 0 && newScheme[i + 1][j] == 1 ||
+//                      newScheme[i][j] == 1 && newScheme[i - 1][j] == 1 && newScheme[i + 1][j] == 0 {
+//                schemeCalculate[i][j] = 20
+//            }
+//        }
+//    }
+//
+//    for element in newScheme {
+//        print(element)
+//    }
+//
+//    for element in schemeCalculate {
+//        print(element)
+//    }
+//
+//    return schemeCalculate.flatMap { $0 }.reduce(0, +)
+//}
+//
+//getResult(scheme: scheme)
