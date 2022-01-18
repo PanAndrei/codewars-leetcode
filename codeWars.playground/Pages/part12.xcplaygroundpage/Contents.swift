@@ -461,3 +461,28 @@ import Foundation
 //}
 //
 //solution(inputArray: [1, 2, 3, 4, 5, 6, 7, 8])
+
+
+//Given array of integers, for each position i, search among the previous positions for the last (from the left) position that contains a smaller value. Store this value at position i in the answer. If no such value can be found, store -1 instead.
+
+//func solution(items: [Int]) -> [Int] {
+//    var answer = items
+//    
+//    for i in 0 ..< answer.count {
+//        if i == 0 {
+//            answer[i] = -1
+//            continue
+//        }
+//        let arrSmall = Array(items[0 ... i].reversed())
+//        answer[i] = -1
+//        for element in arrSmall {
+//            if element < items[i] {
+//                answer[i] = element
+//                break
+//            }
+//        }
+//    }
+//    return answer
+//}
+//
+//solution(items: [3, 5, 2, 4, 5])
