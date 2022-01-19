@@ -486,3 +486,45 @@ import Foundation
 //}
 //
 //solution(items: [3, 5, 2, 4, 5])
+
+
+//Yesterday you found some shoes in the back of your closet. Each shoe is described by two values:
+//
+//type indicates if it's a left or a right shoe;
+//size is the size of the shoe.
+//Your task is to check whether it is possible to pair the shoes you found in such a way that each pair consists of a right and a left shoe of an equal size.
+//
+//var shoes = [[1,2],
+//             [0,2],
+//             [1,1],
+//             [0,1],
+//             [1,2],
+//             [0,1]]
+//
+//var shoes2 = [[0,21],
+//              [1,23],
+//              [1,21],
+//              [0,23]]
+//
+//func solution(shoes: [[Int]]) -> Bool {
+//    var oldShoes = shoes
+//
+//big: for i in 0 ..< oldShoes.count {
+//        let element = oldShoes[i]
+//        for j in 0 ..< oldShoes.count {
+//            let pair = oldShoes[j]
+//            if element[0] != pair[0] && element[1] == pair[1] {
+//                oldShoes[i] = [-1, -1]
+//                oldShoes[j] = [-1, -1]
+//                continue big
+//            }
+//        }
+//    }
+//
+//    print(shoes)
+//    print(oldShoes)
+//    return oldShoes.filter{ $0 != [-1, -1]}.isEmpty
+//}
+//
+//solution(shoes: shoes2)
+//
