@@ -528,3 +528,10 @@ import Foundation
 //
 //solution(shoes: shoes2)
 //
+
+// можно было лучше/
+//главная проблема была - при удалении из массива - смещение индексов
+//
+//func solution(shoes: [[Int]]) -> Bool {
+//    return shoes.filter(){$0[0]==0}.map {$0[1]}.sorted() == shoes.filter(){$0[0]==1}.map {$0[1]}.sorted()
+//}

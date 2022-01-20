@@ -364,3 +364,44 @@ import Foundation
 //}
 //
 //getResult(scheme: scheme)
+
+
+//Вы купили дорогой билет на карнавал и хотите попасть на все представления. Учитывая время начала мероприятий и длительности проведения, ответьте, возможно ли это. Время перемещения между мероприятиями не учитывается.
+//
+//На входе:
+//
+//time - интервалы проведения представлений (string[]) в формате: "час_начала-час_окончания"
+//На выходе:
+//
+//Boolean - возможно ли полностью посмотреть каждое представление
+//Пример 1:
+//
+//time = ["09-13", "12-14"]
+//getResult(time) = false
+//Первое представление идёт с 9 часов до 13, а второе начинается в 12.
+//Так что побывать на всех представлениях полностью не получится.
+//Пример 2:
+//
+//time = ["07-09", "10-12", "15-19"]
+//getResult(time) = true
+
+//func getResult(time: [String]) -> Bool {
+//    var times = time
+//    var arrTimes = [[Int]]()
+//    for i in 0 ..< times.count {
+//        let element = times[i].components(separatedBy: "-")
+//        let intElement = element.map { Int($0)! }
+//        print(intElement)
+//        arrTimes.append(intElement)
+//    }
+//
+//    for i in 0 ..< arrTimes.count - 1 {
+//        if arrTimes[i][1] > arrTimes[i + 1][0] {
+//            return false
+//        }
+//    }
+//
+//    return true
+//}
+//
+//getResult(time: ["09-13", "14-14"])
