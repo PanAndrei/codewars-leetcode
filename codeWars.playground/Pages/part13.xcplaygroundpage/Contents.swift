@@ -79,3 +79,81 @@ import Foundation
 //
 //  return max(minCount, c1, c2)
 //}
+
+
+//Define crossover operation over two equal-length strings A and B as follows:
+//
+//the result of that operation is a string of the same length as the input strings
+//result[i] is either A[i] or B[i], chosen at random
+//Given array of strings inputArray and a string result, find for how many pairs of strings from inputArray the result of the crossover operation over them may be equal to result.
+//
+//Note that (A, B) and (B, A) are the same pair. Also note that the pair cannot include the same element of the array twice (however, if there are two equal elements in the array, they can form a pair).
+
+// работает но с парами что то плохо
+
+//func subArrayCheck(arrBig: [String], arrSmall: [String]) -> Bool {
+//    var arrBigC = arrBig
+//    for element in arrSmall {
+//        if let index = arrBigC.firstIndex(of: element) {
+//            arrBigC.remove(at: index)
+//        }
+//    }
+//    return arrBig.count - arrBigC.count == arrSmall.count
+//}
+//
+//func solution(inputArray: [String], result: String) -> Int {
+//    let resultCheck = result.map { String($0) }
+//    var answer = 0
+//    var chechedArrs = [String]()
+//    var chechedArrs2 = [String]()
+//
+//    for i in 0 ..< inputArray.count {
+//        if chechedArrs2.contains(inputArray[i]) {
+//            continue
+//        }
+//        chechedArrs2.append(inputArray[i])
+//        for j in 0 ..< inputArray.count {
+//            if i == j {
+//                continue
+//            } else if !chechedArrs.contains(inputArray[j]) {
+//                chechedArrs.append(inputArray[j])
+//                let adding = inputArray[i].map { String($0) } + inputArray[j].map { String($0) }
+//                if subArrayCheck(arrBig: adding, arrSmall: resultCheck) {
+//                    answer += 1
+//                }
+//                chechedArrs = []
+//            }
+//        }
+//        chechedArrs2 = []
+//    }
+//    return answer / 2
+//}
+//
+//solution(inputArray: ["cbb",
+//                      "aba",
+//                      "aba",
+//                      "bab"], result: "abb")
+
+
+//func solution(inputArray: [String], result: String) -> Int {
+//    var count = 0
+//
+//    for i in 0..<inputArray.count {
+//        for j in i+1..<inputArray.count {
+//            let s1 = inputArray[i]
+//            let s2 = inputArray[j]
+//            var isCross = true
+//            for k in 0..<result.count {
+//                if Array(result)[k] != Array(s1)[k] && Array(result)[k] != Array(s2)[k] {
+//                    isCross = false
+//                    break
+//                }
+//            }
+//            if isCross {
+//                count += 1
+//            }
+//        }
+//    }
+//
+//    return count
+//}
