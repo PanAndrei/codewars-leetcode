@@ -241,10 +241,83 @@ import Foundation
 //            let sub = String(Array(s)[i...j])
 //            let cyclic = Array(repeating: sub, count: 5).reduce("", +)
 //            if cyclic.contains(s) && sub.count < result {
+//                print(cyclic)
+//                print(s)
 //                result = sub.count
 //            }
 //        }
 //    }
 //
 //    return result
+//}
+//
+//solution(s: "abababaabababa")
+//
+//
+//
+////Consider a string containing only letters and whitespaces. It is allowed to replace some (possibly, none) whitespaces with newline symbols to obtain a multiline text. Call a multiline text beautiful if and only if each of its lines (i.e. substrings delimited by a newline character) contains an equal number of characters (only letters and whitespaces should be taken into account when counting the total while newline characters shouldn't). Call the length of the line the text width.
+////
+////Given a string and some integers l and r (l ≤ r), check if it's possible to obtain a beautiful text from the string with a text width that's within the range [l, r].
+//
+//// очень оригинально но тесты не проходит
+//
+//func solution(inputString: String, l: Int, r: Int) -> Bool {
+//    var arrChars = inputString.map { $0.asciiValue! }
+//    var arrSpaces = [Int]()
+//    var arrCheck = [Int]()
+//    
+//    arrChars.append(UInt8(32))
+//    
+//    for i in 0 ..< arrChars.count {
+//        if arrChars[i] == UInt8(32) {
+//            arrSpaces.append(i + 1)
+//        }
+//    }
+//        
+//    for element in (l + 1) ... (r + 1) {
+//        let tempArr = arrSpaces
+//        let newArr = tempArr.map { $0 % element }
+//        if newArr.last == 0 && newArr.filter({ $0 == 0}).count > 1 {
+//            arrCheck = tempArr.filter({ $0 % element == 0}).map { $0 / element }
+//        }
+//    }
+//        
+//    if arrCheck.isEmpty {
+//        return false
+//    }
+//    
+//    for i in 0 ..< arrCheck.count - 1 {
+//        if arrCheck[i + 1] - arrCheck[i] != 1 {
+//            return false
+//        }
+//    }
+//    
+//    return true
+//}
+//
+//let check = "abc def ghi"
+//
+//solution(inputString: check, l: 4, r: 10)
+//solution(inputString: "aa aa aaaaa aaaaa aaaaa", l: 6, r: 11)
+//solution(inputString: "Look at this example of a correct text", l: 5, r: 15)
+//
+//// а это работает
+//func solution(inputString: String, l: Int, r: Int) -> Bool {
+//    let arr = Array(inputString)
+//    for i in l...r {
+//        if arr.count % (i + 1) == i {
+//            var beautiful = true
+//            for j in 0...((arr.count + 1) / (i + 1)) - 2  {
+//                if arr[(j+1)*(i+1)-1] != " " {
+//                    beautiful = false
+//                }
+//            }
+//            
+//            if beautiful {
+//                return true
+//            }
+//        }
+//    }
+//    
+//    return false
 //}
