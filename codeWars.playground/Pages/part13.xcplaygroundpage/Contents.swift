@@ -354,12 +354,12 @@ import Foundation
 //    var answer = [String]()
 //    let middle = (5 + (levelHeight - 1) * 2 + (levelNum - 1) * 2) / 2 + 1
 //    var width = 5
-//    
+//
 //    let crown = [(Array(repeating: " ", count: middle - 1) + Array(arrayLiteral: "*")).joined(),
 //                 (Array(repeating: " ", count: middle - 1) + Array(arrayLiteral: "*")).joined(),
 //                 (Array(repeating: " ", count: middle - 2) + Array(arrayLiteral: "***")).joined()]
 //    answer += crown
-//    
+//
 //    for _ in 1 ... levelNum {
 //        var tempWidth = width
 //        for _ in 1 ... levelHeight {
@@ -369,18 +369,44 @@ import Foundation
 //        }
 //        width += 2
 //    }
-//    
+//
 //    for _ in 1 ... levelNum {
 //        let widthBottom = levelHeight % 2 == 0 ? levelHeight + 1 : levelHeight
 //        let bottom = (Array(repeating: " ", count: middle - widthBottom / 2 - 1) + Array(repeating: "*", count: widthBottom)).joined()
 //        answer.append(bottom)
 //    }
-//    
+//
 //    for element in answer {
 //        print(element)
 //    }
-//    
+//
 //    return answer
 //}
 //
-//solution(levelNum: 4, levelHeight: 5)
+//solution(levelNum: 6, levelHeight: 6)
+
+//
+//You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of (k), where k is the smallest positive integer such that the obtained name is not used yet.
+//
+//Return an array of names that will be given to the files.
+
+//genious!
+//func solution(names: [String]) -> [String] {
+//    var answer = [String]()
+// 
+//    for i in 0 ..< names.count {
+//        if !answer.contains(names[i]) {
+//            answer.append(names[i])
+//        } else {
+//            var count = 1
+//            while answer.contains("\(names[i])(\(count))") {
+//                count += 1
+//            }
+//            answer.append("\(names[i])(\(count))")
+//        }
+//    }
+//    print(answer)
+//    return answer
+//}
+
+//solution(names: ["doc", "doc", "image", "doc(1)", "doc"])
