@@ -225,3 +225,17 @@
 //    }
 //    return res
 //}
+
+//Given a rectangular matrix and an integer column, return an array containing the elements of the columnth column of the given matrix (the leftmost column is the 0th one).
+
+//func solution(matrix: [[Int]], column: Int) -> [Int] {
+//    var answer = [Int]()
+//    for element in matrix {
+//        answer.append(element[column])
+//    }
+//    return answer
+//}
+//
+//func solution(matrix: [[Int]], column: Int) -> [Int] {
+//    return matrix.map{ $0[column] }
+//}

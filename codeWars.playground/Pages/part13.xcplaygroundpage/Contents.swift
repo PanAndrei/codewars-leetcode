@@ -393,7 +393,7 @@ import Foundation
 //genious!
 //func solution(names: [String]) -> [String] {
 //    var answer = [String]()
-// 
+//
 //    for i in 0 ..< names.count {
 //        if !answer.contains(names[i]) {
 //            answer.append(names[i])
@@ -408,5 +408,37 @@ import Foundation
 //    print(answer)
 //    return answer
 //}
+//
+//solution(names: ["doc", "doc", "image", "doc(1)", "doc(2)"])
 
-//solution(names: ["doc", "doc", "image", "doc(1)", "doc"])
+//Given a rectangular matrix and an integer column, return an array containing the elements of the columnth column of the given matrix (the leftmost column is the 0th one).
+
+//func solution(matrix: [[Int]], column: Int) -> [Int] {
+//    var answer = [Int]()
+//    for element in matrix {
+//        answer.append(element[column])
+//    }
+//    return answer
+//}
+//
+//func solution(matrix: [[Int]], column: Int) -> [Int] {
+//    return matrix.map{ $0[column] }
+//}
+
+//Two two-dimensional arrays are isomorphic if they have the same number of rows and each pair of respective rows contains the same number of elements.
+//
+//Given two two-dimensional arrays, check if they are isomorphic.
+
+
+//func solution(array1: [[Int]], array2: [[Int]]) -> Bool {
+//    guard array1.count == array2.count else { return false }
+//
+//    for i in 0 ..< array1.count {
+//        if array1[i].count != array2[i].count {
+//            return false
+//        }
+//    }
+//    return true
+//}
+
+
