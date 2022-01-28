@@ -428,8 +428,8 @@ import Foundation
 //Two two-dimensional arrays are isomorphic if they have the same number of rows and each pair of respective rows contains the same number of elements.
 //
 //Given two two-dimensional arrays, check if they are isomorphic.
-
-
+//
+//
 //func solution(array1: [[Int]], array2: [[Int]]) -> Bool {
 //    guard array1.count == array2.count else { return false }
 //
@@ -440,5 +440,45 @@ import Foundation
 //    }
 //    return true
 //}
+//
+
+//The longest diagonals of a square matrix are defined as follows:
+//
+//the first longest diagonal goes from the top left corner to the bottom right one;
+//the second longest diagonal goes from the top right corner to the bottom left one.
+//Given a square matrix, your task is to reverse the order of elements on both of its longest diagonals.
+
+// absolutelly genious
+
+//func solution(matrix: [[Int]]) -> [[Int]] {
+//    var answer = matrix
+//
+//    for i in 0 ..< matrix.count {
+//        answer[i][i] = matrix[matrix.count - 1 - i][matrix.count - 1 - i]
+//        answer[i][matrix.count - 1 - i] = matrix[matrix.count - 1 - i][i]
+//    }
+//
+//    return answer
+//}
+//
+//solution(matrix: [[1, 2, 3],
+//                  [4, 5, 6],
+//                  [7, 8, 9]])
 
 
+//The longest diagonals of a square matrix are defined as follows:
+//
+//the first longest diagonal goes from the top left corner to the bottom right one;
+//the second longest diagonal goes from the top right corner to the bottom left one.
+//Given a square matrix, your task is to swap its longest diagonals by exchanging their elements at the corresponding positions.
+
+//func solution(matrix: [[Int]]) -> [[Int]] {
+//    var answer = matrix
+//
+//    for i in 0 ..< matrix.count {
+//        answer[i][i] = matrix[i][matrix.count - 1 - i]
+//        answer[i][matrix.count - 1 - i] = matrix[i][i]
+//    }
+//
+//    return answer
+//}
