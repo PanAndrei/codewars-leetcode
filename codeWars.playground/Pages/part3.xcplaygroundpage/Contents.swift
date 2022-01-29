@@ -137,7 +137,7 @@ import Foundation
 //    for c in inputString {
 //        if c == ")" {
 //            for e in 0..<stack.count {
-/// подсчет в обратную сторону!!!!
+///// подсчет в обратную сторону!!!!
 //                let index = stack.count - 1 - e
 //                if stack[index] == "(" {
 //                    stack.remove(at: index)
@@ -154,6 +154,7 @@ import Foundation
 //
 //    return String(stack)
 //}
+
 
 
 //////////

@@ -472,7 +472,7 @@ import Foundation
 //the second longest diagonal goes from the top right corner to the bottom left one.
 //Given a square matrix, your task is to swap its longest diagonals by exchanging their elements at the corresponding positions.
 
-//func solution(matrix: [[Int]]) -> [[Int]] {
+//func solution(matrix: [[Int]]) -> [[In t]] {
 //    var answer = matrix
 //
 //    for i in 0 ..< matrix.count {
