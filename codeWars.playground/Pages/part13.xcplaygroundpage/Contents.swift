@@ -482,3 +482,60 @@ import Foundation
 //
 //    return answer
 //}
+
+//Given a rectangular matrix and integers a and b, consider the union of the ath row and the bth (both 0-based) column of the matrix (i.e. all cells that belong either to the ath row or to the bth column, or to both). Return sum of all elements of that union.
+
+//func solution(matrix: [[Int]], a: Int, b: Int) -> Int {
+//   var answer = matrix[a].reduce(0, +)
+//
+//    for i in 0 ..< matrix.count {
+//        if i == a {
+//            continue
+//        }
+//        answer += matrix[i][b]
+//    }
+//
+//    return answer
+//}
+//
+//solution(matrix: [[1, 1, 1, 1],
+//                  [2, 2, 2, 2],
+//                  [3, 3, 3, 3]], a: 1, b: 3)
+
+//You are implementing a command-line version of the Paint app. Since the command line doesn't support colors, you are using different characters to represent pixels. Your current goal is to support rectangle x1 y1 x2 y2 operation, which draws a rectangle that has an upper left corner at (x1, y1) and a lower right corner at (x2, y2). Here the x-axis points from left to right, and the y-axis points from top to bottom.
+//
+//Given the initial canvas state and the array that represents the coordinates of the two corners, return the canvas state after the operation is applied. For the details about how rectangles are painted, see the example.
+
+//func solution(canvas: [[Character]], rectangle: [Int]) -> [[Character]] {
+//    let x1 = rectangle[0], y1 = rectangle[1], x2 = rectangle[2], y2 = rectangle[3]
+//    var answer = canvas
+//    
+//    for y in y1 ... y2 {
+//        for x in x1 ... x2 {
+//            if y == y1 || y == y2 {
+//                answer[y][x] = Character("-")
+//            }
+//            if x == x1 || x == x2 {
+//                answer[y][x] = Character("|")
+//            }
+//        }
+//    }
+//    
+//    let angle = Character("*")
+//    answer[y1][x1] = angle
+//    answer[y1][x2] = angle
+//    answer[y2][x1] = angle
+//    answer[y2][x2] = angle
+//    
+//    
+//    for element in answer {
+//        print(element)
+//    }
+//    return answer
+//}
+//
+//solution(canvas: [["a", "a", "a", "a", "a", "a", "a", "a"],
+//                  ["a", "a", "a", "a", "a", "a", "a", "a"],
+//                  ["a", "a", "a", "a", "a", "a", "a", "a"],
+//                  ["b", "b", "b", "b", "b", "b", "b", "b"],
+//                  ["b", "b", "b", "b", "b", "b", "b", "b"]], rectangle: [1, 1, 4, 3])
