@@ -45,7 +45,7 @@
 //let high = 1000000000
 //let countVer = 100000
 
-var answer = [Int]()
+//var answer = [Int]()
 //var kozel = 1234567
 //var a1 = Array([1,2, 3, 4, 6, 7, 8, 9])
 //var a2 = Array([3, 5, 7, 8, 9])
@@ -166,3 +166,4 @@ var answer = [Int]()
 //    print(answer)
 //    answer = []
 //}
+
