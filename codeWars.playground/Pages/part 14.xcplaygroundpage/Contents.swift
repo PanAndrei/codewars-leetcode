@@ -97,3 +97,60 @@ import Foundation
 //    }
 //    return r
 //}
+
+//Consider a (2k+1) × (2k+1) square subarray of an integer integers matrix. Let's call the union of the square's two longest diagonals, middle column and middle row a star. Given the coordinates of the star's center in the matrix and its width, rotate it 45 · t degrees clockwise preserving position of all matrix elements that do not belong to the star.
+
+//func solution(matrix: [[Int]], width: Int, center: [Int], t: Int) -> [[Int]] {
+//    var t = t % 8
+//    if t == 0 { return matrix }
+//    var matrix = matrix
+//    let radius = width / 2
+//    let rowCenter = center[0]
+//    let colCenter = center[1]
+//
+//    // flip t times
+//    for _ in 1...t {
+//        for i in 0..<radius {
+//            let temp = matrix[rowCenter-radius+i][colCenter-radius+i]
+//            matrix[rowCenter-radius+i][colCenter-radius+i] = matrix[rowCenter][colCenter-radius+i]
+//            matrix[rowCenter][colCenter-radius+i] = matrix[rowCenter+radius-i][colCenter-radius+i]
+//            matrix[rowCenter+radius-i][colCenter-radius+i] = matrix[rowCenter+radius-i][colCenter]
+//            matrix[rowCenter+radius-i][colCenter] = matrix[rowCenter+radius-i][colCenter+radius-i]
+//            matrix[rowCenter+radius-i][colCenter+radius-i] = matrix[rowCenter][colCenter+radius-i]
+//            matrix[rowCenter][colCenter+radius-i] = matrix[rowCenter-radius+i][colCenter+radius-i]
+//            matrix[rowCenter-radius+i][colCenter+radius-i] = matrix[rowCenter-radius+i][colCenter]
+//            matrix[rowCenter-radius+i][colCenter] = temp
+//        }
+//    }
+//
+//    return matrix
+//}
+
+//Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
+//
+//This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
+
+
+//func solution(grid: [[Int]]) -> Bool {
+//
+//    for i in 0 ..< grid.count {
+//        var horiz = [Int]()
+//        var vert = [Int]()
+//        var square = [Int]()
+//        
+//        for j in 0 ..< grid[0].count {
+//            horiz.append(grid[i][j])
+//            vert.append(grid[j][i])
+//            square.append(grid[i / 3 * 3 + j / 3][i % 3 * 3 + j % 3])
+//        }
+//        
+//        if Set(horiz).count != 9 || Set(vert).count != 9 || Set(square).count != 9 {
+//            return false
+//        }
+//        horiz = []
+//        vert = []
+//        square = []
+//    }
+//    
+//    return true
+//}
