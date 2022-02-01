@@ -154,3 +154,36 @@ import Foundation
 //    
 //    return true
 //}
+
+//In the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.
+
+//func solution(matrix: [[Bool]]) -> [[Int]] {
+//    var answer = Array(repeating: Array(repeating: 0, count: matrix[0].count), count: matrix.count)
+//
+//    for i in 0 ..< matrix.count {
+//        for j in 0 ..< matrix[0].count {
+//            if matrix[i][j] {
+//                for x in -1 ... 1 {
+//                    var xCoor = i + x
+//                    if xCoor < 0 || xCoor > matrix.count - 1 {
+//                        continue
+//                    }
+//                    for y in -1 ... 1 {
+//                       var yCoor = j + y
+//                        if yCoor < 0 || yCoor > matrix[0].count - 1 {
+//                            continue
+//                        }
+//                        answer[xCoor][yCoor] += 1
+//                    }
+//                }
+//                answer[i][j] -= 1
+//            }
+//        }
+//    }
+//
+//    return answer
+//}
+//
+//solution(matrix: [[true, false, false],
+//                  [false, true, false],
+//                  [false, false, false]])

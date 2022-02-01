@@ -104,8 +104,8 @@ import Darwin
 //}
 //
 //getResult(formula: "2{b}3{fg}")
-
-
+//
+//
 //let question = "2{b}3{fg}"
 //
 //
@@ -145,27 +145,27 @@ import Darwin
 //}
 //func getResult(formula: String) -> String {
 //    var current = formula.startIndex
-//    
+//
 //    var result = ""
-//    
+//
 //    while current < formula.endIndex {
 //        if formula[current].isLetter {
 //            result.append(formula[current])
 //            current = formula.index(after: current)
 //            continue
 //        }
-//        
+//
 //        if formula[current].isNumber {
-//            
+//
 //            let firstParenesis = nextOpening(from: current, in: formula)
 //            let lastParentesis = endOfFullExpression(from: firstParenesis, in: formula)
 //
 //            let number = Int(String(formula[current..<firstParenesis])) ?? 1
-//            
+//
 //            let substr = String(formula[formula.index(after: firstParenesis)..<lastParentesis])
-//            
+//
 //            let recursive = multiplyStr(count: number, str: getResult(formula:substr))
-//            
+//
 //            result.append(recursive)
 //            current = formula.index(after: lastParentesis)
 //            continue
