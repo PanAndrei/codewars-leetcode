@@ -175,3 +175,118 @@ import Darwin
 //}
 //
 //getResult(formula: question)
+
+
+//Дан целочисленный массив. Определите, может ли он быть палиндромом, если переставить элементы массива местами. Массив считается палиндромом, когда т.е. первый элемент равен последнему, второй предпоследнему и т.д. Например, [1, 2, 1], [2, 4, 4, 2] - палиндромы, [1, 2, 3] - нет.
+//
+//Ввод:
+//
+//numb - целочисленный массив,  0<length(numb)<=10, 0<numb[i]<20
+//Вывод:
+//
+//Boolean - может ли массив в результате перестановки элементов стать палиндромом или нет
+//Пример:
+//
+//numb = [2, 1, 1]
+//getResult(numb) = true
+//Меняем 2 и 1 местами и получаем [1, 2, 1] - это палиндром.
+
+//func getResult(numb: [Int]) -> Bool {
+//
+//    var counts = [Int]()
+//    var checked = [Int]()
+//
+//    for element in numb {
+//        if !checked.contains(element) {
+//            checked.append(element)
+//            counts.append(numb.filter { $0 == element}.count )
+//        }
+//    }
+//
+//    print(counts)
+//
+//    if counts.filter { $0 % 2 != 0 }.count > 1 {
+//        return false
+//    } else {
+//        return true
+//    }
+//
+//}
+//
+//getResult(numb: [2, 1, 2, 3])
+
+
+//Сегодня Аристократия организовывает пир. Мы знаем количество гостей, ваша задача рассадить всех за стол.
+//
+//Однако, некоторые гости дали вам список неприятелей, с которыми они не сядут.
+//
+//Стулья расставили так, что у стола оказалось два крайних места, у которых только один соседний гость. В остальных случаях соседа два.
+//
+//Определите, можно ли рассадить гостей так, чтобы все оказались довольны.
+//
+//Ввод:
+//
+//invited_list -  количество приглашённых гостей,  0<invited_list<10
+//dislike_list - строчный массив неприятелей, ["1-2,3"] - означает, что гость под номером 1 не сядет с гостями 2 и 3
+//Вывод:
+//
+//Boolean - возможно ли рассадить гостей так, чтобы они все были довольны
+
+//func getResult(invitedList: Int, dislikeList: [String]) -> Bool {
+//
+//    var list = Array(repeating: 0, count: invitedList)
+//    var note = Array(1 ... invitedList)
+//
+//    var dislikes = dislikeList.map { $0.components(separatedBy: "-")}
+//    var tt = dislikes.map {$0[1].components(separatedBy: ",") }
+//
+//    note.
+//
+//    return false
+//}
+//
+//getResult(invitedList: 4, dislikeList: ["1-2,3", "3-4"])
+
+//Пришло время праздника! На корпоратив сотрудники компании решили добираться на такси, но решили вызвать как можно меньше машин, чтобы было дешевле.
+//
+//Они посчитали, что на переднем сидении может сидеть человек какого угодно веса, а на задних - до 210 кг в сумме и до трех человек.
+//
+//Какое минимальное число машин необходимо вызвать, чтобы всех довезти на корпоратив?
+//
+//На входе:
+//
+//weight - массив чисел, вес каждого сотрудника компании, 0<length(weight)<25, 0<weight[i]<=210
+//На выходе:
+//
+//integer - количество машин
+//Пример:
+//
+//weight=[89, 46, 134, 78, 79, 67, 63, 81]
+//getResult(weight) → 2 // 134 + 79, 67, 63; 89+78, 81, 46
+
+//func getResult(weight: [Int]) -> Int {
+//    var cars = 0
+//    var bigCars = Int(ceil((Double(weight.count) / Double(4))))
+//
+//    var people = weight.sorted(by: >)
+//
+//big:  while people.count > 0 {
+//    var car = people.removeFirst()
+//    for _ in 1 ... 3 {
+//        if people.count > 0 {
+//            if car + people.removeLast() <= 210 {
+//                car += people.removeLast()
+//            } else {
+//                cars += 1
+//                continue big
+//            }
+//        }
+//    }
+//    car = 0
+//    cars += 1
+//}
+//
+//    return cars > bigCars ? cars : bigCars
+//}
+//
+//getResult(weight: [89, 46, 134])

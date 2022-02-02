@@ -187,3 +187,38 @@ import Foundation
 //solution(matrix: [[true, false, false],
 //                  [false, true, false],
 //                  [false, false, false]])
+
+
+//Last night you partied a little too hard. Now there's a black and white photo of you that's about to go viral! You can't let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.
+//
+//The pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel x in the output image has a value equal to the average value of the pixel values from the 3 × 3 square that has its center at x, including x itself. All the pixels on the border of x are then removed.
+//
+//Return the blurred image as an integer, with the fractions rounded down
+
+//func solution(image: [[Int]]) -> [[Int]] {
+//    var answer = Array(repeating: Array(repeating: 0, count: image[0].count - 2), count: image.count - 2)
+//        
+//    for i in 1 ... (image.count - 2) {
+//        for j in 1 ... (image[0].count - 2) {
+//            var number = 0
+//            number += image[i - 1][j - 1]
+//            number += image[i - 1][j]
+//            number += image[i - 1][j + 1]
+//            number += image[i][j - 1]
+//            number += image[i][j]
+//            number += image[i][j + 1]
+//            number += image[i + 1][j - 1]
+//            number += image[i + 1][j]
+//            number += image[i + 1][j + 1]
+//            number = Int(number / 9)
+//            answer[i - 1][j - 1] = number
+//        }
+//    }
+//    
+//    return answer
+//}
+//
+//solution(image: [[7, 4, 0, 1],
+//                 [5, 6, 2, 2],
+//                 [6, 10, 7, 8],
+//                 [1, 4, 2, 0]])

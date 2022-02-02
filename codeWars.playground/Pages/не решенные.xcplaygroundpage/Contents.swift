@@ -251,4 +251,34 @@ import Foundation
 //Given array arr, your task is to find its middle, and, if it consists of two elements, replace those elements with the value of middle. Return the resulting array as the answer.
 
 
+// sberfight
+//Сегодня Аристократия организовывает пир. Мы знаем количество гостей, ваша задача рассадить всех за стол.
+//
+//Однако, некоторые гости дали вам список неприятелей, с которыми они не сядут.
+//
+//Стулья расставили так, что у стола оказалось два крайних места, у которых только один соседний гость. В остальных случаях соседа два.
+//
+//Определите, можно ли рассадить гостей так, чтобы все оказались довольны.
+//
+//Ввод:
+//
+//invited_list -  количество приглашённых гостей,  0<invited_list<10
+//dislike_list - строчный массив неприятелей, ["1-2,3"] - означает, что гость под номером 1 не сядет с гостями 2 и 3
+//Вывод:
+//
+//Boolean - возможно ли рассадить гостей так, чтобы они все были довольны
 
+//func getResult(invitedList: Int, dislikeList: [String]) -> Bool {
+//
+//    var list = Array(repeating: 0, count: invitedList)
+//    var note = Array(1 ... invitedList)
+//
+//    var dislikes = dislikeList.map { $0.components(separatedBy: "-")}
+//    var tt = dislikes.map {$0[1].components(separatedBy: ",") }
+//
+//    note.
+//
+//    return false
+//}
+//
+//getResult(invitedList: 4, dislikeList: ["1-2,3", "3-4"])
