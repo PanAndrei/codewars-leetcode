@@ -222,3 +222,124 @@ import Foundation
 //                 [5, 6, 2, 2],
 //                 [6, 10, 7, 8],
 //                 [1, 4, 2, 0]])
+
+//Mark got a rectangular array matrix for his birthday, and now he's thinking about all the fun things he can do with it. He likes shifting a lot, so he decides to shift all of its i-contours in a clockwise direction if i is even, and counterclockwise if i is odd.
+//
+//Here is how Mark defines i-contours:
+//
+//the 0-contour of a rectangular array as the union of left and right columns as well as top and bottom rows;
+//consider the initial matrix without the 0-contour: its 0-contour is the 1-contour of the initial matrix;
+//define 2-contour, 3-contour, etc. in the same manner by removing 0-contours from the obtained arrays.
+//Implement a function that does exactly what Mark wants to do to his matrix.
+//
+//
+//
+//func solution(matrix: [[Int]]) -> [[Int]] {
+//    func contourToMatrixCoord(depth: Int, i: Int) -> (Int, Int) {
+//        let h = matrix.count - 2*depth
+//        let w = matrix[0].count - 2*depth
+//        if h == 1 {
+//            return (depth, depth+i)
+//
+//        } else if w == 1 {
+//            return (depth+i, depth)
+//        } else {
+//            switch i {
+//            case let p where 0 <= p && p < w:
+//                return (depth, depth+p)
+//            case let p where w <= p && p < w+h-1:
+//                return (depth+p-w+1, depth+w-1)
+//            case let p where w+h-1 <= p && p < 2*(w-1)+h:
+//                return (depth+h-1, depth+2*(w-1)+h-1-p)
+//            case let p where 2*(w-1)+h <= p && p < 2*(h+w-2):
+//                return (depth+2*(w+h-2)-p, depth)
+//            default:
+//                fatalError()
+//            }
+//        }
+//    }
+//
+//    var retMat = matrix
+//    var n = matrix.count // k-contour height
+//    var m = matrix[0].count // k-contour width
+//    var k = 0 // contour depth
+//    while n > 0 && m > 0 {
+//        let count = (n == 1 || m == 1) ? n*m : 2*(n+m-2)
+//        if k%2 == 0 {
+//            var (p, q) = contourToMatrixCoord(depth: k, i: count-1)
+//            for i in 0..<count {
+//                let (r, s) = contourToMatrixCoord(depth: k, i: i)
+//                retMat[r][s] = matrix[p][q]
+//                (p, q) = (r, s)
+//            }
+//        } else {
+//            var (p, q) = contourToMatrixCoord(depth: k, i: 0)
+//            for i in 0..<count {
+//                let (r, s) = contourToMatrixCoord(depth: k, i: count-1-i)
+//                retMat[r][s] = matrix[p][q]
+//                (p, q) = (r, s)
+//            }
+//        }
+//        n -= 2
+//        m -= 2
+//        k += 1
+//    }
+//    return retMat
+//}
+
+//You have a rectangular white board with some black cells. The black cells create a connected black figure, i.e. it is possible to get from any black cell to any other one through connected adjacent (sharing a common side) black cells.
+//
+//Find the perimeter of the black figure assuming that a single cell has unit length.
+//
+//It's guaranteed that there is at least one black cell on the table.
+
+// работает только если фигура - змейка
+
+//func solution(matrix: [[Bool]]) -> Int {
+//    var answer = matrix.flatMap { $0 }.filter { $0 == true}.count
+//
+//    switch answer {
+//    case 1:
+//        return 4
+//    case 2:
+//        return 6
+//    default:
+//        return 6 + (answer - 2) * 2
+//    }
+//
+//}
+
+//// perfect
+//func solution(matrix: [[Bool]]) -> Int {
+//    var answer = matrix.flatMap { $0 }.filter { $0 == true }.count * 4
+//    var newMatr = matrix.map { [false] + $0 + [false] }
+//    newMatr.insert(Array(repeating: false, count: newMatr[0].count), at: 0)
+//    newMatr.append(Array(repeating: false, count: newMatr[0].count))
+//
+//    for i in 1 ..< newMatr.count - 1 {
+//        for j in 1 ..< newMatr[0].count - 1 {
+//            if newMatr[i][j] {
+//                var count = 0
+//                if newMatr[i - 1][j] {
+//                    count += 1
+//                }
+//                if newMatr[i + 1][j] {
+//                    count += 1
+//                }
+//                if newMatr[i][j - 1] {
+//                    count += 1
+//                }
+//                if newMatr[i][j + 1] {
+//                    count += 1
+//                }
+//                answer -= count
+//            }
+//        }
+//    }
+//
+//    return answer
+//}
+//
+//solution(matrix: [[false, true,  true ],
+//                  [true,  true,  false],
+//                  [true,  false, false]])
