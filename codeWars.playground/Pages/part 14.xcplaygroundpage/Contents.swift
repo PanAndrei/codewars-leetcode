@@ -343,3 +343,106 @@ import Foundation
 //solution(matrix: [[false, true,  true ],
 //                  [true,  true,  false],
 //                  [true,  false, false]])
+
+
+//You are given a vertical box divided into equal columns. Someone dropped several stones from its top through the columns. Stones are falling straight down at a constant speed (equal for all stones) while possible (i.e. while they haven't reached the ground or they are not blocked by another motionless stone). Given the state of the box at some moment in time, find out which columns become motionless first.
+
+//let rows = ["#..##",
+//            ".##.#",
+//            ".#.##",
+//            "....."]
+//
+//func checkRow (row: String) -> Bool {
+//    var multa = 0
+//    let row = row.map { String($0) }
+//    if row.last == "#" {
+//        for i in 0 ..< row.count {
+//            if row[row.count - 1 - i] != "#" {
+//                multa += 1
+//            }
+//            if multa >= 1 && row[row.count - 1 - i] == "#" {
+//                return false
+//            }
+//        }
+//    } else if row.filter { $0 == "#"}.count == 0  {
+//        return true
+//    } else {
+//        return false
+//    }
+//    return true
+//}
+//
+//func moveRow (row: String) -> String {
+//    var answer = row.map { String($0) }
+//
+//    for i in 0 ..< answer.count {
+//        if answer[answer.count - 1 - i] != "#" {
+//            answer.remove(at: answer.count - 1 - i)
+//            answer.insert(".", at: 0)
+//            break
+//        }
+//    }
+//    return answer.joined()
+//}
+//
+//func solution(rows: [String]) -> [Int] {
+//    let newrows = rows.map { $0.map { String($0) } }
+//    var answer = [Int]()
+//    var colums = [String]()
+//
+//    for i in 0 ..< newrows[0].count {
+//        var element = ""
+//        for j in 0 ..< newrows.count {
+//            element += newrows[j][i]
+//        }
+//        colums.append(element)
+//    }
+//
+//big: for _ in 1 ... colums[0].count {
+//
+//        for i in 0 ..< colums.count {
+//            if checkRow(row: colums[i]) {
+//                answer.append(i)
+//            }
+//        }
+//
+//        if answer.isEmpty {
+//            for i in 0 ..< colums.count {
+//                colums[i] = moveRow(row: colums[i])
+//            }
+//        } else {
+//            break big
+//        }
+//
+//    }
+//
+//    return answer
+//}
+//
+//solution(rows: rows)
+//
+//var str = "#.....#"
+//
+//checkRow(row: str)
+//let new = moveRow(row: str)
+//checkRow(row: new)
+//let nn = moveRow(row: new)
+//checkRow(row: nn)
+//
+//// как это работает вообще хз
+//
+//func solution(rows: [String]) -> [Int] {
+//    var holes = Array(repeating: 0, count: rows[0].characters.count)
+//    var rocks = Array(repeating: false, count: rows[0].characters.count)
+//    for row in rows {
+//        for (i, c) in row.characters.enumerated() {
+//            if c == "." && rocks[i] {
+//                holes[i] += 1
+//            }
+//            if !rocks[i] && c == "#" {
+//                rocks[i] = true
+//            }
+//        }
+//    }
+//    return holes.enumerated().filter({$0.1 == holes.min(by: <)!}).map({$0.0})
+//}
