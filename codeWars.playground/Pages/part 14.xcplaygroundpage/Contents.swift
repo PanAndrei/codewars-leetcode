@@ -347,6 +347,10 @@ import Foundation
 
 //You are given a vertical box divided into equal columns. Someone dropped several stones from its top through the columns. Stones are falling straight down at a constant speed (equal for all stones) while possible (i.e. while they haven't reached the ground or they are not blocked by another motionless stone). Given the state of the box at some moment in time, find out which columns become motionless first.
 
+// пришла идея как проще решить
+//нужно смотреть с последней строки - есть ли камень. если да то проверять колонку на наличие других
+//камней или проблелов
+
 //let rows = ["#..##",
 //            ".##.#",
 //            ".#.##",
@@ -446,3 +450,111 @@ import Foundation
 //    }
 //    return holes.enumerated().filter({$0.1 == holes.min(by: <)!}).map({$0.0})
 //}
+
+//Court is in session. We got a group of witnesses who have all taken an oath to tell the truth. The prosecutor is pointing at the defendants one by one and asking each witnesses a simple question - "guilty or not?". The witnesses are allowed to respond in one of the following three ways:
+//
+//I am sure he/she is guilty.
+//I am sure he/she is innocent.
+//I have no idea.
+//The prosecutor has a hunch that one of the witnesses might not be telling the truth so she decides to cross-check all of their testimonies and see if the information gathered is consistent, i.e. there are no two witnesses A and B and a defendant C such that A says C is guilty while B says C is innocent.
+
+//func solution(evidences: [[Int]]) -> Bool {
+//    for j in 0..<evidences[0].count {
+//        var values:[Int] = []
+//        for i in 0..<evidences.count {
+//            values.append(evidences[i][j])
+//        }
+//        if (values.contains(-1) && values.contains(1)) {
+//            return false
+//        }
+//    }
+//    return true
+//}
+
+//A nonogram is also known as Paint by Numbers and Japanese Crossword. The aim in this puzzle is to color the grid into black and white squares. At the top of each column, and at the side of each row, there are sets of one or more numbers which describe the runs of black squares in that row/column in exact order. For example, if you see 10 1 along some column/row, this indicates that there will be a run of exactly ten black squares, followed by one or more white squares, followed by a single black square. The cells along the edges of the grid can also be white.
+//
+//You are given a square nonogram of size size. Its grid is given as a square matrix nonogramField of size (size + 1) / 2 + size, where the first (size + 1) / 2 cells of each row and and each column define the numbers for the corresponding row/column, and the rest size × size cells define the the grid itself.
+//
+//Determine if the given nonogram has been solved correctly.
+//
+//Note: here / means integer division.
+
+//var size = 5
+//var nonogramField = [["-", "-", "-", "-", "-", "-", "-", "-"],
+//                     ["-", "-", "-", "2", "2", "1", "-", "1"],
+//                     ["-", "-", "-", "2", "1", "1", "3", "3"],
+//                     ["-", "3", "1", "#", "#", "#", ".", "#"],
+//                     ["-", "-", "2", "#", "#", ".", ".", "."],
+//                     ["-", "-", "2", ".", ".", ".", "#", "#"],
+//                     ["-", "1", "2", "#", ".", ".", "#", "#"],
+//                     ["-", "-", "5", "#", "#", "#", "#", "#"]]
+//
+//var row = ["-", "1", "2", "#", ".", ".", "#", "#"]
+//
+//func checkRow(row: [String], size: Int) -> Bool {
+//    var count = 0
+//    var row = row
+//    var numbers = [Int]()
+//    var numberCheck = [Int]()
+//
+//    for elemenin in row {
+//        if let num = Int(elemenin) {
+//            numbers.append(num)
+//        }
+//    }
+//
+//    for i in (row.count - 1 - size) ... (row.count - 1) {
+//        if row[i] == "#" {
+//            count += 1
+//        } else {
+//            numberCheck.append(count)
+//            count = 0
+//        }
+//    }
+//    numberCheck.append(count)
+//
+//    if numbers == numberCheck.filter { $0 != 0 } {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//func columToRow(field: [[String]], colum: Int) -> [String] {
+//    var answer = [String]()
+//
+//    for i in 0 ..< field.count {
+//        answer.append(field[i][colum])
+//    }
+//    return answer
+//}
+
+//checkRow(row: row, size: 5)
+//columToRow(field: nonogramField , colum: 4)
+
+// works perfect
+//func solution(size: Int, nonogramField: [[String]]) -> Bool {
+//    var arrToCheck = [[String]]()
+//
+//    for i in (nonogramField.count - size) ... (nonogramField.count - 1) {
+//        arrToCheck.append(nonogramField[i])
+//    }
+//
+//    for j in (nonogramField[0].count - size) ... (nonogramField[0].count - 1) {
+//        arrToCheck.append(columToRow(field: nonogramField, colum: j))
+//    }
+//
+//    for element in arrToCheck {
+//        print(element)
+//    }
+//
+//    for x in 0 ..< arrToCheck.count {
+//        if checkRow(row: arrToCheck[x], size: size) == false {
+//            return false
+//        }
+//    }
+//
+//    return true
+//}
+//
+//solution(size: 5, nonogramField: nonogramField)
