@@ -363,3 +363,94 @@
 //
 //    return true
 //}
+
+// cubes
+// разобраться почему тут +1 результат 
+
+//func findNb(_ number: Int) -> Int {
+//    var cube = 1
+//    var volume = 0
+//    var totalVolume = 0
+//    var totalCubes = 0
+//
+//    while totalVolume <= number {
+//        volume = cube * cube * cube
+//        totalVolume += volume
+//        cube += 1
+//        totalCubes += 1
+//    }
+//    return totalVolume == number ? totalCubes : -1
+//}
+//
+//findNb(1071224)
+
+//You are given an array of integers a. A range sum query is defined by a pair of non-negative integers l and r (l <= r). The output to a range sum query on the given array a is the sum of all the elements of a that have indices from l to r, inclusive.
+//
+//You have the array a and a list of range sum queries q. Find an algorithm that can rearrange the array a in such a way that the total sum of all of the query outputs is maximized, and return this total sum.
+//
+//let a = [4, 2, 1, 6, 5, 7, 2, 4], q = [[1,6],
+//                                       [2,4],
+//                                       [3,6],
+//                                       [0,7],
+//                                       [3,6],
+//                                       [4,4],
+//                                       [5,6],
+//                                       [5,6],
+//                                       [0,1],
+//                                       [3,4]]
+
+//let a = [2, 1, 2], q = [[0,1]]
+//
+//// perfectly well!!!!
+//func findMax(with q: [[Int]]) -> [Int] {
+//    var arrayInt = [Int]()
+//    var answer = [Int]()
+//
+//    for element in q {
+//        let range = Array(element[0] ... element[1])
+//        arrayInt += range
+//    }
+//
+//    let rangedInt = arrayInt.sorted().sorted { a, b in
+//        arrayInt.filter{ $0 == a }.count > arrayInt.filter{ $0 == b }.count
+//    }
+//
+//    for element in rangedInt {
+//        if answer.contains(element) {
+//            continue
+//        }
+//        answer.append(element)
+//    }
+//
+//    return answer
+//}
+//
+//func findSum(with a: [Int], with q: [[Int]]) -> Int {
+//    var answer = 0
+//
+//    for element in q {
+//        let range = element[0] ... element[1]
+//        answer += a[range].reduce(0, +)
+//    }
+//
+//    return answer
+//}
+//
+//findMax(with: q)
+//findSum(with: a, with: q)
+//
+//func solution(a: [Int], q: [[Int]]) -> Int {
+//    let a = a.sorted(by: >)
+//    var newA = Array(repeating: 0, count: a.count)
+//    var newRange = findMax(with: q)
+//
+//    for i in 0 ..< newRange.count {
+//        newA[newRange[i]] = a[i]
+//    }
+//
+//    print(newA)
+//
+//    return findSum(with: newA, with: q)
+//}
+//
+//solution(a: a, q: q)
