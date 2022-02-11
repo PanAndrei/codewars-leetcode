@@ -161,3 +161,131 @@ import Foundation
 //
 //    return true
 //}
+
+//You are given an array of integers a. A range sum query is defined by a pair of non-negative integers l and r (l <= r). The output to a range sum query on the given array a is the sum of all the elements of a that have indices from l to r, inclusive.
+//
+//You have the array a and a list of range sum queries q. Find an algorithm that can rearrange the array a in such a way that the total sum of all of the query outputs is maximized, and return this total sum.
+//
+//let a = [4, 2, 1, 6, 5, 7, 2, 4], q = [[1,6],
+//                                       [2,4],
+//                                       [3,6],
+//                                       [0,7],
+//                                       [3,6],
+//                                       [4,4],
+//                                       [5,6],
+//                                       [5,6],
+//                                       [0,1],
+//                                       [3,4]]
+
+//let a = [2, 1, 2], q = [[0,1]]
+//
+//// perfectly well!!!!
+//func findMax(with q: [[Int]]) -> [Int] {
+//    var arrayInt = [Int]()
+//    var answer = [Int]()
+//
+//    for element in q {
+//        let range = Array(element[0] ... element[1])
+//        arrayInt += range
+//    }
+//
+//    let rangedInt = arrayInt.sorted().sorted { a, b in
+//        arrayInt.filter{ $0 == a }.count > arrayInt.filter{ $0 == b }.count
+//    }
+//
+//    for element in rangedInt {
+//        if answer.contains(element) {
+//            continue
+//        }
+//        answer.append(element)
+//    }
+//
+//    return answer
+//}
+//
+//func findSum(with a: [Int], with q: [[Int]]) -> Int {
+//    var answer = 0
+//
+//    for element in q {
+//        let range = element[0] ... element[1]
+//        answer += a[range].reduce(0, +)
+//    }
+//
+//    return answer
+//}
+//
+//findMax(with: q)
+//findSum(with: a, with: q)
+//
+//func solution(a: [Int], q: [[Int]]) -> Int {
+//    let a = a.sorted(by: >)
+//    var newA = Array(repeating: 0, count: a.count)
+//    var newRange = findMax(with: q)
+//
+//    for i in 0 ..< newRange.count {
+//        newA[newRange[i]] = a[i]
+//    }
+//
+//    print(newA)
+//
+//    return findSum(with: newA, with: q)
+//}
+//
+//solution(a: a, q: q)
+
+//Given a rectangular matrix of integers, check if it is possible to rearrange its rows in such a way that all its columns become strictly increasing sequences (read from top to bottom).
+
+//let matrix = [[1,3,1],
+//              [0,2,0],
+//              [1,7,2]]
+//// идеально
+//func checkColumns(matrix: [[Int]]) -> Bool {
+//    for j in 0 ..< matrix[0].count {
+//        for i in 0 ..< matrix.count - 1 {
+//            if matrix[i][j] <= matrix[i + 1][j] {
+//                return false
+//            }
+//        }
+//    }
+//    return true
+//}
+//
+//func rearrengeColumn (matrix: [[Int]], column: Int) -> [[Int]] {
+//    var answer = matrix
+//
+//    for i in 0 ..< answer.count {
+//        for j in (i + 1) ..< answer.count {
+//            if answer[i][column] < answer[j][column] {
+//                answer.swapAt(i, j)
+//            }
+//        }
+//    }
+//
+//    return answer
+//}
+//
+//func solution(matrix: [[Int]]) -> Bool {
+//    var answer = matrix
+//
+//    for i in 0 ..< matrix[0].count {
+//        answer = rearrengeColumn(matrix: answer, column: i)
+//
+//        if checkColumns(matrix: answer) {
+//            return true
+//        }
+//    }
+//    return false
+//}
+//
+//solution(matrix: matrix)
+//
+//// чужое решение не учитывает другие колонны вообще
+//func solution(matrix: [[Int]]) -> Bool {
+//    let m = matrix.sorted(by: { $0[0] < $1[0] })
+//    for c in 0..<m[0].count {
+//        for r in 1..<m.count where m[r][c] <= m[r - 1][c] {
+//            return false
+//        }
+//    }
+//    return true
+//}

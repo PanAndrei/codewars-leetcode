@@ -543,3 +543,23 @@
 //}
 //
 //solution(a: a, q: q)
+
+// тут умножение на количество повторов, тоже интересно
+
+//func solution(a: [Int], q: [[Int]]) -> Int {
+//    // We need to find out which index values are covered most
+//    // frequently by the ranges in q, and then put the higest values
+//    // there
+//    var hitCounts = Array(repeating: 0, count: a.count)
+//
+//    for range in q {
+//        for i in range[0]...range[1] {
+//            hitCounts[i] += 1
+//        }
+//    }
+//
+//    // Sorted with largest items first
+//    let sortedHits = hitCounts.sorted()
+//    let sortedArray = a.sorted()
+//    return (0..<a.count).map() { sortedHits[$0] * sortedArray[$0] }.reduce(0, +)
+//}
