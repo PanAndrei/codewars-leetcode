@@ -454,3 +454,70 @@
 //}
 //
 //solution(a: a, q: q)
+
+//Given an array of integers, sort its elements by the difference of their largest and smallest digits. In the case of a tie, that with the larger index in the array should come first.
+
+//let a = [152, 23, 7, 887, 243]
+//
+//// работает но не тогда когда есть одинаковые числа на разных местах
+//func getDifference(num: Int) -> Int {
+//    var arrayNum = String(num).map { Int(String($0))! }
+//
+//    if arrayNum.count == 1 {
+//        return 0
+//    } else {
+//        return arrayNum.max()! - arrayNum.min()!
+//    }
+//}
+//
+//getDifference(num: 5)
+//
+//func solution(a: [Int]) -> [Int] {
+//    var answer = a
+//
+//    for i in 0 ..< answer.count {
+//        for j in (i + 1) ..< answer.count {
+//            if getDifference(num: answer[i]) > getDifference(num: answer[j]) {
+//                answer.swapAt(i, j)
+//            }
+//        }
+//    }
+//
+//    for i in 0 ..< answer.count {
+//        for j in (i + 1) ..< answer.count {
+//           if getDifference(num: answer[i]) == getDifference(num: answer[j]) &&
+//            a.lastIndex(of: answer[i])! < a.lastIndex(of: answer[j])! {
+//                answer.swapAt(i, j)
+//            }
+//        }
+//    }
+//
+//    return answer
+//}
+//
+//solution(a: a)
+//
+//// интересное решение со структурой
+//
+//func solution(a: [Int]) -> [Int] {
+//
+//    var digits = [Digit]()
+//
+//    for num in a {
+//        let arr = Array(String(num)).sorted(by: {$0 > $1})
+//        let biggest = Int(String(arr[0]))!
+//        let smallest = Int(String(arr[arr.count-1]))!
+//
+//        digits.append(Digit(n: num, bMinusS: biggest - smallest))
+//    }
+//
+//
+//    return digits.sorted(by: {if $0.bMinusS != $1.bMinusS {return $0.bMinusS < $1.bMinusS} else {return true} }).map({$0.n})
+//
+//}
+//
+//
+//struct Digit {
+//    var n : Int
+//    var bMinusS : Int
+//}
