@@ -356,3 +356,75 @@ import Foundation
 //    var n : Int
 //    var bMinusS : Int
 //}
+
+//Let's call product(x) the product of x's digits. Given an array of integers a, calculate product(x) for each x in a, and return the number of distinct results you get.
+
+//func findProduct(num: Int) -> Int {
+//    return String(num).map { Int(String($0))! }.reduce(1, *)
+//}
+//
+//func solution(a: [Int]) -> Int {
+//    var setNum: Set<Int> = []
+//
+//    for element in a {
+//        setNum.insert(findProduct(num: element))
+//    }
+//
+//    return setNum.count
+//}
+//
+//solution(a: [2, 8, 121, 42, 222, 23])
+
+//Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
+//
+//The bishop has no restrictions in distance for each move, but is limited to diagonal movement. Check out the example below to see how it can move:
+
+//let bishop = "a1", pawn = "c3"
+//
+//func solution(bishop: String, pawn: String) -> Bool {
+//    let bishopArr = bishop.map { String($0) }
+//    let pawnArr = pawn.map { String($0) }
+//
+//    if abs(Int(bishopArr[1])! - Int(pawnArr[1])!) ==
+//       abs(Int(Character(bishopArr[0]).asciiValue!) - Int(Character(pawnArr[0]).asciiValue!)) {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//solution(bishop: bishop, pawn: pawn)
+//
+//// simplier
+//func solution(bishop: String, pawn: String) -> Bool {
+//    return abs(Int(bishop.utf8.first!) - Int(pawn.utf8.first!)) == abs(Int(bishop.utf8.last!) - Int(pawn.utf8.last!))
+//}
+
+//Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.
+//
+//The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from it. The complete move therefore looks like the letter L. Check out the image below to see all valid moves for a knight piece that is placed on one of the central squares.
+
+// perfect
+//func solution(cell: String) -> Int {
+//    var answer = 8
+//    let position = [cell.utf8.first!, cell.utf8.last!]
+//
+//    for i in -2 ... 2 {
+//        if i == 0 {
+//            continue
+//        }
+//        for j in -2 ... 2 {
+//            if j == 0 || abs(i) + abs(j) != 3 {
+//                continue
+//            }
+//            var newPosition = [Int(position[0]) + i, Int(position[1]) + j]
+//            if !(97 ... 104).contains(newPosition[0]) || !(49 ... 56).contains(newPosition[1]) {
+//                answer -= 1
+//            }
+//        }
+//    }
+//
+//    return answer
+//}
+//
+//solution(cell: "c2")
