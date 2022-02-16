@@ -428,3 +428,73 @@ import Foundation
 //}
 //
 //solution(cell: "c2")
+
+//In the Land Of Chess, bishops don't really like each other. In fact, when two bishops happen to stand on the same diagonal, they immediately rush towards the opposite ends of that same diagonal.
+//
+//Given the initial positions (in chess notation) of two bishops, bishop1 and bishop2, calculate their future positions. Keep in mind that bishops won't move unless they see each other along the same diagonal.
+
+//let bishop1 = "d8", bishop2 = "b5"
+//
+//"8".utf8.first
+//
+//// работает криво в лоб кроме одного теста
+//// у других так же в лоб так что норм
+//func solution(bishop1: String, bishop2: String) -> [String] {
+//    if abs(Int(bishop1.utf8.first!) - Int(bishop2.utf8.first!)) != abs(Int(bishop1.utf8.last!) - Int(bishop2.utf8.last!))  {
+//        return bishop1.utf8.first! < bishop2.utf8.first! ? [bishop1, bishop2] : [bishop2, bishop1]
+//    }
+//    
+//    var bish1 = [bishop1.utf8.first!,bishop1.utf8.last!]
+//    var bish2 = [bishop2.utf8.first!,bishop2.utf8.last!]
+//    print(bish1)
+//    print(bish2)
+//
+//    
+//    if bish1[0] < bish2[0] && bish1[1] > bish2[1] {
+//        while (98 ... 103).contains(bish1[0]) && (50 ... 55).contains(bish1[1]) {
+//            bish1[0] -= 1
+//            bish1[1] += 1
+//        }
+//        while (98 ... 103).contains(bish2[0]) && (50 ... 55).contains(bish2[1]) {
+//            bish2[0] += 1
+//            bish2[1] -= 1
+//        }
+//    }
+//    else if bish1[0] < bish2[0] && bish1[1] < bish2[1] {
+//        while (98 ... 103).contains(bish1[0]) && (50 ... 55).contains(bish1[1]) {
+//            bish1[0] -= 1
+//            bish1[1] -= 1
+//        }
+//        while (98 ... 103).contains(bish2[0]) && (50 ... 55).contains(bish2[1]) {
+//            bish2[0] += 1
+//            bish2[1] += 1
+//        }
+//    }
+//    else if bish1[0] > bish2[0] && bish1[1] > bish2[1] {
+//        while (98 ... 103).contains(bish1[0]) && (50 ... 55).contains(bish1[1]) {
+//            bish1[0] += 1
+//            bish1[1] += 1
+//        }
+//        while (98 ... 103).contains(bish2[0]) && (50 ... 55).contains(bish2[1]) {
+//            bish2[0] -= 1
+//            bish2[1] -= 1
+//        }
+//    }
+//    else if bish1[0] > bish2[0] && bish1[1] < bish2[1] {
+//        while (98 ... 103).contains(bish1[0]) && (50 ... 55).contains(bish1[1]) {
+//            bish1[0] += 1
+//            bish1[1] -= 1
+//        }
+//        while (98 ... 103).contains(bish2[0]) && (50 ... 55).contains(bish2[1]) {
+//            bish2[0] -= 1
+//            bish2[1] += 1
+//        }
+//    }
+//
+//    let bis1 = String(bytes: bish1, encoding: .utf8)!
+//    let bis2 = String(bytes: bish2, encoding: .utf8)!
+//    
+//    return bis1.utf8.first! < bis2.utf8.first! ? [bis1, bis2] : [bis2, bis1]
+//}
+//
+//solution(bishop1: bishop1, bishop2: bishop2)
