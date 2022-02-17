@@ -498,3 +498,4 @@ import Foundation
 //}
 //
 //solution(bishop1: bishop1, bishop2: bishop2)
+
