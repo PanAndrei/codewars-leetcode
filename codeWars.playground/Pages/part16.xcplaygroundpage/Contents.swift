@@ -19,3 +19,124 @@ import Foundation
 //}
 //
 //solution(p: position)
+
+
+//n ChessLand there is a small but proud chess bishop with a recurring dream. In the dream the bishop finds itself on an n × m chessboard with mirrors along each edge, and it is not a bishop but a ray of light. This ray of light moves only along diagonals (the bishop can't imagine any other types of moves even in its dreams), it never stops, and once it reaches an edge or a corner of the chessboard it reflects from it and moves on.
+//
+//Given the initial position and the direction of the ray, find its position after k steps where a step means either moving from one cell to the neighboring one or reflecting from a corner of the board.
+
+//let boardSize = [17, 19], initPosition = [14, 8], initDirection = [1, -1], k = 239239
+
+// очень долго
+//func solution(boardSize: [Int], initPosition: [Int], initDirection: [Int], k: Int) -> [Int] {
+//    var steps = 0
+//    var position = initPosition
+//    var direction = initDirection
+//
+//    while steps != k {
+//        steps += 1
+//
+//        if (position[0] == 0 || position[0] == boardSize[0]) && (position[1] == 0 || position[1] == boardSize[1]) {
+//            steps += 1
+//            direction[0] *= -1
+//            direction[1] *= -1
+//        } else if position[0] == 0 || position[0] == boardSize[0] {
+//            direction[0] *= -1
+//        } else if position[1] == 0 || position[1] == boardSize[1] {
+//            direction[1] *= -1
+//        }
+//        position[0] += direction[0]
+//        position[1] += direction[1]
+//    }
+//
+//    return position
+//}
+//
+//solution(boardSize: boardSize, initPosition: initPosition, initDirection: initDirection, k: k)
+
+//let boardSize = [17, 19], initPosition = [14, 8], initDirection = [1, -1], k = 239239
+//let boardSize = [2, 2], initPosition = [1, 0], initDirection = [1, 1], k = 12
+//
+//// рпавильно но громоздко и не отлажено
+//func solution(boardSize: [Int], initPosition: [Int], initDirection: [Int], k: Int) -> [Int] {
+//    var position = initPosition
+//    var initDirection = initDirection
+//    var moveUP = k - ((k / (boardSize[0] * 2)) * (boardSize[0] * 2))
+//    var moveDOWN = k - ((k / (boardSize[1] * 2)) * (boardSize[1] * 2))
+//    
+//    if moveUP > boardSize[0] {
+//        if initDirection[0] > 0 {
+//            moveUP -= (boardSize[0] - position[0]) * 2
+//            initDirection[0] *= -1
+//        } else {
+//            moveUP -= position[0] * 2
+//            initDirection[0] *= -1
+//        }
+//    }
+//    
+//    if moveDOWN > boardSize[1] {
+//        if initDirection[1] > 0 {
+//            moveDOWN -= (boardSize[1] - position[1]) * 2
+//            initDirection[1] *= -1
+//        } else {
+//            moveDOWN -= position[1] * 2
+//            initDirection[1] *= -1
+//        }
+//    }
+//    
+//    if initDirection[0] > 0 {
+//        if position[0] + moveUP > boardSize[0] {
+//            position[0] = boardSize[0] - (moveUP - (boardSize[0] - position[0])) - 1
+//        } else {
+//            position[0] += moveUP
+//        }
+//    } else {
+//        if position[0] - moveUP < 0 {
+//            position[0] = moveUP - position[0] - 1
+//        } else {
+//            position[0] -= moveUP
+//        }
+//    }
+//    
+//    if initDirection[1] > 0 {
+//        if position[1] + moveDOWN > boardSize[1] {
+//            position[1] = boardSize[1] - (moveDOWN - (boardSize[1] - position[1]))
+//        } else {
+//            position[1] += moveDOWN
+//        }
+//    } else {
+//        if position[1] - moveDOWN < 0 {
+//            position[1] = moveDOWN - position[1]
+//        } else {
+//            position[1] -= moveDOWN
+//        }
+//    }
+//    
+//    return position
+//}
+//
+//solution(boardSize: boardSize, initPosition: initPosition, initDirection: initDirection, k: k)
+//
+//// solution
+//
+//func solution(boardSize: [Int], initPosition: [Int], initDirection: [Int], k: Int) -> [Int] {
+//    var result = [Int]()
+//    for i in 0...1 {
+//        let edge = boardSize[i]
+//        let position = initPosition[i]
+//        let direction = initDirection[i]
+//        let k = k % (2 * edge)
+//        var newPosition = direction * k + position
+//        if newPosition < 0 {
+//            newPosition = ~newPosition
+//        }
+//        let duplications = newPosition / edge
+//        if duplications % 2 == 0 {
+//            newPosition = newPosition % edge
+//        } else {
+//            newPosition = (edge - 1) * (duplications + 1) - newPosition + 1
+//        }
+//        result.append(newPosition)
+//    }
+//    return result
+//}
