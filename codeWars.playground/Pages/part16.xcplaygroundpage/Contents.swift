@@ -140,3 +140,65 @@ import Foundation
 //    }
 //    return result
 //}
+
+//Consider a bishop, a knight and a rook on an n × m chessboard. They are said to form a triangle if each piece attacks exactly one other piece and is attacked by exactly one piece. Calculate the number of ways to choose positions of the pieces to form a triangle.
+//
+//Note that the bishop attacks pieces sharing the common diagonal with it; the rook attacks in horizontal and vertical directions; and, finally, the knight attacks squares which are two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from its position.
+//
+//func solution(n: Int, m: Int) -> Int {
+//    func isValid(x: Int, y: Int) -> Bool {
+//        return x > 0 && x < (m + 1) && y > 0 && y < (n + 1)
+//    }
+//    guard n > 1 && m > 1 else { return 0 }
+//    guard n > 2 || m > 2 else { return 0 }
+//    var count = 0
+//    for xK in 1...m {
+//        for yK in 1...n {
+//            for dxK in -2...2 {
+//                for dyK in -2...2 {
+//                    let x = xK + dxK
+//                    let y = yK + dyK
+//                    if abs(dxK * dyK) == 2 && isValid(x: x, y: y) {
+//                        if x > xK {
+//                            for xB in (2 * xK - x - 2)...(x + 1) {
+//                                if isValid(x: xB, y: y) && abs(xK - xB) == abs(yK - y) {
+//                                    count += 1
+//                                }
+//                            }
+//                        } else {
+//                            for xB in (x - 1)...(2 * xK - x + 1) {
+//                                if isValid(x: xB, y: y) && abs(xK - xB) == abs(yK - y) {
+//                                    count += 1
+//                                }
+//                            }
+//                        }
+//                        if y > yK {
+//                            for yB in (2 * yK - y - 2)...(y + 1) {
+//                                if isValid(x: x, y: yB) && abs(xK - x) == abs(yK - yB) {
+//                                    count += 1
+//                                }
+//                            }
+//                        } else {
+//                            for yB in (y - 1)...(2 * yK - y + 1) {
+//                                if isValid(x: x, y: yB) && abs(xK - x) == abs(yK - yB) {
+//                                    count += 1
+//                                }
+//                            }
+//                        }
+//                        for d in [1, 2] {
+//                            for f in [-1, 1] {
+//                                if isValid(x: x + d * f, y: y + d) && ((x + d * f) == xK || (y + d) == yK) {
+//                                    count += 1
+//                                }
+//                                if isValid(x: x + d * f, y: y - d) && ((x + d * f) == xK || (y - d) == yK) {
+//                                    count += 1
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    return count
+//}
