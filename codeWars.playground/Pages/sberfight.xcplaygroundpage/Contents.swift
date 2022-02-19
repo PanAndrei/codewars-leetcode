@@ -405,3 +405,182 @@ import Foundation
 //}
 //
 //getResult(time: ["09-13", "14-14"])
+
+
+//Илон Маск презентовал свой новый космический проект - он запустил в небо большое количество ракет. Дан массив rocket_pos, где rocket_pos[i] - высота, на которой находится i-я ракета и rocket_speed, где rocket_speed[i] - скорость i-й ракеты (величина перемещения за одну единицу времени).
+//
+//Если ракеты достигают одинаковой высоты на каком-либо шаге, то они складываются в одну ракету, их скорость тоже складывается.
+//
+//Определите, сколько ракет будет в итоге.
+//
+//Ввод:
+//
+//rocket_pos - начальные позиции каждой из ракет (Integer[]), 0<length(rocket_pos)<=10, 0<=rocket_pos[i]<=1000
+//rocket_speed - скорость каждой из ракет (Integer[]), 0<length(rocket_speed)<=10, 0<=rocket_speed[i]<=15
+//Вывод:
+//
+//Integer - количество ракет по итогу всех "соединений"
+
+//let rocket_pos = [3, 11] ,rocket_speed = [5, 1]
+//
+//func findSim(arr: [Int]) -> [Int] {
+//    var answer = [Int]()
+//    for i in 0 ..< arr.count {
+//        for j in (i + 1) ..< arr.count {
+//            if arr[i] == arr[j] {
+//                answer.append(i)
+//                answer.append(j)
+//            }
+//        }
+//    }
+//    return Array(Set(answer)).sorted()
+//}
+//
+//// не отрабатывает когда несколько раз складываются скоростти
+//func getResult(rocketPos: [Int], rocketSpeed: [Int]) -> Int {
+//    var rockets = rocketPos
+//    var speed = rocketSpeed
+//    var counts = [rockets.count]
+//
+//    for _ in 1 ... 1000 {
+//        for i in 0 ..< rocketPos.count {
+//            rockets[i] += speed[i]
+//        }
+//        if Set(rockets).count != rockets.count {
+//            counts.append(Set(rockets).count)
+//
+//        }
+//    }
+//    return counts.min()!
+//}
+//
+//getResult(rocketPos: rocket_pos, rocketSpeed: rocket_speed)
+
+//Сегодня на турнире сражаются отважные войны! Начальная турнирная сетка определяется случайным образом, количество участников неизменно равно четырем.
+//
+//У каждого бойца есть параметр выносливости. Сражаясь, побеждает тот, у кого этот параметр выше. У победителя отнимается выносливость, равная выносливости противника, после чего боец проходит дальше по турнирной сетке.
+//
+//Если во время схватки выносливость бойцов одинакова, то побеждает случайный боец, оставаясь с нулевой выносливостью.
+//
+//Учитывая случайность подбора в турнирной сетке, определите для каждого участника шанс победить в турнире.
+
+//let fighters_stamina = [2, 1, 0, 2]
+let fighters_stamina = [1, 0, 3, 4]
+
+// не учитывает шансы при одинаковой стамине
+
+//func fight1(arr: [Int]) -> Int {
+//    var figthers = arr
+//    var vin1 = -1
+//    var vin2 = -1
+//    var vin3 = -1
+//
+//    if figthers[0] >= figthers[1] {
+//        vin1 = 0
+//        figthers[0] = figthers[0] - figthers[1]
+//    } else {
+//        vin1 = 1
+//        figthers[0] = figthers[1] - figthers[0]
+//    }
+//
+//    if figthers[2] >= figthers[3] {
+//        vin2 = 2
+//        figthers[2] = figthers[2] - figthers[3]
+//    } else {
+//        vin2 = 3
+//        figthers[2] = figthers[3] - figthers[2]
+//    }
+//
+//    if figthers[0] >= figthers[2] {
+//        vin3 = vin1
+//    } else {
+//        vin3 = vin2
+//    }
+//    return vin3
+//}
+//
+//func fight2(arr: [Int]) -> Int {
+//    var figthers = arr
+//    var vin1 = -1
+//    var vin2 = -1
+//    var vin3 = -1
+//
+//    if figthers[0] >= figthers[3] {
+//        vin1 = 0
+//        figthers[0] = figthers[0] - figthers[3]
+//    } else {
+//        vin1 = 3
+//        figthers[0] = figthers[3] - figthers[0]
+//    }
+//
+//    if figthers[1] >= figthers[2] {
+//        vin2 = 1
+//        figthers[2] = figthers[1] - figthers[2]
+//    } else {
+//        vin2 = 2
+//        figthers[2] = figthers[2] - figthers[1]
+//    }
+//
+//    if figthers[0] >= figthers[2] {
+//        vin3 = vin1
+//    } else {
+//        vin3 = vin2
+//    }
+//    return vin3
+//}
+//
+//func fight3(arr: [Int]) -> Int {
+//    var figthers = arr
+//    var vin1 = -1
+//    var vin2 = -1
+//    var vin3 = -1
+//
+//    if figthers[0] >= figthers[2] {
+//        vin1 = 0
+//        figthers[0] = figthers[0] - figthers[2]
+//    } else {
+//        vin1 = 2
+//        figthers[0] = figthers[2] - figthers[0]
+//    }
+//
+//    if figthers[1] >= figthers[3] {
+//        vin2 = 1
+//        figthers[2] = figthers[1] - figthers[3]
+//    } else {
+//        vin2 = 3
+//        figthers[2] = figthers[3] - figthers[1]
+//    }
+//
+//    if figthers[0] >= figthers[2] {
+//        vin3 = vin1
+//    } else {
+//        vin3 = vin2
+//    }
+//    return vin3
+//}
+//
+//func getResult(fightersStamina: [Int]) -> [Int] {
+//    var result = fightersStamina
+//    var vinners = [Int]()
+//    var chanceForOne = 0
+//
+//    vinners.append(fight1(arr: fightersStamina))
+//    vinners.append(fight2(arr: fightersStamina))
+//    vinners.append(fight3(arr: fightersStamina))
+//
+//    chanceForOne = 100 / vinners.count
+//    print(chanceForOne)
+//
+//    for i in 0 ..< result.count {
+//        result[i] = vinners.filter { $0 == i }.count * chanceForOne
+//    }
+//
+//    return result
+//}
+//
+//getResult(fightersStamina: fighters_stamina)
+
+
+//
+
+

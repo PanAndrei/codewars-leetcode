@@ -63,7 +63,7 @@ import Foundation
 //    var initDirection = initDirection
 //    var moveUP = k - ((k / (boardSize[0] * 2)) * (boardSize[0] * 2))
 //    var moveDOWN = k - ((k / (boardSize[1] * 2)) * (boardSize[1] * 2))
-//    
+//
 //    if moveUP > boardSize[0] {
 //        if initDirection[0] > 0 {
 //            moveUP -= (boardSize[0] - position[0]) * 2
@@ -73,7 +73,7 @@ import Foundation
 //            initDirection[0] *= -1
 //        }
 //    }
-//    
+//
 //    if moveDOWN > boardSize[1] {
 //        if initDirection[1] > 0 {
 //            moveDOWN -= (boardSize[1] - position[1]) * 2
@@ -83,7 +83,7 @@ import Foundation
 //            initDirection[1] *= -1
 //        }
 //    }
-//    
+//
 //    if initDirection[0] > 0 {
 //        if position[0] + moveUP > boardSize[0] {
 //            position[0] = boardSize[0] - (moveUP - (boardSize[0] - position[0])) - 1
@@ -97,7 +97,7 @@ import Foundation
 //            position[0] -= moveUP
 //        }
 //    }
-//    
+//
 //    if initDirection[1] > 0 {
 //        if position[1] + moveDOWN > boardSize[1] {
 //            position[1] = boardSize[1] - (moveDOWN - (boardSize[1] - position[1]))
@@ -111,7 +111,7 @@ import Foundation
 //            position[1] -= moveDOWN
 //        }
 //    }
-//    
+//
 //    return position
 //}
 //
