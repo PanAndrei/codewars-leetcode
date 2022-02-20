@@ -202,3 +202,285 @@ import Foundation
 //    }
 //    return count
 //}
+
+//An amazon (also known as a queen + knight compound) is an imaginary chess piece that can move like a queen or a knight (or, equivalently, like a rook, bishop, or knight). The diagram below shows all squares which the amazon can attack from e4 (circles represent knight-like moves while crosses correspond to queen-like moves).
+//
+//
+//
+//Recently, you've come across a diagram with only three pieces left on the board: a white amazon, the white king, and the black king. It's black's move. You don't have time to determine whether the game is over or not, but you'd like to figure it out in your head. Unfortunately, the diagram is smudged and you can't see the position of the black king, so you'll need to consider all possible positions.
+//
+//Given the positions of the white pieces on a standard chessboard (using algebraic notation), your task is to determine the number of possible black king's positions such that:
+//
+//it's checkmate (i.e. black's king is under the amazon's attack and it cannot make a valid move);
+//it's check (i.e. black's king is under the amazon's attack but it can reach a safe square in one move);
+//it's stalemate (i.e. black's king is on a safe square but it cannot make a valid move);
+//black's king is on a safe square and it can make a valid move.
+//Note that two kings cannot be placed on two adjacent squares (including two diagonally adjacent ones).
+//
+//func solution(king: String, amazon: String) -> [Int] {
+//    let king = position(of: king)
+//    let amazon = position(of: amazon)
+//    let prohibitions = movementArea(at: king)
+//    let attacks = attackArea(at: amazon, with: king)
+//    var checkmates = 0
+//    var checks = 0
+//    var stalemates = 0
+//    var safes = 0
+//    func isValid(position: (x: Int, y: Int)) -> Bool {
+//        return !prohibitions.contains(where: { $0 == position }) && position != king && position != amazon
+//    }
+//    for x in 1...8 {
+//        for y in 1...8 {
+//            let position = (x, y)
+//            if !isValid(position: position) { continue }
+//            let movements = movementArea(at: position)
+//            if attacks.contains(where: { $0 == position }) {
+//                var count = 0
+//                for movement in movements {
+//                    if attacks.contains(where: { $0 == movement }) || prohibitions.contains(where: { $0 == movement }) {
+//                        count += 1
+//                    }
+//                }
+//                if count == movements.count {
+//                    checkmates += 1
+//                } else {
+//                    checks += 1
+//                }
+//            } else {
+//                var count = 0
+//                for movement in movements {
+//                    if attacks.contains(where: { $0 == movement }) || prohibitions.contains(where: { $0 == movement }) {
+//                        count += 1
+//                    }
+//                }
+//                if count == movements.count {
+//                    stalemates += 1
+//                } else {
+//                    safes += 1
+//                }
+//            }
+//        }
+//    }
+//    return [checkmates, checks, stalemates, safes]
+//}
+//
+//func movementArea(at position: (x: Int, y: Int)) -> [(x: Int, y: Int)] {
+//    var result = [(Int, Int)]()
+//    for dx in -1...1 {
+//        for dy in -1...1 where ((dx != 0 || dy != 0) && isValid(x: position.x + dx, y: position.y + dy)) {
+//            result.append((position.x + dx, position.y + dy))
+//        }
+//    }
+//    return result
+//}
+//
+//func attackArea(at position: (x: Int, y: Int), with king: (x: Int, y: Int)) -> [(x: Int, y: Int)] {
+//    var result = [(x: Int, y: Int)]()
+//
+//    for dx in -2 ... 2 {
+//        for dy in -2 ... 2 where (abs(dx * dy) == 2 && isValid(x: position.x + dx, y: position.y + dy)) {
+//            result.append((position.x + dx, y: position.y + dy))
+//        }
+//    }
+//
+//    var startX = 1
+//    var endX = 8
+//    if position.y == king.y {
+//        if position.x > king.x {
+//            startX = king.x + 1
+//        } else {
+//            endX = king.x - 1
+//        }
+//    }
+//    for x in startX...endX where x != position.x {
+//        result.append((x, position.y))
+//    }
+//    var startY = 1
+//    var endY = 8
+//    if position.x == king.x {
+//        if position.y > king.y {
+//            startY = king.y + 1
+//        } else {
+//            endY = king.y - 1
+//        }
+//    }
+//    for y in startY...endY where y != position.y {
+//        result.append((position.x, y))
+//    }
+//
+//    var d = min(position.x, position.y)
+//    for i in 1..<d {
+//        if (position.x - i, position.y - i) == king { break }
+//        result.append((position.x - i, position.y - i))
+//    }
+//    d = min(9 - position.x, position.y)
+//    for i in 1..<d {
+//        if (position.x + i, position.y - i) == king { break }
+//        result.append((position.x + i, position.y - i))
+//    }
+//    d = min(position.x, 9 - position.y)
+//    for i in 1..<d {
+//        if (position.x - i, position.y + i) == king { break }
+//        result.append((position.x - i, position.y + i))
+//    }
+//    d = min(9 - position.x, 9 - position.y)
+//    for i in 1..<d {
+//        if (position.x + i, position.y + i) == king { break }
+//        result.append((position.x + i, position.y + i))
+//    }
+//
+//    return result
+//}
+//
+//func position(of square: String) -> (x: Int, y: Int) {
+//    guard let first = square.utf8.first,
+//        let last = square.last,
+//        let y = Int(String(last)) else {
+//            return (1, 1)
+//    }
+//    let x = Int(first % 97 + 1)
+//    guard isValid(x: x, y: y) else { return (1, 1) }
+//    return (x, y)
+//}
+//
+//func isValid(x: Int, y: Int) -> Bool {
+//    return x > 0 && x < 9 && y > 0 && y < 9
+//}
+//
+//public func == (lhs: (x: Int, y: Int), rhs: (x: Int, y: Int)) -> Bool {
+//    return lhs.x == rhs.x && lhs.y == rhs.y
+//}
+
+//Pawn race is a game for two people, played on an ordinary 8 × 8 chessboard. The first player has a white pawn, the second one - a black pawn. Initially the pawns are placed somewhere on the board so that the 1st and the 8th rows are not occupied. Players take turns to make a move.
+//
+//White pawn moves upwards, black one moves downwards. The following moves are allowed:
+//
+//one-cell move on the same vertical in the allowed direction;
+//two-cell move on the same vertical in the allowed direction, if the pawn is standing on the 2nd (for the white pawn) or the 7th (for the black pawn) row. Note that even with the two-cell move a pawn can't jump over the opponent's pawn;
+//capture move one cell forward in the allowed direction and one cell to the left or to the right.
+//
+//
+//The purpose of the game is to reach the the 1st row (for the black pawn) or the 8th row (for the white one), or to capture the opponent's pawn.
+//
+//Given the initial positions and whose turn it is, determine who will win or declare it a draw (i.e. it is impossible for any player to win). Assume that the players play optimally.
+
+//let white = "e2", black = "e7", toMove: Character = "w" // draw
+//let white = "e3", black = "d7", toMove: Character = "b" // black
+//let white = "f2", black = "e5", toMove: Character = "w"
+//
+//func moveW(position: [Int]) -> [Int] {
+//    var newPosition = position
+//
+//    if newPosition[1] == 50 {
+//        newPosition[1] = newPosition[1] + 2
+//    } else {
+//        newPosition[1] = newPosition[1] + 1
+//    }
+//
+//    return newPosition
+//}
+//
+//func moveB(position: [Int]) -> [Int] {
+//    var newPosition = position
+//
+//    if newPosition[1] == 55 {
+//        newPosition[1] = newPosition[1] - 2
+//    } else {
+//        newPosition[1] = newPosition[1] - 1
+//    }
+//
+//    return newPosition
+//}
+//
+//// можно подумать насчет быстрой проверки если они на рядах дальше одного стоят
+//// решил на 90 / 100 - не учитывает случаи когда стоит 1 ход сделать а не 2
+//
+//func solution(white: String, black: String, toMove: Character) -> String {
+//    guard white.utf8.first! != black.utf8.first! else { return "draw" }
+//
+//    var whitePos = white.map { Int($0.utf8.first!) }
+//    var blackPos = black.map { Int($0.utf8.first!) }
+//    print("init white = \(whitePos)")
+//    print("init black = \(blackPos)")
+//    var toMove = toMove
+//
+//    for _ in 1 ... 16 {
+//        if toMove == "w" {
+//            if blackPos[1] - whitePos[1] == -1 && abs(blackPos[0] - whitePos[0]) == 1 {
+//                return "white"
+//            } else {
+//               whitePos = moveW(position: whitePos)
+//                if whitePos[1] == 56 {
+//                    return "white"
+//                }
+//            }
+//            print("whitePos = \(whitePos)")
+//            toMove = "b"
+//        } else {
+//            if blackPos[1] - whitePos[1] == 1 && abs(blackPos[0] - whitePos[0]) == 1 {
+//                return "black"
+//            } else {
+//               blackPos = moveB(position: blackPos)
+//                if blackPos[1] == 49 {
+//                    return "black"
+//                }
+//            }
+//            print("blackPos = \(blackPos)")
+//            toMove = "w"
+//        }
+//    }
+//    return "draw"
+//}
+//
+//solution(white: white, black: black, toMove: toMove)
+
+// решение
+
+//func solution(white: String, black: String, toMove: Character) -> String {
+//    let white = position(of: white)
+//    let black = position(of: black)
+//    if (white.x == black.x && white.y < black.y) {
+//        return "draw"
+//    }
+//    if abs(white.x - black.x) != 1 || white.y >= black.y {
+//        let whiteDy = min(8 - white.y, 5)
+//        let blackDy = min(black.y - 1, 5)
+//        if (whiteDy <= blackDy && toMove != "b") || (whiteDy < blackDy && toMove != "w") {
+//            return "white"
+//        }
+//        return "black"
+//    }
+//    let winningPairs = [[2, 5], [2, 6], [3, 6], [4, 7]]
+//    if toMove == "w" {
+//        for i in 0..<4 where (white.y == winningPairs[i][0] && black.y == winningPairs[i][1]) {
+//            return "white"
+//        }
+//        if (white.y + 1) == black.y {
+//            return "white"
+//        }
+//        return "black"
+//    } else {
+//        for i in 0..<4 where (white.y == (9 - winningPairs[i][1]) && black.y == (9 - winningPairs[i][0])) {
+//            return "black"
+//        }
+//        if (white.y + 1) == black.y {
+//            return "black"
+//        }
+//        return "white"
+//    }
+//}
+//
+//func position(of square: String) -> (x: Int, y: Int) {
+//    guard let first = square.utf8.first,
+//        let last = square.last,
+//        let y = Int(String(last)) else {
+//            return (1, 1)
+//    }
+//    let x = Int(first % 97 + 1)
+//    guard isValid(x: x, y: y) else { return (1, 1) }
+//    return (x, y)
+//}
+//
+//func isValid(x: Int, y: Int) -> Bool {
+//    return x > 0 && x < 9 && y > 0 && y < 9
+//}
