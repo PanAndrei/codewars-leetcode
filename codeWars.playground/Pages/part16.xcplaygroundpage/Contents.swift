@@ -485,3 +485,17 @@ import Foundation
 //    return x > 0 && x < 9 && y > 0 && y < 9
 //}
 //
+
+//Check if the given string is a correct time representation of the 24-hour clock.
+
+//func solution(time: String) -> Bool {
+//    let newTime = time.components(separatedBy: ":")
+//
+//    if (0 ... 23).contains(Int(newTime[0])!) && (0 ... 59).contains(Int(newTime[1])!) {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//solution(time: "13:58")
