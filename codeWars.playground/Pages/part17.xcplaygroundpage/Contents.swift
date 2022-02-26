@@ -132,3 +132,34 @@ import Foundation
 //    let showingTime = calendar.date(byAdding: .second, value: -value.second!, to: someTime)!
 //    return dateFormatter.string(from: showingTime)
 //}
+
+//You're a pretty busy billionaire, and you often fly your personal Private Jet to remote places. Usually travel doesn't bother you, but this time you are unlucky: it's New Year's Eve, and since you have to fly halfway around the world, you'll probably have to celebrate New Year's Day in mid-air!
+//
+//Your course lies west of your current location and crosses several time zones. The pilot told you the exact schedule: it is known that you will take off at takeOffTime, and in minutes[i] after takeoff you will cross the ith border between time zones. After crossing each border you will have to set your wrist watch one hour earlier (every second matters to you, so you can't let your watch show incorrect time). It is guaranteed that you won't cross the IDL (i.e. after crossing each time zone border your current time will be set one hour back).
+//
+//You've been thinking about this situation and realized that it might be a good opportunity to celebrate New Year's Day more than once, i.e. each time your wrist watch shows 00:00. Assuming that you set your watch immediately after the border is crossed, how many times will you be able to celebrate this New Year's Day with a nice bottle of champagne? Note that the answer should include celebrations both in mid-air and on the ground (it doesn't matter if the plane landed in the last time zone before the midnight or not, you'll not let the last opportunity to celebrate New Year slip through your fingers).
+
+//func min(_ s:String) -> Int {
+//    let t = s.components(separatedBy: ":").compactMap{ Int($0) }
+////    let t = s.componentsSeparatedByString(":").map{ Int($0)! }
+//    return t[0]*60 + t[1]
+//}
+//
+//
+//func solution(takeOffTime: String, minutes: [Int]) -> Int {
+//    var t = min(takeOffTime)
+//    if t == 0 { t = 24*60 }
+//    var d = minutes
+//    if d.count > 0 {
+//        for i in 1..<d.count {
+//            d[i] -= minutes[i - 1]
+//        }
+//    }
+//    var count = 0
+//    for m in d {
+//        if t <= 24*60 && t + m >= 24*60 { count += 1 }
+//        t += m - 60
+//    }
+//    if t <= 24*60 { count += 1 }
+//    return count
+//}
