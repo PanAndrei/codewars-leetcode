@@ -184,3 +184,36 @@ import Foundation
 //    } while calendar.component(.weekday, from: next) != 2
 //    return dateFormatter.string(from: next)
 //}
+
+//Your Math teacher takes education very seriously, and hates it when a class is missed or canceled for any reason. He even made up the following rule: if a class is missed because of a holiday, the teacher will compensate for it with a makeup class after school.
+//
+//You're given an array, daysOfTheWeek, with the weekdays on which your teacher's classes are scheduled, and holidays, representing the dates of the holidays throughout the academic year (from 1st of September in year to 31st of May in year + 1). How many times will you be forced to stay after school for a makeup class because of holiday conflicts in the current academic year?
+//
+//For your convenience, here is the list of month lengths (from January to December, respectively):
+//
+//Month lengths: 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31.
+//Please note that in leap years February has 29 days.
+
+//func julian(_ y: Int, _ m: Int, _ d: Int) -> Int {
+//    var y = y, m = m
+//    if m > 2 {
+//        m -= 3
+//    } else {
+//        m += 9
+//        y -= 1
+//    }
+//    
+//    let c = y/100
+//    let ya = y - 100*c
+//    return (146097*c)/4 + (1461*ya)/4 + (153*m + 2)/5 + d + 1721119
+//}
+//
+//func solution(year: Int, daysOfTheWeek: [Int], holidays: [String]) -> Int {
+//    var count = 0
+//    for h in holidays {
+//        let d = h.components(separatedBy: "-").map{ Int($0)! }
+//        var jd = julian(d[0] < 8 ? year + 1 : year, d[0], d[1])
+//        if daysOfTheWeek.contains((jd % 7) + 1) { count += 1 }
+//    }
+//    return count
+//}
