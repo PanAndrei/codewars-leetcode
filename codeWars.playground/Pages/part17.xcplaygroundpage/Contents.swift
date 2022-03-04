@@ -202,7 +202,7 @@ import Foundation
 //        m += 9
 //        y -= 1
 //    }
-//    
+//
 //    let c = y/100
 //    let ya = y - 100*c
 //    return (146097*c)/4 + (1461*ya)/4 + (153*m + 2)/5 + d + 1721119
@@ -216,4 +216,70 @@ import Foundation
 //        if daysOfTheWeek.contains((jd % 7) + 1) { count += 1 }
 //    }
 //    return count
+//}
+
+
+//func getResult(num: Int) -> Int {
+//    let numStr = String(num).map { $0 }
+//    var result = 0
+//
+//    for element in numStr {
+//        switch element {
+//        case "2":
+//            result += 5
+//        case "3":
+//            result += 5
+//        case "5":
+//            result += 5
+//        case "1":
+//            result += 2
+//        default:
+//            result += 0
+//        }
+//    }
+//    return result
+//}
+//
+//getResult(num: 235)
+
+//John Doe likes solutions very much, and he was very happy to hear that his country's government decided to introduce yet another one. He heard that the new solution will be celebrated each year on the xth week of month, on weekDay.
+//
+//Your task is to return the day of month on which the solution will be celebrated in the year yearNumber.
+//
+//For your convenience, here are the lists of months names and lengths and the list of days of the week names.
+//
+//Months: "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December".
+//Months lengths: 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31.
+//Days of the week: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday".
+//Please, note that in leap years February has 29 days.
+
+//func dateToDay(month: Int, date: Int, year: Int) -> Int {
+//    let isLeap = year % 4 == 0 && (year % 400 == 0 || !(year % 100 == 0))
+//    if !isLeap && month == 2 && date == 29 { return 8 }
+//    let mths = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6]
+//    let cents = [6, 4, 2, 0]
+//    var y2 = ((year % 100) / 4) + date + mths[month-1]
+//    y2 -= (isLeap && month < 3 ? 1 : 0)
+//    let cent = (year / 100) % 4
+//    y2 += cents[cent]
+//    y2 += year % 100
+//    return y2 % 7
+//}
+//
+//func solution(x: Int, weekDay: String, month: String, yearNumber: Int) -> Int {
+//    var hday = -1
+//    let months: [String: (Int,Int)] = ["January": (1,31), "February": (2,28), "March": (3,31), "April": (4,30), "May": (5,31), "June": (6,30), "July": (7, 31), "August": (8,31), "September": (9,30), "October": (10,31), "November": (11,30), "December": (12,31)]
+//    let days = ["zeropad", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+//    let isLeap = yearNumber % 4 == 0 && (yearNumber % 400 == 0 || !(yearNumber % 100 == 0))
+//    
+//    var (mth,mDays) = months[month]!
+//    if isLeap && mth == 2 { mDays += 1 }
+//    let dayOfWeek = days.index(of: weekDay)!
+//    let firstDay = dateToDay(month: mth, date: 1, year: yearNumber)
+//    let dayDiff = firstDay - dayOfWeek
+//    let firstDate = dayDiff < 0 ? 1 - dayDiff : (dayDiff == 0 ? 1 : (2 + dayDiff))
+//    let hDate = (x-1)*7 + firstDate
+//    hday = hDate > mDays ? -1 : hDate
+//    
+//    return hday
 //}
