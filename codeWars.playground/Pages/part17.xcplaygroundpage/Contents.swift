@@ -225,22 +225,24 @@ import Foundation
 //
 //    for element in numStr {
 //        switch element {
-//        case "2":
-//            result += 5
-//        case "3":
-//            result += 5
-//        case "5":
+//        case "2", "3", "5":
 //            result += 5
 //        case "1":
 //            result += 2
+//        case "4":
+//            result += 4
+//        case "6", "9", "0":
+//            result += 6
+//        case "7":
+//            result += 3
 //        default:
-//            result += 0
+//            result += 7
 //        }
 //    }
 //    return result
 //}
 //
-//getResult(num: 235)
+//getResult(num: 1234567890)
 
 //John Doe likes solutions very much, and he was very happy to hear that his country's government decided to introduce yet another one. He heard that the new solution will be celebrated each year on the xth week of month, on weekDay.
 //
@@ -271,7 +273,7 @@ import Foundation
 //    let months: [String: (Int,Int)] = ["January": (1,31), "February": (2,28), "March": (3,31), "April": (4,30), "May": (5,31), "June": (6,30), "July": (7, 31), "August": (8,31), "September": (9,30), "October": (10,31), "November": (11,30), "December": (12,31)]
 //    let days = ["zeropad", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 //    let isLeap = yearNumber % 4 == 0 && (yearNumber % 400 == 0 || !(yearNumber % 100 == 0))
-//    
+//
 //    var (mth,mDays) = months[month]!
 //    if isLeap && mth == 2 { mDays += 1 }
 //    let dayOfWeek = days.index(of: weekDay)!
@@ -280,6 +282,31 @@ import Foundation
 //    let firstDate = dayDiff < 0 ? 1 - dayDiff : (dayDiff == 0 ? 1 : (2 + dayDiff))
 //    let hDate = (x-1)*7 + firstDate
 //    hday = hDate > mDays ? -1 : hDate
-//    
+//
 //    return hday
 //}
+
+//Implement the missing code, denoted by ellipses. You may not modify the pre-existing code.
+//A sentence is considered correct if:
+//
+//it starts with a capital letter;
+//it ends with a full stop, question mark or exclamation point ('.', '?' or '!');
+//full stops, question marks and exclamation points don't appear anywhere else in the sentence.
+//Given a sentence, return true if it is correct and false otherwise.
+//
+//Example
+//
+//For sentence = "This is an example of *correct* sentence.",
+//the output should be
+//solution(sentence) = true;
+//
+//For sentence = "!this sentence is TOTALLY incorrecT",
+//the output should be
+//solution(sentence) = false.
+
+//func solution(sentence: String) -> Bool {
+//  let pattern = "^[A-Z][^.?!]*[.?!]$"
+//  return sentence.range(of: pattern, options: .regularExpression) != nil
+//}
+//
+//solution(sentence: "This is an example of *correct* sentence.")
