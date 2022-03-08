@@ -310,3 +310,14 @@ import Foundation
 //}
 //
 //solution(sentence: "This is an example of *correct* sentence.")
+
+//
+//Implement the missing code, denoted by ellipses. You may not modify the pre-existing code.
+//Implement a function that replaces each digit in the given string with a '#' character.
+
+
+//func solution(input: String) -> String {
+//    let regex = try! NSRegularExpression(pattern: "[0-9]", options: "#")
+//
+//    return regex.stringByReplacingMatches(in: input, options: , range: , withTemplate: )
+//}
