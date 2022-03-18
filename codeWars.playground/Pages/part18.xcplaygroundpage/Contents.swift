@@ -31,44 +31,48 @@ import Foundation
 
 // xисло делится на 3, 5 и сумма не больше 10
 
-var arr = Array(1 ... 500)
-let b = arr.filter { $0 % 15 == 0 }
-var ttt = Array(1 ... 300)
-let c = ttt.filter { $0 % 3 == 0 && $0 % 5 == 0}
+//var arr = Array(1 ... 500)
+//let b = arr.filter { $0 % 15 == 0 }
+//var ttt = Array(1 ... 300)
+//let c = ttt.filter { $0 % 3 == 0 && $0 % 5 == 0}
+//
+//b == c
+//
+////print(b)
+//
+//func calcSum(arr: [Int]) -> [Int] {
+//    var answer = [Int]()
+//    var mult = [Int]()
+//
+//    for element in arr {
+//        var str = String(element).compactMap { Int(String($0)) }.reduce(0, +)
+//        answer.append(str)
+//    }
+////    print(answer)
+//
+//    for element in arr {
+//        let b = element / 15
+//        mult.append(b)
+//    }
+//
+////    print(mult)
+//
+//    return answer
+//}
+//
+//calcSum(arr: b)
+//
+//
+//func checkSum(_ num: Int) -> Bool {
+//    return String(num).compactMap { Int(String($0)) }.reduce(0, +) <= 10
+//}
+//
+//func checkArr(arr: [Int]) -> [Int] {
+//    return arr.filter { $0 % 15 == 0 && checkSum($0) }
+//}
+//
+//checkArr(arr: b)
 
-b == c
-
-//print(b)
-
-func calcSum(arr: [Int]) -> [Int] {
-    var answer = [Int]()
-    var mult = [Int]()
-    
-    for element in arr {
-        var str = String(element).compactMap { Int(String($0)) }.reduce(0, +)
-        answer.append(str)
-    }
-//    print(answer)
-    
-    for element in arr {
-        let b = element / 15
-        mult.append(b)
-    }
-    
-//    print(mult)
-    
-    return answer
-}
-
-calcSum(arr: b)
-
-
-func checkSum(_ num: Int) -> Bool {
-    return String(num).compactMap { Int(String($0)) }.reduce(0, +) <= 10
-}
-
-func checkArr(arr: [Int]) -> [Int] {
-    return arr.filter { $0 % 15 == 0 && checkSum($0) }
-}
-
-checkArr(arr: b)
+//let a = 3, b = 5, c = 3
+//
+//a^b^c
