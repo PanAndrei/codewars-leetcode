@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
+import Darwin
 
 //During your most recent trip to Codelandia you decided to buy a brand new CodePlayer, a music player that (allegedly) can work with any possible media format. As it turns out, this isn't true: the player can't read lyrics written in the LRC format. It can, however, read the SubRip format, so now you want to translate all the lyrics you have from LRC to SubRip.
 //
@@ -278,3 +279,20 @@ import Foundation
 //    let board = Board(state)
 //    return board.run()
 //}
+
+//func calcOne(num: Int) -> Int {
+//    return String(num, radix: 2).map { String($0) }.filter { $0 == "1"}.count
+//}
+//
+//calcOne(num: 355)
+
+//func getPassword(withNums num: UInt) -> String {
+//    var password = ""
+//    for _ in 0 ..< num {
+//        password.append(Character(UnicodeScalar((97...122).randomElement()!)!))
+//    }
+//    print(password)
+//    return password
+//}
+//
+//getPassword(withNums: 6)

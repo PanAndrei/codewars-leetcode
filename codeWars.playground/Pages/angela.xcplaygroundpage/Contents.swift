@@ -17,3 +17,16 @@
 //bucketsOfPaint
 //
 //bucketsOfPaint = 5
+
+//let year = 1901
+//
+//Int((year + 99) / 100)
+
+//func solution(year: Int) -> Int {
+//    return Int((year + 99) / 100)
+//}
+//
+//solution(year: 1900)
+//solution(year: 1901)
+//solution(year: 1999)
+
