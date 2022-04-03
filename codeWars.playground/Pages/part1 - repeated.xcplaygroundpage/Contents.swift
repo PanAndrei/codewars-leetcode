@@ -402,4 +402,44 @@
 //}
 //
 //
+//You are writing a spreadsheet application for an ancient operating system. The system runs on a computer so old that it can only display ASCII graphics. Currently you are stuck with implementing the cells joining algorithm.
+
+//You are given a table in ASCII graphics, where the following characters are used for borders: +, -, |. The rows can have different heights and the columns can have different widths. Each cell has an area greater than 1 (excluding the borders) and can contain any ASCII characters excluding +, - and |.
 //
+//The algorithm you want to implement should merge the cells within a given rectangular part of the table into a single cell by removing the borders between them (i.e. replace them with space characters (' ') and replace redundant +s with correct border symbols). The cells to join are represented by the coordinates of the cells at the extreme bottom-left and top-right of the area.
+
+//func solution(table: [String], coords: [[Int]]) -> [String] {
+//    var table = table.map { Array($0) }
+//    let indexRows = (0..<table.count).compactMap { table[$0].first }.enumerated().filter { $0.element == "+" }
+//    let indexCols = table[0].enumerated().filter { $0.element == "+" }
+//    let rows: (start: Int, end: Int) = (indexRows[coords[1][0]].offset + 1, indexRows[coords[0][0] + 1].offset - 1)
+//    let cols: (start: Int, end: Int) = (indexCols[coords[0][1]].offset + 1, indexCols[coords[1][1] + 1].offset - 1)
+//    for r in rows.start...rows.end {
+//        for c in cols.start...cols.end {
+//            if "+|-".contains(table[r][c]) {
+//                table[r][c] = " "
+//            }
+//        }
+//    }
+//    if rows.start == 1 {
+//        for c in cols.start...cols.end where table[0][c] == "+" {
+//            table[0][c] = "-"
+//        }
+//    }
+//    if rows.end == table.count - 2 {
+//        for c in cols.start...cols.end where table[rows.end + 1][c] == "+" {
+//            table[rows.end + 1][c] = "-"
+//        }
+//    }
+//    if cols.start == 1 {
+//        for r in rows.start...rows.end where table[r][0] == "+" {
+//            table[r][0] = "|"
+//        }
+//    }
+//    if cols.end == table[0].count - 2 {
+//        for r in rows.start...rows.end where table[r][cols.end + 1] == "+" {
+//            table[r][cols.end + 1] = "|"
+//        }
+//    }
+//    return table.map { String($0) }
+//}
