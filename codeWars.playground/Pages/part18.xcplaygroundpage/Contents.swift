@@ -355,3 +355,41 @@ import Darwin
 //    return rotate.map { $0.joined() }.joined(separator: "/")
 //}
 //
+
+//Given a string which represents a valid arithmetic expression, find the index of the character in the given expression corresponding to the arithmetic operation which needs to be computed first.
+//
+//Note that several operations of the same type with equal priority are computed from left to right.
+//
+//See the explanation of the third example for more details about the operations priority in this problem.
+
+//func solution(expr: String) -> Int {
+//    let expr = Array(expr)
+//    var temp = expr
+//    var startIndex = 0
+//    var priorities = [(index: Int, operation: String)]()
+//    while let close = temp.firstIndex(of: ")"), let open = temp[0..<close].lastIndex(of: "(") {
+//        let plus = findOperation(in: Array(temp[open...close]))
+//        priorities.append((startIndex + open + plus.index, plus.operation))
+//        if let index = temp[close...].firstIndex(of: "(") {
+//            startIndex += index
+//            temp = Array(expr[startIndex...])
+//            continue
+//        }
+//        break
+//    }
+//    guard !priorities.isEmpty else { return findOperation(in: expr).index }
+//    if let priority = priorities.first(where: { $0.operation == "*" }) {
+//        return priority.index
+//    }
+//    return priorities[0].index
+//}
+//
+//func findOperation(in arr: [Character]) -> (index: Int, operation: String) {
+//    if let index = arr.firstIndex(of: "*") {
+//        return (index, "*")
+//    }
+//    if let index = arr.firstIndex(of: "+") {
+//        return (index, "+")
+//    }
+//    return (0, "")
+//}
