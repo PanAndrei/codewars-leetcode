@@ -427,3 +427,122 @@ import Darwin
 //Your task is to obtain a list of nodes, that are the most distant from the tree root, in the order from left to right.
 //
 //In the notation of a node its value and subtrees are separated by exactly one space character.
+
+//While exploring the ruins of a golden lost city, you discovered an ancient manuscript containing series of strange symbols. Thanks to your profound knowledge of dead languages, you realized that the text was written in one of the dialects of Befunge-93. Looks like the prophecy was true: you are the one who can find the answer to the Ultimate Question of Life! Of course you brought your futuristic laptop with you, so now you just need a function that will run the encrypted message and make you the all-knowing human being.
+//
+//Befunge-93 is a stack-based programming language, the programs for which are arranged in a two-dimensional torus grid. The program execution sequence starts at the top left corner and proceeds to the right until the first direction instruction is met (which can appear in the very first cell). The torus adjective means that the program never leaves the grid: when it encounters a border, it simply goes to the next command at the opposite side of the grid.
+//
+//You need to write a function that will be able to execute the given Befunge-93 program. Unfortunately your laptop, futuristic that it is, can't handle more than 105 instructions and will probably catch on fire if you try to execute more, so the function should exit after 105 commands. The good news is, the prophesy said that the answer to the Ultimate Question of Life contains no more than 100 symbols, so the function should return the program output once it contains 100 symbols.
+//
+//The dialect of Befunge-93 in the manuscript consists of the following commands:
+//
+//direction instructions:
+//>: start moving right
+//<: start moving left
+//v: start moving down
+//^: start moving up
+//#: bridge; skip next cell
+//conditional instructions:
+//_: pop a value; move right if value = 0, left otherwise
+//|: pop a value; move down if value = 0, up otherwise
+//math operators:
+//+: addition; pop a, pop b, then push a + b
+//-: subtraction; pop a, pop b, then push b - a
+//*: multiplication; pop a, pop b, then push a * b
+///: integer division; pop a, pop b, then push b / a
+//%: modulo operation; pop a, pop b, then push b % a
+//logical operators:
+//!: logical NOT; pop a value, if the value = 0, push 1, otherwise push 0
+//`: greater than; pop a and b, then push 1 if b > a, otherwise 0
+//stack instructions:
+//:: duplicate value on top of the stack
+//\: swap the top stack value with the second to the top
+//$: pop value from the stack and discard it
+//output instructions:
+//.: pop value and output it as an integer followed by a space
+//,: pop value and output it as ASCII character
+//digits 0-9: push the encountered number on the stack
+//": start string mode; push each character's ASCII value all the way up to the next "
+//  (whitespace character): empty instruction; does nothing
+//@: end program; the program output should be returned then
+//If the stack is empty and it is necessary to pop a value, no exception is raised; instead, 0 is produced.
+//
+//Example
+//
+//For
+//
+//program = [
+//    "               v",
+//    "v  ,,,,,"Hello"<",
+//    ">48*,          v",
+//    ""!dlroW",,,,,,v>",
+//    "25*,@         > "
+//]
+//the output should be solution(program) = "Hello World!\n".
+//
+//Note, that in the tests tab you will see a \ as an escape symbol before each ".
+//
+//enum Dir: CustomStringConvertible {
+//    case up, down, left, right
+//
+//    var description: String { switch self { case .up: return "up" case .down: return "down" case .left: return "left" default: return "right" } }
+//}
+//
+//func solution(program: [String]) -> String {
+//    let fProg = program.map { $0.replacingOccurrences(of: "\\\"", with: "\"") }.map { $0.replacingOccurrences(of: "\\\\", with: "\\")}
+//    //for row in program { print("row: [\(row)] ; len: \(row.characters.count)") }
+//    print("-------------------------")
+//    //for row in fProg { print("row: [\(row)] ; len: \(row.characters.count)") }
+//
+//    let prog = fProg.map { Array($0) }
+//    let rows = prog.count, cols = prog[0].count
+//    var cursor = (row: 0, col: 0), tape = "", stepsLeft = 10000, tapeLeft = 100, dir = Dir.right
+//    var stack = [Int]()
+//
+//    let move: (Dir) -> () = { (dir) in
+//        switch dir {
+//        case .up: cursor.row = (cursor.row + rows - 1) % rows
+//        case .down: cursor.row = (cursor.row + 1) % rows
+//        case .right: cursor.col = (cursor.col + 1) % cols
+//        case .left: cursor.col = (cursor.col + cols - 1) % cols
+//        }
+//    }
+//    let next: () -> Character = { prog[cursor.row][cursor.col] }
+//    let pop: () -> Int = { stack.popLast() ?? 0 }
+//    let push: (Int) -> () = { stack.append($0) }
+//
+//    while stepsLeft > 0 && tapeLeft > 0 {
+//        //print("cursor: \(cursor), next: '\(next())', dir: \(dir), stackEnd: \(stack.suffix(5)), stepsLeft: \(stepsLeft), tapeLeft: \(tapeLeft)\ntape: \"\(tape)\"\n")
+//        switch next() {
+//        case ">": dir = .right
+//        case "<": dir = .left
+//        case "v": dir = .down
+//        case "^": dir = .up
+//        case "#": move(dir)
+//        case "_": dir = pop() == 0 ? .right : .left //move(.right) : move(.left)
+//        case "|": dir = pop() == 0 ? .down : .up //move(.down) : move(.up)
+//        case "+": let a = pop(); let b = pop(); push(a + b)
+//        case "-": let a = pop(); let b = pop(); push(b - a)
+//        case "*": let a = pop(); let b = pop(); push(a * b)
+//        case "/": let a = pop(); let b = pop(); push(b / a)
+//        case "%": let a = pop(); let b = pop(); push(b % a)
+//        case "!": push(pop() == 0 ? 1 : 0)
+//        case "`": let a = pop(); let b = pop(); push(b > a ? 1 : 0)
+//        case ":": let a = pop(); push(a); push(a)
+//        case "\\": let a = pop(), b = pop(); push(a); push(b)
+//        case "$": let _ = pop()
+//        case ".": let i = pop(); let s = "\(i) "; let c = s.map { $0 }.count; tape.append(s); tapeLeft -= c
+//        case ",": let i = pop(); let c = Character(UnicodeScalar(i)!); tape.append(c); tapeLeft -= 1
+//        case let d where "0"..."9" ~= d: push(Int(String(d))!)
+//        case "\"": move(dir); while next() != "\"" { let i = String(next()).unicodeScalars.filter { $0.isASCII }.first?.value ?? 0; push(Int(i)); move(dir) }
+//        case " ": move(dir); stepsLeft -= 1; continue
+//        case "@": return tape
+//        default: return "FAILURE"
+//        }
+//        stepsLeft -= 1
+//        move(dir)
+//    }
+//
+//    let output = Array(tape.map{ $0 }).prefix(100)
+//    return output.map { String($0) }.joined()
+//}
