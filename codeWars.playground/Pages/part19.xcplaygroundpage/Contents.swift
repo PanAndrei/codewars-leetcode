@@ -206,3 +206,5 @@ import Foundation
 //    o[hh.1][hh.0] = Character(dx == 1 ? ">" : dx == -1 ? "<" : dy == 1 ? "v" : "^")
 //    return o
 //}
+
+// add settings
