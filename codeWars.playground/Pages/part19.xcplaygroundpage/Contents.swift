@@ -208,3 +208,25 @@ import Foundation
 //}
 
 // add settings
+
+//func findSNum(in arr: [Int]) -> [Int] {
+//    var answer = [Int]()
+//
+//first: for element in arr {
+//        for i in 2 ... Int(sqrt(Double(element))) {
+//            if element % i == 0 {
+//                continue first
+//            }
+//        }
+//    answer.append(element)
+//    }
+//
+//    print(answer)
+//    return answer
+//}
+//
+//let arr = Array(5 ... 500)
+//
+//findSNum(in: arr)
+
+
