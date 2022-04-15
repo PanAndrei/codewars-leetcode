@@ -229,4 +229,4 @@ import Foundation
 //
 //findSNum(in: arr)
 
-
+//let ff = 5 + 10.0
