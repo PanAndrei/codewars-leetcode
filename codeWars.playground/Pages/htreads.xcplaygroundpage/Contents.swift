@@ -124,3 +124,48 @@ import Darwin
 //
 //button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 ////Or if you specifically want to adjust around the image, instead use button.imageEdgeInsets
+
+//var matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+
+//
+//extension Array {
+//
+//    func diagonal<T>(order: Int) -> [T] where Element == [T] {
+//
+//        var order = order
+//        return self.compactMap {
+//            guard order >= 0, $0.count > order else {
+//                order -= 1
+//                return nil
+//            }
+//            print($0)
+//            let output = $0[order]
+//            print(output)
+//            order -= 1
+//            return output
+//        }
+//    }
+//}
+//
+//matrix.diagonal(order: 0)
+
+//var matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+//
+//func getDiagonals(matrix: [[Int]]) {
+//    for j in -(matrix.count - 1) ..< (matrix.count) {
+//        var step = j
+//        var answer = [Int]()
+//        for i in 0 ..< matrix.count {
+//            if step < 0 || step > matrix.count - 1 {
+//                step += 1
+//                continue
+//            }
+//            answer.append(matrix[matrix.count - 1 - i][step])
+//            step += 1
+//        }
+//        print(answer)
+//    }
+//}
+//
+//getDiagonals(matrix: matrix)
