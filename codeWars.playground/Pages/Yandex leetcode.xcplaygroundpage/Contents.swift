@@ -70,3 +70,26 @@ import Foundation
 //        return reverseListInternal(next, current)
 //      }
 //}
+
+//var v: Array<Int> = []
+//var n = [Int]()
+//v.append(1)
+//v
+
+//Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+//
+//Note that you must do this in-place without making a copy of the array.
+
+//var nums = [0,1,0,3,12]
+//
+//class Solution {
+//    func moveZeroes(_ nums: inout [Int]) {
+//        nums = nums.filter { $0 != 0 } + Array(repeating: 0, count: nums.filter { $0 == 0 }.count)
+//    }
+//}
+//
+//
+//let sol = Solution()
+//sol.moveZeroes(&nums)
+//
+//nums
