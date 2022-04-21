@@ -93,3 +93,18 @@ import Foundation
 //sol.moveZeroes(&nums)
 //
 //nums
+
+
+//A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+//
+//Given a string s, return true if it is a palindrome, or false otherwise.
+
+
+//class Solution {
+//    func isPalindrome(_ s: String) -> Bool {
+//        return s.map { $0.lowercased() }.filter { Character($0).isLetter || Character($0).isNumber } == s.map { $0.lowercased() }.filter { Character($0).isLetter || Character($0).isNumber }.reversed()
+//    }
+//}
+//
+//let spl = Solution()
+//spl.isPalindrome("0P")
