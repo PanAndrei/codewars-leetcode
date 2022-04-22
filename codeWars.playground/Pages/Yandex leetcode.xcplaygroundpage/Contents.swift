@@ -108,3 +108,23 @@ import Foundation
 //
 //let spl = Solution()
 //spl.isPalindrome("0P")
+
+//func isPalindrome(_ s: String) -> Bool {
+//    let result = s.lowercased().replacingOccurrences(of:"[^a-z0-9]", with: "", options: .regularExpression)
+//    return result == String(result.reversed())
+//
+//}
+
+
+//Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+//
+//An input string is valid if:
+//
+//Open brackets must be closed by the same type of brackets.
+//Open brackets must be closed in the correct order.
+
+//class Solution {
+//    func isValid(_ s: String) -> Bool {
+//        var arr = Array(s)
+//    }
+//}
