@@ -128,3 +128,20 @@ import Foundation
 //        var arr = Array(s)
 //    }
 //}
+
+
+// тинькоф 1
+
+//for i in 1 ... 9 {
+//    let number = Int(String(i) + String(i))!
+//    var diviseSet = Set<Int>()
+//    for j in 1 ..< number {
+//        let num = number % j
+//        if String(num).count > 1 {
+//            if Set(String(num).map { $0 }).count == 1 {
+//                diviseSet.insert(num)
+//            }
+//        }
+//    }
+//    print(number, diviseSet)
+//}
