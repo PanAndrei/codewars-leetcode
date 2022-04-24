@@ -145,3 +145,17 @@ import Foundation
 //    }
 //    print(number, diviseSet)
 //}
+
+//for i in 1 ... 999 {
+//    var diviseSet = Set<Int>()
+//    for j in 1 ..< i {
+//        let divise = i % j
+//        if divise < 10 {
+//            diviseSet.insert(divise)
+//        }
+//    }
+//    if diviseSet.count < 9 {
+//        print(i)
+//    }
+//    diviseSet = []
+//}
