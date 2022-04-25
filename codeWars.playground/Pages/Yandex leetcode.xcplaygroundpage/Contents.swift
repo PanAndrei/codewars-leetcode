@@ -159,3 +159,44 @@ import Foundation
 //    }
 //    diviseSet = []
 //}
+
+//print(String(12345).map { $0 }.max())
+
+//var arr = [3, [4, 5], [7, [8, 5]], [3, [3, [2, [2], 2], 5]]] as [Any]
+
+
+//let arr = [[3, 3], [4, 4]]
+//let tt = arr.flatMap { $0 }
+//print(tt)
+//let ff = arr.map($0).joined()
+
+//print(Int.max)
+//print(MemoryLayout<String>.size)
+//print(MemoryLayout<Int>.size)
+
+
+//let array = [3, [4, 5], [7, [8, 5]], [3, [3, [2, [2], 2], 5]]] as [Any]
+//
+//var stringArray = "\(array)".compactMap { Int(String($0)) }
+//
+//print(stringArray)
+//
+//
+//func line<T>(a: [Any]) -> [T] {
+//  var b: [T] = []
+//  a.forEach {
+//    if $0 is Array<Any> {
+//      b += line(a: $0 as! [Any])
+//    } else {
+//      if let n = $0 as? T {
+//        b.append(n)
+//      }
+//    }
+//  }
+//  return b
+//}
+//
+//let b: [Int] = line(a: Array<Any>)
+//print(b)
+//
+//line(a: array)
