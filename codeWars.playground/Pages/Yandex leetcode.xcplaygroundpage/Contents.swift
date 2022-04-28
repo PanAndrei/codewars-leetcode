@@ -200,3 +200,21 @@ import Foundation
 //print(b)
 //
 //line(a: array)
+
+//let array: [Any] = [1,[2,1],[3,[111,[2222],22]],4,5,[11],6,7]
+//var intArray = [Any]()
+//func makeIntArray(array: [Any]) {
+//    for element in array {
+//        if element is Int {intArray.append(element)}
+//        else {
+//            if element is [Any] {
+//                makeIntArray(array: element as! [Any])
+//            }
+//        }
+//    }
+//}
+//
+//print(makeIntArray(array: array))
+
+//3^5^3
+//
