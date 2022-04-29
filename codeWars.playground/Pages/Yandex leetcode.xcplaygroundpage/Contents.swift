@@ -218,3 +218,40 @@ import Foundation
 
 //3^5^3
 //
+
+let arr = [1, 2, 5, 7, 1]
+
+//func solve(array: [Int], position: Int) -> Int {
+//        var count = array[position]
+//
+//    for i in (position + 1) ..< array.count {
+//        if array[i] >= count {
+//            count += count
+//        } else {
+//            break
+//        }
+//    }
+//
+//    for i in 0 ..< position {
+//        if position - i - 1 > 0 {
+//            if array[position - i - 1] >= count {
+//                count += count
+//            }
+//        }
+//    }
+//
+//        return count
+//    }
+//
+//    func funcMain(array: [Int]) -> Int {
+//        var area = 0
+//        for a in 0...array.count - 1 {
+//            var x = solve(array: array, position: a)
+//            if x > area {
+//                area = x
+//            }
+//        }
+//
+//        return area
+//    }
+//funcMain(array: arr)
