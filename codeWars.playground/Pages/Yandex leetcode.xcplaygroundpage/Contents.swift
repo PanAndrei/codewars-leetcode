@@ -219,14 +219,25 @@ import Foundation
 //3^5^3
 //
 
-let arr = [1, 2, 5, 7, 1]
-
+//var arr = [String]()
+//
+//if let path = Bundle.main.path(forResource: "advent_10.test", ofType: "txt") {
+//    if let text = try? String(contentsOfFile: path) {
+//        arr = text.components(separatedBy: " ")
+//    }
+//}
+//
+//var nn = arr.compactMap { Int($0) }
+//nn.append(365)
+//
+//let nnn = [2, 1, 4, 5, 1, 3, 3]
+//
 //func solve(array: [Int], position: Int) -> Int {
 //        var count = array[position]
 //
 //    for i in (position + 1) ..< array.count {
-//        if array[i] >= count {
-//            count += count
+//        if array[i] >= array[position] {
+//            count += array[position]
 //        } else {
 //            break
 //        }
@@ -234,18 +245,21 @@ let arr = [1, 2, 5, 7, 1]
 //
 //    for i in 0 ..< position {
 //        if position - i - 1 > 0 {
-//            if array[position - i - 1] >= count {
-//                count += count
+//            if array[position - i - 1] >= array[position] {
+//                count += array[position]
+//            } else {
+//                break
 //            }
 //        }
 //    }
-//
+//    print(count)
 //        return count
+//
 //    }
 //
 //    func funcMain(array: [Int]) -> Int {
 //        var area = 0
-//        for a in 0...array.count - 1 {
+//        for a in 0 ... array.count - 1 {
 //            var x = solve(array: array, position: a)
 //            if x > area {
 //                area = x
@@ -254,4 +268,8 @@ let arr = [1, 2, 5, 7, 1]
 //
 //        return area
 //    }
-//funcMain(array: arr)
+////print(nn)
+//funcMain(array: nn)
+
+
+//fibbonaci throw enum 
