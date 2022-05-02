@@ -285,3 +285,18 @@ import Foundation
 //fib(6)
 
 // идет отступ от значения 0
+//
+
+//func fib(_ i: Int) -> Int {
+//    switch i {
+//    case 0, 1: return 1
+//    case let n: return fib(n - 1) + fib(n - 2)
+//    }
+//}
+//
+//fib(6)
+
+// идет отступ от значения 0
+//
+
+// refacor

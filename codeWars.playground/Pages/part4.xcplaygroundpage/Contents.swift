@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 //find minimal  jump
 
 //func avoidObstacles(inputArray: [Int]) -> Int {
