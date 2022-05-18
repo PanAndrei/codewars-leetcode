@@ -355,7 +355,7 @@
 //
 //    return answer
 //}
-//
+
 //solution(rows: rows)
 //
 //var str = "#.....#"
