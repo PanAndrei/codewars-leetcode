@@ -39,5 +39,6 @@
         <page name='htreads'/>
         <page name='Yandex leetcode'/>
         <page name='part20'/>
+        <page name='Leetcode'/>
     </pages>
 </playground>
