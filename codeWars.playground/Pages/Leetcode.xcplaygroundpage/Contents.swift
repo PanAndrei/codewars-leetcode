@@ -23,3 +23,27 @@ import Foundation
 //        return answer
 //    }
 //}
+
+//Write a function to find the longest common prefix string amongst an array of strings
+//If there is no common prefix, return an empty string "".
+//
+
+
+//class Solution {
+//    func longestCommonPrefix(_ strs: [String]) -> String {
+//        let smallest = strs.sorted(by: <).first!.count
+//        var answer = ""
+//
+//        for i in 0 ..< smallest {
+//            let part = Array(strs[0].map { String($0) }[0 ... i]).joined(separator: "")
+//
+//            if strs.filter { $0.hasPrefix(part) }.count == strs.count {
+//                answer = part
+//                continue
+//            } else {
+//                return answer
+//            }
+//        }
+//        return answer
+//    }
+//}
