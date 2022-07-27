@@ -180,3 +180,94 @@ import Foundation
 //
 //removeDuplicates(&arr)
 //print(arr)
+
+// так дольше
+
+//class Solution {
+//     func removeDuplicates(_ arr: inout [Int]) -> Int {
+//        if arr.count < 2 {
+//            return arr.count
+//        }
+//        var index: Int = 1
+//        let n: Int = arr.count
+//        for i in 1 ..< n {
+//            if arr[i] != arr[i-1] {
+//                arr[index] = arr[i]
+//                index += 1
+//            }
+//        }
+//        return index
+//    }
+//}
+
+
+//You are given an array prices where prices[i] is the price of a given stock on the ith day.
+//
+//You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+//
+//Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+//var prices = [7,1,5,3,6,4]
+//var pr2 = [3,3,5,0,0,3,1,4]
+
+// правильно но на больших время вылетает
+//    func maxProfit(_ prices: [Int]) -> Int {
+//        var answer = 0
+//
+//        for i in 0 ..< prices.count - 1 {
+//            if prices[i + 1 ... prices.count - 1].max()! - prices[i] > answer {
+//                answer = prices[i + 1 ... prices.count - 1].max()! - prices[i]
+//            }
+//        }
+//
+//        return answer
+//    }
+
+
+// perfect 93% faster
+
+//func maxProfit(_ prices: [Int]) -> Int {
+//    var answer = 0
+//
+//    var min = (10000, -1)
+//    var max = (-1, -2)
+//
+//    for i in 0 ..< prices.count {
+//        if prices[i] < min.0 {
+//            min.0 = prices[i]
+//            min.1 = i
+//        } else if prices[i] >= min.0 && i > min.1 {
+//            max.0 = prices[i]
+//            max.1 = i
+//
+//            if max.0 - min.0 > answer {
+//                answer = max.0 - min.0
+//            }
+//        }
+//    }
+//
+//    return answer
+//}
+//
+//maxProfit(pr2)
+
+// very best
+
+//func maxProfit(_ prices: [Int]) -> Int {
+//       var buyPrice = prices.first!
+//       var right = 0
+//       var profit = 0
+//
+//       while right < prices.count {
+//           let price = prices[right]
+//
+//           profit = max(profit, price - buyPrice)
+//
+//           if price < buyPrice {
+//               buyPrice = price
+//           }
+//           right += 1
+//       }
+//
+//       return profit
+//   }
