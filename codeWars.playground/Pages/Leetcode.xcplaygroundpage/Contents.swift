@@ -271,3 +271,69 @@ import Foundation
 //
 //       return profit
 //   }
+
+
+//Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+// работает красиво но долго
+
+//func firstUniqChar(_ s: String) -> Int {
+//    let arr = s.map { String($0) }
+//
+//    for i in 0 ..< arr.count {
+//        if arr.filter { $0 == arr[i] }.count == 1 {
+//            return i
+//        }
+//    }
+//
+//    return -1
+//}
+
+
+// плохо долго но работает
+
+//func firstUniqChar(_ s: String) -> Int {
+//    let arr = s.map { String($0) }
+//    let allCahrs = Set(arr)
+//    var answer = -1
+//
+//    for element in allCahrs {
+//        if arr.filter { $0 == element }.count == 1 {
+//            let index = arr.firstIndex(of: element)!
+//            if answer == -1 {
+//                answer = index
+//            } else {
+//                if index < answer {
+//                    answer = index
+//                }
+//            }
+//        }
+//    }
+//
+//    return answer
+//}
+//
+//firstUniqChar("leetcode")
+
+// kruto
+
+//    let a = Int(Character("a").asciiValue!)
+//
+//    func firstUniqChar(_ s: String) -> Int {
+//        var array = Array(repeating: 0, count: 26)
+//        for char in s.utf8 {
+//            let offset = Int(char) - a
+//            array[offset] = array[offset] + 1
+//        }
+//        print(array)
+//    
+//        for (index, char) in s.utf8.enumerated() {
+//            let offset = Int(char) - a
+//            if array[offset] == 1 {
+//                return index
+//            }
+//        }
+//        return -1
+//    }
+//
+//firstUniqChar("leetcode")
