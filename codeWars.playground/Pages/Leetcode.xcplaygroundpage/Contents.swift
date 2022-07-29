@@ -309,11 +309,16 @@ import Foundation
 //            }
 //        }
 //    }
-//
 //    return answer
 //}
 //
 //firstUniqChar("leetcode")
+
+//var ss = "ddda"
+//var fe = ss.components(separatedBy: ".")
+//var fed = ss.split(separator: ".")
+//var fed = Array(ss)
+//print(fe)
 
 // kruto
 
@@ -326,7 +331,7 @@ import Foundation
 //            array[offset] = array[offset] + 1
 //        }
 //        print(array)
-//    
+//
 //        for (index, char) in s.utf8.enumerated() {
 //            let offset = Int(char) - a
 //            if array[offset] == 1 {
@@ -337,3 +342,38 @@ import Foundation
 //    }
 //
 //firstUniqChar("leetcode")
+
+
+//Given an integer x, return true if x is palindrome integer.
+//
+//An integer is a palindrome when it reads the same backward as forward.
+//
+//For example, 121 is a palindrome while 123 is not.
+
+//let bb = String(334).reversed()
+//let ff = String(bb)
+//
+//func isPalindrome(_ x: Int) -> Bool {
+//    guard x > 0 else { return false }
+//    return x == Int(String(String(x).reversed()))!
+//}
+//
+//isPalindrome(121)
+
+
+// very fast
+
+//func isPalindrome(_ x: Int) -> Bool {
+//        if (x < 0 || (x % 10 == 0 && x != 0)) {
+//            return false
+//        }
+//        var x = x
+//        var reversedNumber = 0
+//
+//        while (x > reversedNumber) {
+//            reversedNumber = reversedNumber * 10 + x % 10
+//            x /= 10
+//        }
+//
+//        return x == reversedNumber || x == reversedNumber / 10
+//    }
